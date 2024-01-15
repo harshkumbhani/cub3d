@@ -6,8 +6,16 @@
 /*   By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:52:22 by fgabler           #+#    #+#             */
-/*   Updated: 2024/01/13 17:52:33 by fgabler          ###   ########.fr       */
+/*   Updated: 2024/01/15 16:56:13 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int	main(int ac, char **av)
+{
+	(void) ac;
+	(void) av;
+	printf("Let's start");
+	return (0);
+}
