@@ -12,6 +12,18 @@ MINILIB_FLAG	=
 HEADERS			=			-I./include -I./libs/include
 LIBS			=			./libs
 LIBS_NAME		=			./libs/libs.a
+MLX_DIR			=			./MLX42
+
+###############################################################################
+###############################################################################
+
+MLX_LIB			=			./MLX42/build/libmlx42.a
+MLX42_OS		:=			$(shell uname)OS := $(shell uname)
+ifeq ($(MLX42_OS), Darwin)
+	MLX = -ldl -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/" -pthread -lm
+else ifeq ($(MLX42_OS), Linux)
+	MLX = -ldl -lglfw -pthread -lm
+endif
 
 ###############################################################################
 ###############################################################################
@@ -33,10 +45,10 @@ OBJ				:=	$(addprefix $(OBJ_DIR)/, $(SOURCE:%.c=%.o))
 
 all : $(NAME)
 
-$(NAME): $(LIBS_NAME) $(OBJ)
+$(NAME): $(LIBS_NAME) $(MXL_DIR) $(OBJ)
 	@echo $(YELLOW)Compiling [$(NAME)]...$(RESET)
 	@printf $(UP)$(CUT)
-	@$(CC) $(CFLAGS) $(OBJ) $(LIBS_NAME) -o $(NAME) $(EXTRA_FLAGS)
+	@$(CC) $(CFLAGS) $(OBJ) $(LIBS_NAME) $(MLX_LIB) $(MLX) -o $(NAME) $(EXTRA_FLAGS)
 	@echo $(GREEN)Finished"  "[$(NAME)]...$(RESET)
 
 $(OBJ_DIR)/%.o: %.c
@@ -50,6 +62,10 @@ $(OBJ_DIR)/%.o: %.c
 $(LIBS_NAME):
 	@git submodule update --remote --init -q
 	@$(MAKE) -C $(LIBS) -B
+
+$(MLX_DIR):
+	@git submodule update --remote --init -q
+	@cd MLX42 && cmake -B build && cmake --build build -j4
 
 ###############################################################################
 ###############################################################################
