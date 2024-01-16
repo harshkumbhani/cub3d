@@ -2,3 +2,5 @@
 .ccls
 .ccls-cache
 *.DS_Store
+cub3d
+*.a

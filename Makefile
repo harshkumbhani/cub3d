@@ -12,7 +12,6 @@ MINILIB_FLAG	=
 HEADERS			=			-I./include -I./libs/include
 LIBS			=			./libs
 LIBS_NAME		=			./libs/libs.a
-MLX_DIR			=			./MLX42
 
 ###############################################################################
 ###############################################################################
@@ -45,7 +44,7 @@ OBJ				:=	$(addprefix $(OBJ_DIR)/, $(SOURCE:%.c=%.o))
 
 all : $(NAME)
 
-$(NAME): $(LIBS_NAME) $(MXL_DIR) $(OBJ)
+$(NAME): $(LIBS_NAME) $(OBJ)
 	@echo $(YELLOW)Compiling [$(NAME)]...$(RESET)
 	@printf $(UP)$(CUT)
 	@$(CC) $(CFLAGS) $(OBJ) $(LIBS_NAME) $(MLX_LIB) $(MLX) -o $(NAME) $(EXTRA_FLAGS)
@@ -61,11 +60,8 @@ $(OBJ_DIR)/%.o: %.c
 
 $(LIBS_NAME):
 	@git submodule update --remote --init -q
-	@$(MAKE) -C $(LIBS) -B
-
-$(MLX_DIR):
-	@git submodule update --remote --init -q
 	@cd MLX42 && cmake -B build && cmake --build build -j4
+	@$(MAKE) -C $(LIBS) -B
 
 ###############################################################################
 ###############################################################################
