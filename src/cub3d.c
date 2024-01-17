@@ -6,7 +6,7 @@
 /*   By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:52:22 by fgabler           #+#    #+#             */
-/*   Updated: 2024/01/15 16:56:13 by fgabler          ###   ########.fr       */
+/*   Updated: 2024/01/17 16:55:50 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 int	main(int ac, char **av)
 {
-	(void) ac;
-	(void) av;
-	printf("Let's start");
+	t_parsing	parser;
+
+	get_input(&parser, ac, av);
+	pars_input(&parser);
+	map_parsing(&parser);
 	return (0);
 }

@@ -7,8 +7,7 @@ NAME			=			cub3d
 ###############################################################################
 
 CC				=			cc
-CFLAGS			=			-Wall -Werror -Wextra
-MINILIB_FLAG	=
+CFLAGS			=			-Wall -Werror -Wextra -g
 HEADERS			=			-I./include -I./libs/include
 LIBS			=			./libs
 LIBS_NAME		=			./libs/libs.a
@@ -27,11 +26,13 @@ endif
 ###############################################################################
 ###############################################################################
 
-VPATH			=	src
+VPATH			=	src src/parsing/input_parsing							\
+					src/parsing/map_parsing
 
 SRC_MAIN		:=	cub3d.c
-
-SOURCE			:=	$(SRC_MAIN)
+SRC_INPUT_PARS	:=	get_input.c pars_input.c
+SRC_MAP_PARS	:=	map_parsing.c read_texture.c
+SOURCE			:=	$(SRC_MAIN) $(SRC_INPUT_PARS) $(SRC_MAP_PARS)
 
 ###############################################################################
 ###############################################################################
