@@ -17,7 +17,8 @@ LIBS_NAME		=			./libs/libs.a
 ###############################################################################
 
 MLX_LIB			=			./MLX42/build/libmlx42.a
-MLX42_OS		:=			$(shell uname)OS := $(shell uname)
+MLX42_OS		:=			$(shell uname)
+
 ifeq ($(MLX42_OS), Darwin)
 	MLX = -ldl -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/" -pthread -lm
 else ifeq ($(MLX42_OS), Linux)
