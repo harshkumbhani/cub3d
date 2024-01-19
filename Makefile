@@ -27,7 +27,7 @@ endif
 ###############################################################################
 
 VPATH			=	src src/parsing/input_parsing							\
-					src/parsing/map_parsing
+					src/parsing/file_parsing
 
 SRC_MAIN		:=	cub3d.c
 SRC_INPUT_PARS	:=	get_input.c pars_input.c

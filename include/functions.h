@@ -5,11 +5,14 @@
 //////////////////////////////////////PARSING//////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-//INPUT PARSING
+//FILE PARSING
 void	get_input(t_parsing *parsing, int ac, char **av);
 void	pars_input(t_parsing *parser);
 
 //MAP PARSING
 void	map_parsing(t_parsing *parser);
 void	read_texture(t_parsing *parser, char *line, int fd);
+
+//INDICATOR FUNCTIONS
+int	is_texture(char *line)
 #endif
