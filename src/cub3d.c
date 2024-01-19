@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:52:22 by fgabler           #+#    #+#             */
-/*   Updated: 2024/01/18 17:29:31 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/19 10:15:41 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ int	main(int ac, char **av)
 		x = -1;
 		while (++x < WIDTH)
 		{
-			if (x == y || (x + y == HEIGHT))
+			//printf("x: %d y: %d\n", x, );
+			if (y == (int)(((float)HEIGHT / WIDTH) * x)
+				|| y == (int)(HEIGHT - (((float)HEIGHT / WIDTH) * x)))
 				mlx_put_pixel(image, x, y, 0xFF0000FF);
 		}
 	}
