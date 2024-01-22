@@ -27,12 +27,19 @@ endif
 ###############################################################################
 
 VPATH			=	src src/parsing/input_parsing							\
-					src/parsing/file_parsing
+					src/parsing/file_parsing								\
+					src/parsing/indicator_functions
 
 SRC_MAIN		:=	cub3d.c
 SRC_INPUT_PARS	:=	get_input.c pars_input.c
-SRC_MAP_PARS	:=	map_parsing.c read_texture.c
-SOURCE			:=	$(SRC_MAIN) $(SRC_INPUT_PARS) $(SRC_MAP_PARS)
+SRC_FILE_PARS	:=	file_parsing.c all_indicators_got_found.c				\
+					texture_check.c replace_newline_with_null_terminator.c	\
+					color_check.c is_color_indicator.c						\
+					numbers_in_rgb_range_check.c
+SRC_INDUCATOR	:=	is_texture.c
+SOURCE			:=	$(SRC_MAIN) $(SRC_INPUT_PARS) $(SRC_FILE_PARS)			\
+					$(SRC_INDUCATOR)
+
 
 ###############################################################################
 ###############################################################################

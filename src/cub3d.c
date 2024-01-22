@@ -6,7 +6,7 @@
 /*   By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:52:22 by fgabler           #+#    #+#             */
-/*   Updated: 2024/01/17 16:55:50 by fgabler          ###   ########.fr       */
+/*   Updated: 2024/01/22 11:14:23 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ int	main(int ac, char **av)
 
 	get_input(&parser, ac, av);
 	pars_input(&parser);
-	map_parsing(&parser);
+	file_parsing(&parser);
 	return (0);
 }
