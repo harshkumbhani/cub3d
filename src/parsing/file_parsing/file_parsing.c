@@ -13,6 +13,7 @@ void	file_parsing(t_parsing *parsing)
 	{
 		texture_check(parsing);
 		color_check(parsing);
+		detect_garbage(parsing);
 		free(parsing->line);
 		get_line(parsing);
 	}

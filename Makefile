@@ -7,7 +7,7 @@ NAME			=			cub3d
 ###############################################################################
 
 CC				=			cc
-CFLAGS			=			-Wall -Werror -Wextra -g
+CFLAGS			=			-Wall -Werror -Wextra -fsanitize=address -g
 HEADERS			=			-I./include -I./libs/include
 LIBS			=			./libs
 LIBS_NAME		=			./libs/libs.a
@@ -32,11 +32,12 @@ VPATH			=	src src/parsing/input_parsing							\
 
 SRC_MAIN		:=	cub3d.c
 SRC_INPUT_PARS	:=	get_input.c pars_input.c
-SRC_FILE_PARS	:=	file_parsing.c all_indicators_got_found.c				\
+SRC_FILE_PARS	:=	file_parsing.c 											\
 					texture_check.c replace_newline_with_null_terminator.c	\
-					color_check.c is_color_indicator.c						\
-					numbers_in_rgb_range_check.c
-SRC_INDUCATOR	:=	is_texture.c
+					color_check.c numbers_in_rgb_range_check.c				\
+					detect_garbage.c
+SRC_INDUCATOR	:=	is_texture.c all_indicators_got_found.c					\
+					is_color_indicator.c is_map_indicator.c is_newline.c
 SOURCE			:=	$(SRC_MAIN) $(SRC_INPUT_PARS) $(SRC_FILE_PARS)			\
 					$(SRC_INDUCATOR)
 

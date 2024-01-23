@@ -5,7 +5,7 @@ static void	is_path_valide(t_parsing *parser);
 
 void	texture_check(t_parsing *parser)
 {
-	if (parser->error_occurred == true || is_texture(parser->line) == false)
+	if (parser->error_occurred == true || is_texture(parser) == false)
 		return ;
 	tell_textrue_got_foud(parser);
 	is_path_valide(parser);
