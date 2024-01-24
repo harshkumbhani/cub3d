@@ -25,8 +25,12 @@ static void	convert_numbers_to_int(t_parsing *parser, int *number)
 	string_number = ft_split((parser->line + spaces), ',');
 	if (string_number == NULL)
 		parser->error_occurred = true;//allocation error
-	if (string_number[3] != NULL)
+	if (count_doupple_arry_quantity(string_number) != 3)
+	{
 		parser->error_occurred = true;//false amount of rgb value
+		return ;
+	}
+									  //
 	if (number_in_intlong_range(string_number) == false)
 		parser->error_occurred = true;//color not in rgb rande
 	get_num_in_int_range(string_number, number, parser);

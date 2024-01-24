@@ -32,8 +32,11 @@ static void	is_path_valide(t_parsing *parser)
 	path = ft_split(parser->line + 2, ' ');
 	if (path == NULL)
 		parser->error_occurred = true;//error message
-	if (path[1] != NULL)
+	if (count_doupple_arry_quantity(path) != 1)
+	{
 		parser->error_occurred = true;//error message
+		return ;
+	}
 	fd = open(path[0], parser->fd);
 	if (fd == -1)
 	{
