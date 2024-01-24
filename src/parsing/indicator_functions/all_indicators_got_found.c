@@ -3,12 +3,11 @@
 static int	all_color_indicators_found(t_parsing *parsing);
 static int	texture_indicators_got_found(t_parsing *parsing);
 
-int	all_indicators_got_found(t_parsing *parser)
+void	all_indicators_got_found(t_parsing *parser)
 {
 	if (all_color_indicators_found(parser) == false
 		|| texture_indicators_got_found(parser) == false)
-		return (false);
-	return (true);
+		parser->error_occurred = true;
 }
 
 static int	all_color_indicators_found(t_parsing *parsing)
