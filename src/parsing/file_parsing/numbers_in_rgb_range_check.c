@@ -26,15 +26,11 @@ static void	convert_numbers_to_int(t_parsing *parser, int *number)
 	skip_spaces(parser, &spaces);
 	string_number = ft_split((parser->line + spaces), ',');
 	if (string_number == NULL)
-		parser->error_occurred = true;//allocation error
+		parser_error(MEMORY_FAILED, NULL, parser);
 	if (count_doupple_arry_quantity(string_number) != 3)
-	{
-		parser->error_occurred = true;//false amount of rgb value
-		return ;
-	}
-									  //
+		return (parser_error(IDENTIFICATOR_SET_WRONG, parser->line, parser));
 	if (number_in_intlong_range(string_number) == false)
-		parser->error_occurred = true;//color not in rgb rande
+		return (parser_error(OUT_OF_RGB_RANGE, parser->line, parser));
 	get_num_in_int_range(string_number, number, parser);
 }
 
@@ -59,13 +55,13 @@ static int	number_in_intlong_range(char **string_number)
 
 static void	get_num_in_int_range(char **str_num , int *num, t_parsing *parser)
 {
-	num[red] = ft_atoi(str_num[red]);
+	num[red] = ft_strtol(str_num[red]);
+	num[green] = ft_strtol(str_num[green]);
+	num[blue] = ft_strtol(str_num[blue]);
 	if (num[red] > INT_MAX)
-		parser->error_occurred = true;//not in rgb range error
-	num[green] = ft_atoi(str_num[green]);
+		return (parser_error(OUT_OF_RGB_RANGE, parser->line, parser));
 	if (num[green] > INT_MAX)
-		parser->error_occurred = true;//not in rgb range error
-	num[blue] = ft_atoi(str_num[blue]);
-	if (num[green] > INT_MAX)
-		parser->error_occurred = true;//not in rgb range error
+		return (parser_error(OUT_OF_RGB_RANGE, parser->line, parser));
+	if (num[blue] > INT_MAX)
+		return (parser_error(OUT_OF_RGB_RANGE, parser->line, parser));
 }
