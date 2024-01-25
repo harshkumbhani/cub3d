@@ -6,7 +6,7 @@ void	detect_garbage(t_parsing *parser)
 {
 	if (file_content(parser) == true)
 		return ;
-	parser->error_occurred = true; //print_error
+	parser_error(GARBAGE_FOUND, parser->line, parser);
 }
 
 static int	file_content(t_parsing *parser)

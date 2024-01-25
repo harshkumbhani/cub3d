@@ -25,7 +25,5 @@ static void	new_line_in_map(t_parsing *parser)
 	if (parser->error_occurred == true)
 		return ;
 	if (parser->map[end] == true && is_map_indicator(parser) == true)
-	{
-		parser->error_occurred = true; //print_error
-	}
+		parser_error(NEWLINE_IN_MAP, NULL, parser);
 }

@@ -31,8 +31,9 @@ static void	open_file(t_parsing *parser)
 {
 	parser->fd = 0;
 	parser->fd = open(parser->av[1], parser->fd);
-	//if (*fd == -1)
-		//print_error and set error == true
+	if (parser->fd == -1)
+		parser_error(INPUT_NO_FILE, parser->av[1], parser);
+
 }
 
 static void	get_line(t_parsing *parser)
@@ -40,6 +41,4 @@ static void	get_line(t_parsing *parser)
 	if (parser->error_occurred == true)
 		return ;
 	parser->line = get_next_line(parser->fd);
-	//if (parser->line == NULL)
-		//error print 
 }

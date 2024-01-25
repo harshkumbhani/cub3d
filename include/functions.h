@@ -26,4 +26,7 @@ int		is_newline(t_parsing *parser);
 int		is_texture(t_parsing *parser);
 int		is_map_indicator(t_parsing *parser);
 int		is_newline(t_parsing *parser);
+
+//PARSER ERROR
+void	parser_error(char *error_message, char *string, t_parsing *parser);
 #endif

@@ -7,7 +7,7 @@ void	all_indicators_got_found(t_parsing *parser)
 {
 	if (all_color_indicators_found(parser) == false
 		|| texture_indicators_got_found(parser) == false)
-		parser->error_occurred = true;
+		parser_error(NOT_ALL_INDICATORS, NULL, parser);
 }
 
 static int	all_color_indicators_found(t_parsing *parsing)

@@ -28,7 +28,7 @@ endif
 
 VPATH			=	src src/parsing/input_parsing							\
 					src/parsing/file_parsing								\
-					src/parsing/indicator_functions
+					src/parsing/indicator_functions src/error_handling
 
 SRC_MAIN		:=	cub3d.c
 SRC_INPUT_PARS	:=	get_input.c pars_input.c
@@ -38,8 +38,9 @@ SRC_FILE_PARS	:=	file_parsing.c 											\
 					detect_garbage.c map_check.c map_line_check.c
 SRC_INDUCATOR	:=	is_texture.c all_indicators_got_found.c					\
 					is_color_indicator.c is_map_indicator.c is_newline.c
+SRC_ERROR		:= parser_error.c
 SOURCE			:=	$(SRC_MAIN) $(SRC_INPUT_PARS) $(SRC_FILE_PARS)			\
-					$(SRC_INDUCATOR)
+					$(SRC_INDUCATOR) $(SRC_ERROR)
 
 
 ###############################################################################

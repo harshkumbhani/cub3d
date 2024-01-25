@@ -31,17 +31,12 @@ static void	is_path_valide(t_parsing *parser)
 	replace_newline_with_null_terminator(parser->line);
 	path = ft_split(parser->line + 2, ' ');
 	if (path == NULL)
-		parser->error_occurred = true;//error message
+		return (parser_error(MEMORY_FAILED, NULL, parser));
 	if (count_doupple_arry_quantity(path) != 1)
-	{
-		parser->error_occurred = true;//error message
-		return ;
-	}
+		return (parser_error(INVALIDE_PATH, parser->line + 2, parser));
 	fd = open(path[0], parser->fd);
 	if (fd == -1)
-	{
-		parser->error_occurred = true;//error message
-	}
+		parser_error(OPEN_FAILED, path[0], parser);
 	free_dubble_array(path);
 }
 

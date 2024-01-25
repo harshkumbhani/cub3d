@@ -12,8 +12,10 @@ void	numbers_in_rgb_range_check(t_parsing *parser)
 	convert_numbers_to_int(parser, number);
 	if (parser->error_occurred == true)
 		return ;
-	if (number[red] > 255 || number[green] > 255 || number[blue] > 255)
-		parser->error_occurred = true;//color not in rgb rande
+	if (number[red] > 255 || number[green] > 255 || number[blue] > 255
+	|| number[red] < 0 || number[green] < 0 || number[blue] < 0)
+		parser_error(OUT_OF_RGB_RANGE, parser->line, parser);
+
 }
 
 static void	convert_numbers_to_int(t_parsing *parser, int *number)

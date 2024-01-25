@@ -27,5 +27,5 @@ static void	is_file_accessible_check(t_parsing *parser)
 	if (parser->error_occurred == true)
 		return ;
 	if (open(parser->av[1], 0) == -1)
-		parser->error_occurred = true; //print error
+		parser_error(INPUT_NO_FILE, parser->av[1], parser);
 }
