@@ -50,12 +50,15 @@ typedef struct	s_parsing
 {
 	int					texture_indicator[4];
 	int					color_indicator[2];
-	int					map[3];
+	int					color[2][3];
+	int					map_indicator[3];
 	int					player_found;
 	int					error_occurred;
 	int					fd;
 	int					ac;
+	char				*texture_path[4];
 	char				**av;
+	char				**map;
 	char				*line;
 }	t_parsing;
 

@@ -19,5 +19,6 @@ int	main(int ac, char **av)
 	get_input(&parser, ac, av);
 	pars_input(&parser);
 	file_parsing(&parser);
+	get_file_content(&parser);
 	return (0);
 }

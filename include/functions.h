@@ -29,4 +29,11 @@ int		is_newline(t_parsing *parser);
 
 //PARSER ERROR
 void	parser_error(char *error_message, char *string, t_parsing *parser);
+
+//GET FILE CONTENT
+void	get_file_content(t_parsing *parser);
+void	save_colors(t_parsing *parser);
+void	save_texture_path(t_parsing *parser);
+void	save_map_line(t_parsing *parser, char **tmp_map);
+void	save_map_in_struct(t_parsing *parser, char **tmp_map);
 #endif
