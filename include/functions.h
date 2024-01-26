@@ -36,4 +36,9 @@ void	save_colors(t_parsing *parser);
 void	save_texture_path(t_parsing *parser);
 void	save_map_line(t_parsing *parser, char **tmp_map);
 void	save_map_in_struct(t_parsing *parser, char **tmp_map);
+
+//MAP BORDER CHECK
+void	map_border_check(t_parsing *parser);
+void	count_zeros_in_map(int *number_of_zeros, t_parsing *parser);
 #endif
+
