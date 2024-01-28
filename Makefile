@@ -39,10 +39,15 @@ SRC_FILE_PARS	:=	file_parsing.c 											\
 					detect_garbage.c map_check.c map_line_check.c
 SRC_INDUCATOR	:=	is_texture.c all_indicators_got_found.c					\
 					is_color_indicator.c is_map_indicator.c is_newline.c
-SRC_ERROR		:= parser_error.c
-SRC_GET_CONTENT	:= get_file_content.c save_colors.c save_map_in_struct.c	\
+SRC_ERROR		:=	parser_error.c
+SRC_GET_CONTENT	:=	get_file_content.c save_colors.c save_map_in_struct.c	\
 					save_map_line.c save_texture_path.c
-SRC_MAP_BORDER	:= map_border_check.c count_zeros_in_map.c
+SRC_MAP_BORDER	:=	map_border_check.c count_zeros_in_map.c					\
+					map_copy_create_square.c get_longest_line_in_map.c		\
+					create_square_fill_with_spaces.c						\
+					allocate_map_with_two_extra_lines.c						\
+					fill_line_with_spaces.c									\
+					add_space_line_at_top_and_bottom.c
 
 SOURCE			:=	$(SRC_MAIN) $(SRC_INPUT_PARS) $(SRC_FILE_PARS)			\
 					$(SRC_INDUCATOR) $(SRC_ERROR) $(SRC_GET_CONTENT)		\

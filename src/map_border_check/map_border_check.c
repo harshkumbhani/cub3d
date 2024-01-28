@@ -2,12 +2,16 @@
 
 void	map_border_check(t_parsing *parser)
 {
+	if (parser->error_occurred == true)
+		return ;
 	int		number_zeros_before;
 	int		number_zeros_after;
-	char	**map_copy;
+	char	**copied_map;
 
 	count_zeros_in_map(&number_zeros_before, parser);
-	map_copy = copy_dubble_array(parser->map);
+	(void) number_zeros_after;
+	map_copy_create_square(&copied_map, parser);
+
 
 	/*
 	double_array_len = count_doupple_arry_quantity(parser->map);

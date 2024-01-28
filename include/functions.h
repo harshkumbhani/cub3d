@@ -40,5 +40,12 @@ void	save_map_in_struct(t_parsing *parser, char **tmp_map);
 //MAP BORDER CHECK
 void	map_border_check(t_parsing *parser);
 void	count_zeros_in_map(int *number_of_zeros, t_parsing *parser);
+void	map_copy_create_square(char ***cpy_map, t_parsing *parser);
+void	get_longest_line_in_map(char **map, int *line_len);
+void	create_square_fill_with_spaces(char **cpy_map, t_parsing *parser);
+void	allocate_map_with_two_extra_lines(char ***cpy_map, t_parsing *parser);
+void	fill_line_with_spaces(char *line, int line_len);
+void	add_space_line_at_top_and_bottom(char ***cpy_map, char *space_line,
+		int longest_line);
 #endif
 
