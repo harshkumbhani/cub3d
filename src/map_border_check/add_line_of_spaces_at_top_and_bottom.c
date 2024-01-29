@@ -20,10 +20,10 @@ static void	create_line_of_filled_with_spaces(t_parsing *parser)
 		return ;
 	get_number_of_map_rows(parser, &number_of_rows);
 	get_longest_line_in_map(parser->map, &longest_line);
-	parser->line = (char *) malloc((longest_line + 2) * sizeof(char));
+	parser->line = (char *) malloc((longest_line + 3) * sizeof(char));
 	if (parser->line == NULL)
 		return (parser_error(MEMORY_FAILED, NULL, parser));
-	parser->line[longest_line + 1] = '\0';
+	parser->line[longest_line + 2] = '\0';
 }
 
 static void	fill_line_with_spaces(t_parsing *parser)
@@ -48,8 +48,8 @@ static void	add_spaces_to_top_and_bottom(char **map, t_parsing *parser)
 	map[0] = ft_strdup(parser->line);
 	if (map[0] == NULL)
 		return (free(parser->line), parser_error(MEMORY_FAILED, NULL, parser));
-	map[number_of_rows] = ft_strdup(parser->line);
-	if (map[number_of_rows] == NULL)
+	map[number_of_rows + 1] = ft_strdup(parser->line);
+	if (map[number_of_rows + 1] == NULL)
 		return (free(parser->line), parser_error(MEMORY_FAILED, NULL, parser));
 }
 

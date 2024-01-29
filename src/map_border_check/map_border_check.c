@@ -12,19 +12,21 @@ void	map_border_check(t_parsing *parser)
 	copy_map_with_two_extra_lines(&copied_map, parser);
 	add_line_of_spaces_at_top_and_bottom(copied_map, parser);
 	fill_map_with_aligned_lines(copied_map, parser);
-	///*
+	/*
 	int	i;
 	int	rows;
-	 i = 0;
-	 printf("hallo\n");
-	 get_number_of_map_rows(parser, &rows);
-	 rows += 1;
+	i = 0;
+	get_number_of_map_rows(parser, &rows);
+	rows += 2;
 	while(i < rows)
 	{
-		printf("[%s]\n", copied_map[i]);
+		if (i > 10)
+			printf("%d [%s]\n", i, copied_map[i]);
+		if (i < 10)
+			printf("%d  [%s]\n", i, copied_map[i]);
 		i++;
 	}
-	//*/
+	*/
 	(void) number_zeros_after;
 	/*
 	double_array_len = count_doupple_arry_quantity(parser->map);
