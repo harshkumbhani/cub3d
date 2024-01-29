@@ -19,7 +19,7 @@ static void	file_type_check(t_parsing *parser)
 		return ;
 	str_len = ft_strlen(parser->av[1]);
 	if (ft_strncmp((parser->av[1] + str_len - 4), ".cub", 4) != false)
-		parser->error_occurred = true;
+		parser_error(NOT_CUB_FILE, parser->av[1], parser);
 }
 
 static void	is_file_accessible_check(t_parsing *parser)

@@ -28,9 +28,11 @@ void	get_file_content(t_parsing *parser)
 		i++;
 	}
 	*/
+	/*
 	printf("floor %d, %d, %d\n", parser->color[floor][red], parser->color[floor][green], parser->color[floor][blue]);
 	printf("ceiling %d, %d, %d\n", parser->color[ceiling][red], parser->color[ceiling][green], parser->color[ceiling][blue]);
 	printf("NO %s, SO %s, EA %s, WE %s\n", parser->texture_path[north], parser->texture_path[south], parser->texture_path[east],parser->texture_path[west]);
+	*/
 
 }
 

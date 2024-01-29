@@ -51,6 +51,7 @@ typedef struct	s_parsing
 	int					texture_indicator[4];
 	int					color_indicator[2];
 	int					color[2][3];
+	//struct s_color		*color[2];
 	int					map_indicator[3];
 	int					player_found;
 	int					error_occurred;
@@ -70,13 +71,13 @@ typedef struct	s_input
 	char				**map;
 }	t_input;
 
-typedef struct	s_texture
+typedef struct	s_directions
 {
 	char				*north;
 	char				*south;
 	char				*east;
 	char				*west;
-}	t_texture;
+}	t_directions;
 
 typedef struct	s_color
 {
