@@ -33,4 +33,17 @@ typedef struct	s_color
 	int					blue;
 }	t_color;
 
+typedef struct s_player
+{
+	int	x;
+	int	y;
+}	t_player;
+
+typedef	struct s_image
+{
+	mlx_t		*mlx;
+	mlx_image_t	*background;
+	mlx_image_t	*player;
+}	t_image;
+
 #endif
