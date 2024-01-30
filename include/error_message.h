@@ -15,6 +15,7 @@
 #define GARBAGE_IN_MAP			"False char found in map: "
 #define GREATER_TWO_PLAYER		"More than two player found: "
 #define NO_PLAYER_FOUND			"No player found in map, set N, S, W or E"
+#define MAP_IS_NOT_CLOSED		"Inputed map isn't closed by 1"
 
 #endif
 
