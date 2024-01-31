@@ -21,6 +21,7 @@
 #define ENEMY_OUT_OF_MAP		"Enemy found outside of map: "
 #define DOOR_OUT_OF_MAP			"Door found outside of map: "
 #define AMMO_OUT_OF_MAP			"Enemy found outside of map: "
+#define SPACE_IN_MAP			"Found space in map: "
 
 #endif
 

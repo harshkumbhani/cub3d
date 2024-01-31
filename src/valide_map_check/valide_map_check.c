@@ -15,7 +15,8 @@ void	valide_map_check(t_parsing *parser)
 	flood_fill_spaces(copied_map, 0, 0, parser);
 	count_zeros_in_map(&number_zeros_after, copied_map);
 	compare_zeros(number_zeros_before, number_zeros_after, parser);
-	///*
+	check_for_spaces_in_map(copied_map, parser);
+	/*
 	int	i;
 	int	rows;
 	i = 0;
@@ -29,7 +30,7 @@ void	valide_map_check(t_parsing *parser)
 			printf("%d  [%s]\n", i, copied_map[i]);
 		i++;
 	}
-	//*/
+	*/
 	/*
 	double_array_len = count_doupple_arry_quantity(parser->map);
 	printf("array quantity %d\n", double_array_len);

@@ -48,7 +48,8 @@ SRC_VALIDE_MAP	:=	valide_map_check.c count_zeros_in_map.c					\
 					add_line_of_spaces_at_top_and_bottom.c					\
 					copy_map_with_two_extra_lines.c							\
 					get_number_of_map_rows.c fill_map_with_aligned_lines.c	\
-					flood_fill_spaces.c compare_zeros.c is_exit.c
+					flood_fill_spaces.c compare_zeros.c is_exit.c			\
+					check_for_spaces_in_map.c
 
 SOURCE			:=	$(SRC_MAIN) $(SRC_INPUT_PARS) $(SRC_FILE_PARS)			\
 					$(SRC_INDUCATOR) $(SRC_ERROR) $(SRC_GET_CONTENT)		\
