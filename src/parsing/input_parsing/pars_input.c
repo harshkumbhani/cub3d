@@ -6,7 +6,7 @@ static void	is_file_accessible_check(t_parsing *parser);
 void	pars_input(t_parsing *parser)
 {
 	if (parser->ac != 2)
-		parser->error_occurred = true;//error message
+		parser_error(WRONG_AMOUNT_INPUT, NULL, parser);
 	file_type_check(parser);
 	is_file_accessible_check(parser);
 }

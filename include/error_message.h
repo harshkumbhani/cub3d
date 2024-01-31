@@ -2,6 +2,7 @@
 #define ERROR_MESSAGE_H
 
 //PARSER ERROR
+#define WRONG_AMOUNT_INPUT		"Wrong amount of input parameters found"
 #define INPUT_NO_FILE			"Inputed file cannot be opened: "
 #define OPEN_FAILED				"File can't be opend: "
 #define MEMORY_FAILED			"Memory allocation failed"

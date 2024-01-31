@@ -18,7 +18,6 @@ void	file_parsing(t_parsing *parsing)
 		free(parsing->line);
 		get_line(parsing);
 	}
-	printf("erro: %d\n", parsing->error_occurred);
 	/*
 	printf("color indicator floor: %d, ceiling: %d\n",
 			parsing->color_indicator[floor], parsing->color_indicator[ceiling]);
