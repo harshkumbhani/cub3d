@@ -17,11 +17,11 @@ static void	fill_map_with_extra_space_at_front(t_parsing *parser, char **map)
 	int	number_of_rows;
 
 	i = 1;
-	get_number_of_map_rows(parser->map, &number_of_rows);
+	get_number_of_map_rows(parser->input->map, &number_of_rows);
 	number_of_rows += 1;
 	while (i < number_of_rows)
 	{
-		map[i] = ft_strjoin(" ", parser->map[i - 1]);
+		map[i] = ft_strjoin(" ", parser->input->map[i - 1]);
 		if (map[i] == NULL)
 			return (parser_error(MEMORY_FAILED, NULL, parser)); //free map
 		i++;
@@ -39,8 +39,8 @@ static void	fill_line_with_spaces_at_back(t_parsing *parser, char **map)
 	if (parser->error_occurred == true)
 		return ;
 	i = 1;
-	get_longest_line_in_map(parser->map, &longes_line);
-	get_number_of_map_rows(parser->map, &number_of_rows);
+	get_longest_line_in_map(parser->input->map, &longes_line);
+	get_number_of_map_rows(parser->input->map, &number_of_rows);
 	number_of_rows += 2;
 	while(i < number_of_rows)
 	{

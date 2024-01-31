@@ -6,7 +6,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 //INPUT PARSING
-void	get_input(t_parsing *parsing, int ac, char **av);
+void	set_up_structs(t_parsing *parser, int ac, char **av);
 void	pars_input(t_parsing *parser);
 
 //FILE PARSING

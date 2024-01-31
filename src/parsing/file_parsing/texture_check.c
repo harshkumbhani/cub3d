@@ -34,9 +34,10 @@ static void	is_path_valide(t_parsing *parser)
 		return (parser_error(MEMORY_FAILED, NULL, parser));
 	if (count_doupple_arry_quantity(path) != 1)
 		return (parser_error(INVALIDE_PATH, parser->line + 2, parser));
-	fd = open(path[0], parser->fd);
+	fd = open(path[0], O_RDONLY);
 	if (fd == -1)
 		parser_error(OPEN_FAILED, path[0], parser);
 	free_dubble_array(path);
+	close(fd);
 }
 

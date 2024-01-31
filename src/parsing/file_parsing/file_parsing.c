@@ -18,6 +18,7 @@ void	file_parsing(t_parsing *parsing)
 		free(parsing->line);
 		get_line(parsing);
 	}
+	close(parsing->fd);
 	/*
 	printf("color indicator floor: %d, ceiling: %d\n",
 			parsing->color_indicator[floor], parsing->color_indicator[ceiling]);
@@ -30,9 +31,10 @@ void	file_parsing(t_parsing *parsing)
 static void	open_file(t_parsing *parser)
 {
 	parser->fd = 0;
-	parser->fd = open(parser->av[1], parser->fd);
+	parser->fd = open(parser->input->av[1], O_RDONLY);
+	// printf("input 3: [%s]\n", parser->input->av[1]);
 	if (parser->fd == -1)
-		parser_error(INPUT_NO_FILE, parser->av[1], parser);
+		parser_error(INPUT_NO_FILE, parser->input->av[1], parser);
 
 }
 

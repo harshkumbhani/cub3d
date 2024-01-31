@@ -48,27 +48,27 @@ typedef enum e_map_parsing
 
 typedef struct	s_parsing
 {
+	//struct s_color		*color[2];
+	struct s_input		*input;
 	int					texture_indicator[4];
 	int					color_indicator[2];
 	int					color[2][3];
-	//struct s_color		*color[2];
 	int					map_indicator[3];
 	int					player_found;
 	int					error_occurred;
 	int					fd;
-	int					ac;
 	char				*texture_path[4];
-	char				**av;
-	char				**map;
 	char				*line;
 }	t_parsing;
 
 typedef struct	s_input
 {
-	struct s_texture	*texture;
+	struct s_directions	*texture;
 	struct s_color		*floor;
 	struct s_color		*ceiling;
 	char				**map;
+	int					ac;
+	char				**av;
 }	t_input;
 
 typedef struct	s_directions

@@ -26,13 +26,12 @@ endif
 ###############################################################################
 ###############################################################################
 
-VPATH			=	src src/parsing/input_parsing							\
-					src/parsing/file_parsing								\
+VPATH			=	src src/input_handling src/parsing/file_parsing			\
 					src/indicator_functions src/error_handling				\
 					src/parsing/get_file_content src/valide_map_check
 
 SRC_MAIN		:=	cub3d.c
-SRC_INPUT_PARS	:=	get_input.c pars_input.c
+SRC_HANDL_INPUT	:=	set_up_structs.c pars_input.c
 SRC_FILE_PARS	:=	file_parsing.c 											\
 					texture_check.c replace_newline_with_null_terminator.c	\
 					color_check.c numbers_in_rgb_range_check.c				\
@@ -51,7 +50,7 @@ SRC_VALIDE_MAP	:=	valide_map_check.c count_zeros_in_map.c					\
 					flood_fill_spaces.c compare_zeros.c is_exit.c			\
 					check_for_spaces_in_map.c
 
-SOURCE			:=	$(SRC_MAIN) $(SRC_INPUT_PARS) $(SRC_FILE_PARS)			\
+SOURCE			:=	$(SRC_MAIN) $(SRC_HANDL_INPUT) $(SRC_FILE_PARS)			\
 					$(SRC_INDUCATOR) $(SRC_ERROR) $(SRC_GET_CONTENT)		\
 					$(SRC_VALIDE_MAP)
 

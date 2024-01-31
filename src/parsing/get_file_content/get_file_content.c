@@ -5,6 +5,7 @@ static void reopen_file(t_parsing *parser);
 void	get_file_content(t_parsing *parser)
 {
 	char	*tmp_map;
+
 	if (parser->error_occurred == true)
 		return ;
 	tmp_map = NULL;
@@ -12,7 +13,6 @@ void	get_file_content(t_parsing *parser)
 	parser->line = get_next_line(parser->fd);
 	while (parser->line != NULL && parser->error_occurred == false)
 	{
-		//printf("line %s\n", parser->line);
 		save_colors(parser);
 		save_texture_path(parser);
 		save_map_line(parser, &tmp_map);
@@ -20,6 +20,7 @@ void	get_file_content(t_parsing *parser)
 		parser->line = get_next_line(parser->fd);
 	}
 	save_map_in_struct(parser, &tmp_map);
+	close(parser->fd);
 	/*
 	int	i = 0;
 	while (parser->map[i] != NULL)
@@ -38,7 +39,7 @@ void	get_file_content(t_parsing *parser)
 
 static void reopen_file(t_parsing *parser)
 {
-	parser->fd = open(parser->av[1], parser->fd);
+	parser->fd = open(parser->input->av[1], O_RDONLY);
 	if (parser->fd == -1)
-		parser_error(INPUT_NO_FILE, parser->av[1], parser);
+		parser_error(INPUT_NO_FILE, NULL, parser);
 }
