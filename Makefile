@@ -29,7 +29,7 @@ endif
 VPATH			=	src src/parsing/input_parsing							\
 					src/parsing/file_parsing								\
 					src/indicator_functions src/error_handling				\
-					src/parsing/get_file_content src/map_border_check
+					src/parsing/get_file_content src/valide_map_check
 
 SRC_MAIN		:=	cub3d.c
 SRC_INPUT_PARS	:=	get_input.c pars_input.c
@@ -43,7 +43,7 @@ SRC_INDUCATOR	:=	is_texture.c all_indicators_got_found.c					\
 SRC_ERROR		:=	parser_error.c
 SRC_GET_CONTENT	:=	get_file_content.c save_colors.c save_map_in_struct.c	\
 					save_map_line.c save_texture_path.c
-SRC_MAP_BORDER	:=	map_border_check.c count_zeros_in_map.c					\
+SRC_VALIDE_MAP	:=	valide_map_check.c count_zeros_in_map.c					\
 					get_longest_line_in_map.c								\
 					add_line_of_spaces_at_top_and_bottom.c					\
 					copy_map_with_two_extra_lines.c							\
@@ -52,7 +52,7 @@ SRC_MAP_BORDER	:=	map_border_check.c count_zeros_in_map.c					\
 
 SOURCE			:=	$(SRC_MAIN) $(SRC_INPUT_PARS) $(SRC_FILE_PARS)			\
 					$(SRC_INDUCATOR) $(SRC_ERROR) $(SRC_GET_CONTENT)		\
-					$(SRC_MAP_BORDER)
+					$(SRC_VALIDE_MAP)
 
 ###############################################################################
 ###############################################################################

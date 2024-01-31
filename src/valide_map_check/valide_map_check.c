@@ -1,6 +1,6 @@
 #include "cub3d.h"
 
-void	map_border_check(t_parsing *parser)
+void	valide_map_check(t_parsing *parser)
 {
 	if (parser->error_occurred == true)
 		return ;

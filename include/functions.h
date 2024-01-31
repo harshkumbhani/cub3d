@@ -43,7 +43,7 @@ void	save_map_line(t_parsing *parser, char **tmp_map);
 void	save_map_in_struct(t_parsing *parser, char **tmp_map);
 
 //MAP BORDER CHECK
-void	map_border_check(t_parsing *parser);
+void	valide_map_check(t_parsing *parser);
 void	count_zeros_in_map(int *number_of_zero, char **map);
 void	copy_map_with_two_extra_lines(char ***dst_map, t_parsing *parser);
 void	get_longest_line_in_map(char **map, int *line_len);
