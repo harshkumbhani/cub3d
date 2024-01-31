@@ -4,7 +4,7 @@ static void	set_map_status(t_parsing *parser);
 static void	new_line_in_map(t_parsing *parser);
 static void	found_player_check(t_parsing *parser);
 
-void	map_check(t_parsing *parser)
+void	map_syntax_check(t_parsing *parser)
 {
 	set_map_status(parser);
 	if (parser->map_indicator[start] == false || parser->error_occurred == true)

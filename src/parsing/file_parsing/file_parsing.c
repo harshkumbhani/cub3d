@@ -14,10 +14,11 @@ void	file_parsing(t_parsing *parsing)
 		texture_check(parsing);
 		color_check(parsing);
 		detect_garbage(parsing);
-		map_check(parsing);
+		map_syntax_check(parsing);
 		free(parsing->line);
 		get_line(parsing);
 	}
+	printf("erro: %d\n", parsing->error_occurred);
 	/*
 	printf("color indicator floor: %d, ceiling: %d\n",
 			parsing->color_indicator[floor], parsing->color_indicator[ceiling]);

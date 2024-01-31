@@ -16,6 +16,10 @@
 #define GREATER_TWO_PLAYER		"More than two player found: "
 #define NO_PLAYER_FOUND			"No player found in map, set N, S, W or E"
 #define MAP_IS_NOT_CLOSED		"Inputed map isn't closed by 1"
+#define PLAYER_OUT_OF_MAP		"Player found outside of map: "
+#define ENEMY_OUT_OF_MAP		"Enemy found outside of map: "
+#define DOOR_OUT_OF_MAP			"Door found outside of map: "
+#define AMMO_OUT_OF_MAP			"Enemy found outside of map: "
 
 #endif
 
