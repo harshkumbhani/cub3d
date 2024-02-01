@@ -31,7 +31,7 @@ VPATH			=	src src/input_handling src/parsing/file_parsing			\
 					src/parsing/get_file_content src/valide_map_check
 
 SRC_MAIN		:=	cub3d.c
-SRC_HANDL_INPUT	:=	set_up_structs.c pars_input.c
+SRC_HANDL_INPUT	:=	set_up_structs.c parse_input.c
 SRC_FILE_PARS	:=	file_parsing.c 											\
 					texture_check.c replace_newline_with_null_terminator.c	\
 					color_check.c numbers_in_rgb_range_check.c				\

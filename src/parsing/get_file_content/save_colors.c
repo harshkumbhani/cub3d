@@ -37,14 +37,14 @@ static void	fill_color_struct(t_parsing *parser, char **str_number)
 {
 	if (ft_strncmp(parser->line, "F", 1) == 0)
 	{
-		parser->color[floor][red] = ft_atoi(str_number[red]);
-		parser->color[floor][green] = ft_atoi(str_number[green]);
-		parser->color[floor][blue] = ft_atoi(str_number[blue]);
+		parser->color[floor]->red = ft_atoi(str_number[red]);
+		parser->color[floor]->green = ft_atoi(str_number[green]);
+		parser->color[floor]->blue = ft_atoi(str_number[blue]);
 	}
 	else if (ft_strncmp(parser->line, "C", 1) == 0)
 	{
-		parser->color[ceiling][red] = ft_atoi(str_number[red]);
-		parser->color[ceiling][green] = ft_atoi(str_number[green]);
-		parser->color[ceiling][blue] = ft_atoi(str_number[blue]);
+		parser->color[ceiling]->red = ft_atoi(str_number[red]);
+		parser->color[ceiling]->green = ft_atoi(str_number[green]);
+		parser->color[ceiling]->blue = ft_atoi(str_number[blue]);
 	}
 }

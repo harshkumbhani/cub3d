@@ -8,7 +8,8 @@ void	check_for_spaces_in_map(char **copied_map, t_parsing *parser)
 {
 	int		x;
 	int		y;
-
+	if (parser->error_occurred == true)
+		return ;
 	get_player_position(copied_map, &y, &x, parser);
 	flood_fill_check_space(copied_map, y, x, parser);
 }

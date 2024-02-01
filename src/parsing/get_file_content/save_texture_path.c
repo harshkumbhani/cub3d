@@ -29,11 +29,11 @@ static void		get_struct(t_parsing *parser, char **path)
 static void save_path_in_struct(t_parsing *parser, char *path)
 {
 	if (ft_strncmp(parser->line, "NO", 2) == 0)
-		parser->texture_path[north] = path;
+		parser->input->texture->north = path;
 	if (ft_strncmp(parser->line, "SO", 2) == 0)
-		parser->texture_path[south] = path;
+		parser->input->texture->south = path;
 	if (ft_strncmp(parser->line, "EA", 2) == 0)
-		parser->texture_path[east] = path;
+		parser->input->texture->east = path;
 	if (ft_strncmp(parser->line, "WE", 2) == 0)
-		parser->texture_path[west] = path;
+		parser->input->texture->west = path;
 }

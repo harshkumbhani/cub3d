@@ -3,7 +3,7 @@
 static void	file_type_check(t_parsing *parser);
 static void	is_file_accessible_check(t_parsing *parser);
 
-void	pars_input(t_parsing *parser)
+void	parse_input(t_parsing *parser)
 {
 	if (parser->input->ac != 2)
 		parser_error(WRONG_AMOUNT_INPUT, NULL, parser);

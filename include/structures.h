@@ -26,12 +26,12 @@ typedef enum e_textures
 	west = 3
 }	t_textures;
 
-typedef enum e_colors
+typedef enum e_color_typs
 {
 	red = 0,
 	green = 1,
 	blue = 2
-}	t_colors;
+}	t_color_types;
 
 typedef enum e_colors_indicators
 {
@@ -48,16 +48,14 @@ typedef enum e_map_parsing
 
 typedef struct	s_parsing
 {
-	//struct s_color		*color[2];
+	struct s_color		*color[2];
 	struct s_input		*input;
 	int					texture_indicator[4];
 	int					color_indicator[2];
-	int					color[2][3];
 	int					map_indicator[3];
 	int					player_found;
 	int					error_occurred;
 	int					fd;
-	char				*texture_path[4];
 	char				*line;
 }	t_parsing;
 

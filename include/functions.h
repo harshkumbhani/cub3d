@@ -7,7 +7,7 @@
 
 //INPUT PARSING
 void	set_up_structs(t_parsing *parser, int ac, char **av);
-void	pars_input(t_parsing *parser);
+void	parse_input(t_parsing *parser);
 
 //FILE PARSING
 void	map_syntax_check(t_parsing *parser);
