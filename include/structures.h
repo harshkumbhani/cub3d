@@ -74,12 +74,14 @@ typedef struct	s_indicator
 	int					map[2];
 	int					player;
 }	t_indicator;
+
 typedef struct	s_directions
 {
 	char				*north;
 	char				*south;
 	char				*east;
 	char				*west;
+	char				*door;
 }	t_directions;
 
 typedef struct	s_color
