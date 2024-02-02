@@ -40,3 +40,11 @@ static void	get_texture_struct(t_parsing *parser)
 	ft_bzero(&texture, sizeof(t_directions));
 	parser->input->texture = &texture;
 }
+
+static void	indicator_struct_set_up(t_parsing *parser)
+{
+	static t_indicator indicator;
+
+	ft_bzero(&indicator, sizeof(t_indicator));
+	
+}

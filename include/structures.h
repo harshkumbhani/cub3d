@@ -8,6 +8,7 @@
 struct s_color;
 struct s_texture;
 struct	s_input;
+struct	s_indicator;
 
 ///////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////DEFINES//////////////////////////////////
@@ -50,11 +51,9 @@ typedef struct	s_parsing
 {
 	struct s_color		*color[2];
 	struct s_input		*input;
-	int					texture_indicator[4];
-	int					color_indicator[2];
-	int					map_indicator[3];
-	int					player_found;
+	struct s_indicator	*indicator;
 	int					error_occurred;
+	int					player_found;
 	int					fd;
 	char				*line;
 }	t_parsing;
@@ -69,6 +68,12 @@ typedef struct	s_input
 	char				**av;
 }	t_input;
 
+typedef struct	s_indicator
+{
+	int					texture[4];
+	int					color[2];
+	int					map[3];
+}	t_indicator;
 typedef struct	s_directions
 {
 	char				*north;
