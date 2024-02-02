@@ -31,8 +31,8 @@ static void	is_map_component_check(char c, t_parsing *parser)
 static void	player_check(char c, t_parsing *parser)
 {
 	if (c == 'N' || c == 'S' || c == 'W' || c == 'E')
-		parser->map_indicator[player]++;
-	if (parser->map_indicator[player] > 1)
+		parser->indicator->player++;
+	if (parser->indicator->player > 1)
 		return (parser_error(GREATER_TWO_PLAYER, parser->line, parser));
 
 }

@@ -4,17 +4,12 @@ void	valide_map_check(t_parsing *parser)
 {
 	if (parser->error_occurred == true)
 		return ;
-	int		number_zeros_before;
-	int		number_zeros_after;
 	char	**copied_map;
 
-	count_zeros_in_map(&number_zeros_before, parser->input->map);
 	copy_map_with_two_extra_lines(&copied_map, parser);
 	add_line_of_spaces_at_top_and_bottom(copied_map, parser);
 	fill_map_with_aligned_lines(copied_map, parser);
 	flood_fill_spaces(copied_map, 0, 0, parser);
-	count_zeros_in_map(&number_zeros_after, copied_map);
-	compare_zeros(number_zeros_before, number_zeros_after, parser);
 	check_for_spaces_in_map(copied_map, parser);
 	free_dubble_array(copied_map);
 	/*

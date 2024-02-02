@@ -26,6 +26,8 @@ static int	leave_space_flood_fill(char **map, int x, int y, t_parsing *parser)
 		return (true);
 	else if (map[y][x] == 'F' || map[y][x] == '1')
 		return (true);
+	else if (map[y][x] == '0')
+		return (parser_error(MAP_IS_NOT_CLOSED, NULL, parser), true);
 	else if (is_player((map[y] + x), parser) == true)
 		return (parser_error(PLAYER_OUT_OF_MAP, (map[y] + x), parser), true);
 	else if (is_enemy(map[y] + x) == true)

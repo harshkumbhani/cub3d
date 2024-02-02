@@ -40,12 +40,11 @@ typedef enum e_colors_indicators
 	ceiling = 1
 }	t_colors_indicators;
 
-typedef enum e_map_parsing
+typedef enum e_map_status
 {
 	start = 0,
 	end = 1,
-	player = 2
-}	t_map_parsing;
+}	t_map_status;
 
 typedef struct	s_parsing
 {
@@ -72,7 +71,8 @@ typedef struct	s_indicator
 {
 	int					texture[4];
 	int					color[2];
-	int					map[3];
+	int					map[2];
+	int					player;
 }	t_indicator;
 typedef struct	s_directions
 {

@@ -14,13 +14,13 @@ void	texture_check(t_parsing *parser)
 static void	tell_textrue_got_foud(t_parsing *parser)
 {
 	if (ft_strncmp(parser->line, "NO", 2) == 0)
-		parser->texture_indicator[north]++;
+		parser->indicator->texture[north]++;
 	else if (ft_strncmp(parser->line, "SO", 2) == 0)
-		parser->texture_indicator[south]++;
+		parser->indicator->texture[south]++;
 	else if (ft_strncmp(parser->line, "WE", 2) == 0)
-		parser->texture_indicator[west]++;
+		parser->indicator->texture[west]++;
 	else if (ft_strncmp(parser->line, "EA", 2) == 0)
-		parser->texture_indicator[east]++;
+		parser->indicator->texture[east]++;
 }
 
 static void	is_path_valide(t_parsing *parser)
