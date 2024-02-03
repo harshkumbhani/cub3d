@@ -2,6 +2,12 @@
 #define STRUCTURES_H
 
 ///////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////INCLUDES//////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+#include "cub3d.h"
+
+///////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////GLOBAL/STRUCTS///////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -9,6 +15,7 @@ struct s_color;
 struct s_texture;
 struct	s_input;
 struct	s_indicator;
+struct s_directions;
 
 ///////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////DEFINES//////////////////////////////////
@@ -21,32 +28,49 @@ struct	s_indicator;
 
 typedef enum e_textures
 {
-	north = 0,
-	south = 1,
-	east = 2,
-	west = 3
+	north	=	0,
+	south	=	1,
+	east	=	2,
+	west	=	3
 }	t_textures;
 
 typedef enum e_color_typs
 {
-	red = 0,
-	green = 1,
-	blue = 2
+	red		=	0,
+	green	=	1,
+	blue	=	2
 }	t_color_types;
 
 typedef enum e_colors_indicators
 {
-	floor = 0,
-	ceiling = 1
+	floor	=	0,
+	ceiling	=	1
 }	t_colors_indicators;
 
 typedef enum e_map_status
 {
-	start = 0,
-	end = 1,
+	start	=	0,
+	end		=	1,
 }	t_map_status;
 
-typedef struct	s_parsing
+typedef enum e_map_dimensions
+{
+	width	=	0,
+	height	=	1
+}	t_map_dimensions;
+
+typedef enum e_map_content
+{
+	player	=	0,
+	wall	=	1,
+	door	=	2,
+	space	=	3,
+	zero	=	4,
+	quit	=	5,
+	enemy	=	6
+}	t_map_content;
+
+typedef struct s_parsing
 {
 	struct s_color		*color[2];
 	struct s_input		*input;
@@ -57,7 +81,16 @@ typedef struct	s_parsing
 	char				*line;
 }	t_parsing;
 
-typedef struct	s_input
+typedef struct s_game
+{
+	int					map_dimensions[2];
+	t_map_content		**map;
+	struct s_color		*color[2];
+	struct s_directions	*directions;
+	mlx_texture_t		*texture;
+	mlx_texture_t		*direction_tex;
+}	t_game;
+typedef struct s_input
 {
 	struct s_directions	*texture;
 	struct s_color		*floor;
@@ -67,7 +100,7 @@ typedef struct	s_input
 	char				**av;
 }	t_input;
 
-typedef struct	s_indicator
+typedef struct s_indicator
 {
 	int					texture[4];
 	int					color[2];
@@ -75,7 +108,7 @@ typedef struct	s_indicator
 	int					player;
 }	t_indicator;
 
-typedef struct	s_directions
+typedef struct s_directions
 {
 	char				*north;
 	char				*south;
@@ -84,7 +117,7 @@ typedef struct	s_directions
 	char				*door;
 }	t_directions;
 
-typedef struct	s_color
+typedef struct s_color
 {
 	int					red;
 	int					green;

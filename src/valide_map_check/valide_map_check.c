@@ -7,7 +7,8 @@ void	valide_map_check(t_parsing *parser)
 	char	**copied_map;
 
 	copy_map_with_two_extra_lines(&copied_map, parser);
-	add_line_of_spaces_at_top_and_bottom(copied_map, parser);
+	create_string_of_spaces(parser);
+	add_string_at_top_and_bottom(copied_map, parser);
 	fill_map_with_aligned_lines(copied_map, parser);
 	flood_fill_spaces(copied_map, 0, 0, parser);
 	check_for_spaces_in_map(copied_map, parser);

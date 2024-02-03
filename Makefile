@@ -28,10 +28,11 @@ endif
 
 VPATH			=	src src/input_handling src/parsing/file_parsing			\
 					src/indicator_functions src/error_handling				\
-					src/parsing/get_file_content src/valide_map_check
+					src/parsing/get_file_content src/valide_map_check		\
+					set_up_structs
 
 SRC_MAIN		:=	cub3d.c
-SRC_HANDL_INPUT	:=	set_up_structs.c parse_input.c
+SRC_HANDL_INPUT	:=	set_up_parser_struct.c parse_input.c
 SRC_FILE_PARS	:=	file_parsing.c 											\
 					texture_check.c replace_newline_with_null_terminator.c	\
 					color_check.c numbers_in_rgb_range_check.c				\

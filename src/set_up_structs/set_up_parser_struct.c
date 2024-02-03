@@ -5,7 +5,7 @@ static void	get_color_struct(t_parsing *parser);
 static void	get_texture_struct(t_parsing *parser);
 static void	indicator_struct_set_up(t_parsing *parser);
 
-void	set_up_structs(t_parsing *parser, int ac, char **av)
+void	set_up_parser_struct(t_parsing *parser, int ac, char **av)
 {
 	ft_bzero(parser, sizeof(t_parsing));
 	get_input(parser, ac, av);

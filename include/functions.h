@@ -6,7 +6,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 //INPUT PARSING
-void	set_up_structs(t_parsing *parser, int ac, char **av);
+void	set_up_parser_struct(t_parsing *parser, int ac, char **av);
 void	parse_input(t_parsing *parser);
 
 //FILE PARSING
@@ -44,14 +44,16 @@ void	save_map_in_struct(t_parsing *parser, char **tmp_map);
 
 //VALIDE MAP CHECK
 void	valide_map_check(t_parsing *parser);
-void	count_zeros_in_map(int *number_of_zero, char **map);
-void	copy_map_with_two_extra_lines(char ***dst_map, t_parsing *parser);
-void	get_longest_line_in_map(char **map, int *line_len);
-void	get_number_of_map_rows(char **map, int *number_rows);
-void	add_line_of_spaces_at_top_and_bottom(char **cpy_map, t_parsing *parser);
-void	fill_map_with_aligned_lines(char **cpy_map, t_parsing *parser);
 void	flood_fill_spaces(char **map, int x, int y, t_parsing *parser);
 void	compare_zeros(int zero_before, int zero_after, t_parsing *parser);
 void	check_for_spaces_in_map(char **copied_map, t_parsing *parser);
+
+//MAP MANIPULATION
+void	copy_map_with_two_extra_lines(char ***dst_map, t_parsing *parser);
+void	get_number_of_map_rows(char **map, int *number_rows);
+void	add_string_at_top_and_bottom(char **cpy_map, t_parsing *parser);
+void	fill_map_with_aligned_lines(char **cpy_map, t_parsing *parser);
+void	get_longest_line_in_map(char **map, int *line_len);
+void	create_string_of_spaces(t_parsing *parser);
 #endif
 
