@@ -38,7 +38,6 @@ static void	fill_map_with_enums(t_map_content **enum_map, char **aligned_map)
 	y = 1;
 	while (y <= number_or_rows)
 	{
-		printf("\n");
 		scan_map_line(enum_map[y - 1], aligned_map[y]);
 		y++;
 	}
@@ -52,7 +51,6 @@ static void	scan_map_line(t_map_content *enum_map, char *aligned_map)
 	while (aligned_map[x] != '\0')
 	{
 		assign_char_to_enum((aligned_map[x]), enum_map, x);
-		printf("%d", enum_map[x]);
 		x++;
 	}
 }
