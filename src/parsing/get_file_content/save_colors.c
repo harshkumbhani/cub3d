@@ -11,7 +11,6 @@ void	save_colors(t_parsing *parser)
 	get_rgb_string_as_int(parser);
 }
 
-
 static void	get_rgb_string_as_int(t_parsing *parser)
 {
 	char	**string_number;
@@ -27,6 +26,7 @@ static void	get_rgb_string_as_int(t_parsing *parser)
 static void	skip_spaces(int *spaces, t_parsing *parser)
 {
 	int		i;
+
 	i = 1;
 	while (parser->line[i] == ' ' && parser->line[i] != '\n')
 		i++;

@@ -2,7 +2,7 @@
 
 void	get_longest_line_in_map(char **map, int *line_len)
 {
-	int	i;
+	int		i;
 	size_t	longes_line;
 
 	i = 0;

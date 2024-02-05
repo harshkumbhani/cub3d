@@ -67,7 +67,9 @@ typedef enum e_map_content
 	space	=	3,
 	zero	=	4,
 	quit	=	5,
-	enemy	=	6
+	ronan	=	6,
+	nebula	=	7,
+	kango	=	8
 }	t_map_content;
 
 typedef struct s_parsing
@@ -87,8 +89,8 @@ typedef struct s_game
 	t_map_content		**map;
 	struct s_color		*color[2];
 	struct s_directions	*directions;
-	mlx_texture_t		*texture;
-	mlx_texture_t		*direction_tex;
+	mlx_image_t			image[8];
+	mlx_image_t			*direction_img[5];
 }	t_game;
 typedef struct s_input
 {

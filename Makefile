@@ -29,31 +29,33 @@ endif
 VPATH			=	src src/input_handling src/parsing/file_parsing			\
 					src/indicator_functions src/error_handling				\
 					src/parsing/get_file_content src/valide_map_check		\
-					set_up_structs
+					src/set_up_structs src/map_manipulation
 
 SRC_MAIN		:=	cub3d.c
-SRC_HANDL_INPUT	:=	set_up_parser_struct.c parse_input.c
+SRC_HANDL_INPUT	:=	parse_input.c
+SRC_SET_UP_STR	:=	set_up_parser_struct.c set_up_game_struct.c 
 SRC_FILE_PARS	:=	file_parsing.c 											\
 					texture_check.c replace_newline_with_null_terminator.c	\
 					color_check.c numbers_in_rgb_range_check.c				\
 					detect_garbage.c map_syntax_check.c map_line_check.c
 SRC_INDUCATOR	:=	is_texture.c all_indicators_got_found.c					\
 					is_color_indicator.c is_map_indicator.c is_newline.c	\
-					is_ammo.c is_door.c is_enemy.c is_player.c
+					is_ammo.c is_door.c is_enemy.c is_player.c is_exit.c
 SRC_ERROR		:=	parser_error.c
 SRC_GET_CONTENT	:=	get_file_content.c save_colors.c save_map_in_struct.c	\
 					save_map_line.c save_texture_path.c
-SRC_VALIDE_MAP	:=	valide_map_check.c count_zeros_in_map.c					\
-					get_longest_line_in_map.c								\
-					add_line_of_spaces_at_top_and_bottom.c					\
+SRC_VALIDE_MAP	:=	valide_map_check.c										\
+					check_for_spaces_in_map.c flood_fill_spaces.c
+SRC_MAP_MANIPUL	:=	get_longest_line_in_map.c								\
 					copy_map_with_two_extra_lines.c							\
 					get_number_of_map_rows.c fill_map_with_aligned_lines.c	\
-					flood_fill_spaces.c compare_zeros.c is_exit.c			\
-					check_for_spaces_in_map.c
+					add_string_at_top_and_bottom.c							\
+					create_string_of_spaces.c fill_enum_map.c				\
+					enum_map_allocation.c
 
 SOURCE			:=	$(SRC_MAIN) $(SRC_HANDL_INPUT) $(SRC_FILE_PARS)			\
 					$(SRC_INDUCATOR) $(SRC_ERROR) $(SRC_GET_CONTENT)		\
-					$(SRC_VALIDE_MAP)
+					$(SRC_VALIDE_MAP) $(SRC_SET_UP_STR) $(SRC_MAP_MANIPUL)
 
 ###############################################################################
 ###############################################################################

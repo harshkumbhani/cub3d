@@ -1,6 +1,6 @@
 #include "cub3d.h"
 
-static void allocate_map_with_extra_lines(char ***dst_map, t_parsing *parser);
+static void	allocate_map_with_extra_lines(char ***dst_map, t_parsing *parser);
 static void	set_map_y_axis_null(char **dst_map, t_parsing *parser);
 
 void	copy_map_with_two_extra_lines(char ***dst_map, t_parsing *parser)
@@ -9,7 +9,7 @@ void	copy_map_with_two_extra_lines(char ***dst_map, t_parsing *parser)
 	set_map_y_axis_null(*dst_map, parser);
 }
 
-static void allocate_map_with_extra_lines(char ***dst_map, t_parsing *parser)
+static void	allocate_map_with_extra_lines(char ***dst_map, t_parsing *parser)
 {
 	int	number_of_rows;
 

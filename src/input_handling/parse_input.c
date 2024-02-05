@@ -24,7 +24,7 @@ static void	file_type_check(t_parsing *parser)
 
 static void	is_file_accessible_check(t_parsing *parser)
 {
-	int fd;
+	int	fd;
 
 	fd = open(parser->input->av[1], O_RDONLY);
 	if (parser->error_occurred == true)

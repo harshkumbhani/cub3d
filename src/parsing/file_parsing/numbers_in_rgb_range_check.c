@@ -3,7 +3,7 @@
 static void	convert_numbers_to_int(t_parsing *parser, int *number);
 static void	skip_spaces(t_parsing *parser, int *spaces);
 static int	number_in_intlong_range(char **string_number);
-static void	get_num_in_int_range(char **str_num , int *num, t_parsing *parser);
+static void	get_num_in_int_range(char **str_num, int *num, t_parsing *parser);
 
 void	numbers_in_rgb_range_check(t_parsing *parser)
 {
@@ -13,9 +13,8 @@ void	numbers_in_rgb_range_check(t_parsing *parser)
 	if (parser->error_occurred == true)
 		return ;
 	if (number[red] > 255 || number[green] > 255 || number[blue] > 255
-	|| number[red] < 0 || number[green] < 0 || number[blue] < 0)
+		|| number[red] < 0 || number[green] < 0 || number[blue] < 0)
 		parser_error(OUT_OF_RGB_RANGE, parser->line, parser);
-
 }
 
 static void	convert_numbers_to_int(t_parsing *parser, int *number)
@@ -36,7 +35,7 @@ static void	convert_numbers_to_int(t_parsing *parser, int *number)
 
 static void	skip_spaces(t_parsing *parser, int *spaces)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	while (parser->line[i] == ' ' && parser->line[i] != '\n')
@@ -53,7 +52,7 @@ static int	number_in_intlong_range(char **string_number)
 	return (true);
 }
 
-static void	get_num_in_int_range(char **str_num , int *num, t_parsing *parser)
+static void	get_num_in_int_range(char **str_num, int *num, t_parsing *parser)
 {
 	num[red] = ft_strtol(str_num[red]);
 	num[green] = ft_strtol(str_num[green]);

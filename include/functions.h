@@ -2,12 +2,21 @@
 #define FUNCTIONS_H
 
 ///////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////INCLUDE//////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+# include "cub3d.h"
+
+///////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////PARSING//////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
 //INPUT PARSING
 void	set_up_parser_struct(t_parsing *parser, int ac, char **av);
 void	parse_input(t_parsing *parser);
+
+//SET UP STRUCT
+void	set_up_game_struct(t_parsing *parser, t_game *game);
 
 //FILE PARSING
 void	map_syntax_check(t_parsing *parser);
@@ -55,5 +64,8 @@ void	add_string_at_top_and_bottom(char **cpy_map, t_parsing *parser);
 void	fill_map_with_aligned_lines(char **cpy_map, t_parsing *parser);
 void	get_longest_line_in_map(char **map, int *line_len);
 void	create_string_of_spaces(t_parsing *parser);
+void	enum_map_allocation(t_game *game, t_parsing *parser);
+void	fill_enum_map(t_game *game, char **aligned_map);
+
 #endif
 

@@ -9,7 +9,7 @@ void	file_parsing(t_parsing *parsing)
 		return ;
 	open_file(parsing);
 	get_line(parsing);
-	while(parsing->line != NULL && parsing->error_occurred == false)
+	while (parsing->line != NULL && parsing->error_occurred == false)
 	{
 		texture_check(parsing);
 		color_check(parsing);
@@ -19,23 +19,14 @@ void	file_parsing(t_parsing *parsing)
 		get_line(parsing);
 	}
 	close(parsing->fd);
-	/*
-	printf("color indicator floor: %d, ceiling: %d\n",
-			parsing->color_indicator[floor], parsing->color_indicator[ceiling]);
-	printf("texture indicator NO: %d, SO: %d, EA: %d, WE: %d\n",
-			parsing->texture_indicator[north], parsing->texture_indicator[south]
-			, parsing->texture_indicator[east], parsing->texture_indicator[west]);
-	*/
 }
 
 static void	open_file(t_parsing *parser)
 {
 	parser->fd = 0;
 	parser->fd = open(parser->input->av[1], O_RDONLY);
-	// printf("input 3: [%s]\n", parser->input->av[1]);
 	if (parser->fd == -1)
 		parser_error(INPUT_NO_FILE, parser->input->av[1], parser);
-
 }
 
 static void	get_line(t_parsing *parser)

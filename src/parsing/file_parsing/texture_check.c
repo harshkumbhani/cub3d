@@ -40,4 +40,3 @@ static void	is_path_valide(t_parsing *parser)
 	free_dubble_array(path);
 	close(fd);
 }
-

@@ -1,11 +1,11 @@
 #include "cub3d.h"
 
-static void		get_struct(t_parsing *parser, char **path);
-static void save_path_in_struct(t_parsing *parser, char *path);
+static void	get_struct(t_parsing *parser, char **path);
+static void	save_path_in_struct(t_parsing *parser, char *path);
 
 void	save_texture_path(t_parsing *parser)
 {
-	char *path;
+	char	*path;
 
 	if (is_texture(parser) == false || parser->error_occurred == true)
 		return ;
@@ -14,9 +14,9 @@ void	save_texture_path(t_parsing *parser)
 	save_path_in_struct(parser, path);
 }
 
-static void		get_struct(t_parsing *parser, char **path)
+static void	get_struct(t_parsing *parser, char **path)
 {
-	char **tmp_path;
+	char	**tmp_path;
 
 	replace_newline_with_null_terminator(parser->line);
 	tmp_path = ft_split(parser->line + 2, ' ');
@@ -26,7 +26,7 @@ static void		get_struct(t_parsing *parser, char **path)
 	free_dubble_array(tmp_path);
 }
 
-static void save_path_in_struct(t_parsing *parser, char *path)
+static void	save_path_in_struct(t_parsing *parser, char *path)
 {
 	if (ft_strncmp(parser->line, "NO", 2) == 0)
 		parser->input->texture->north = path;

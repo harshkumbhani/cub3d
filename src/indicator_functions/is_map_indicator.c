@@ -15,7 +15,6 @@ int	is_map_indicator(t_parsing *parser)
 		|| is_exit(parser->line) == true)
 		return (true);
 	return (false);
-
 }
 
 static int	is_wall(char *line)

@@ -26,8 +26,8 @@ static void	get_input(t_parsing *parser, int ac, char **av)
 
 static void	get_color_struct(t_parsing *parser)
 {
-	static t_color floor_struct;
-	static t_color ceiling_struct;
+	static t_color	floor_struct;
+	static t_color	ceiling_struct;
 
 	ft_bzero(&floor_struct, sizeof(t_color));
 	ft_bzero(&ceiling_struct, sizeof(t_color));
@@ -45,7 +45,7 @@ static void	get_texture_struct(t_parsing *parser)
 
 static void	indicator_struct_set_up(t_parsing *parser)
 {
-	static t_indicator indicator_struct;
+	static t_indicator	indicator_struct;
 
 	ft_bzero(&indicator_struct, sizeof(t_indicator));
 	parser->indicator = &indicator_struct;

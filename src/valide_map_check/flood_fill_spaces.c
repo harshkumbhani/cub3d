@@ -4,7 +4,6 @@ static int	leave_space_flood_fill(char **map, int x, int y, t_parsing *parser);
 
 void	flood_fill_spaces(char **map, int x, int y, t_parsing *parser)
 {
-
 	if (leave_space_flood_fill(map, x, y, parser) == true)
 		return ;
 	map[y][x] = 'F';

@@ -1,13 +1,14 @@
 #include "cub3d.h"
 
 static void	get_player_position(char **map, int *y, int *x, t_parsing *parser);
-static void	scan_line_for_player(char *line,int *x, t_parsing *parser);
+static void	scan_line_for_player(char *line, int *x, t_parsing *parser);
 static void	flood_fill_check_space(char **map, int y, int x, t_parsing *parser);
 
 void	check_for_spaces_in_map(char **copied_map, t_parsing *parser)
 {
 	int		x;
 	int		y;
+
 	if (parser->error_occurred == true)
 		return ;
 	get_player_position(copied_map, &y, &x, parser);
@@ -27,7 +28,7 @@ static void	get_player_position(char **map, int *y, int *x, t_parsing *parser)
 	*y -= 1;
 }
 
-static void	scan_line_for_player(char *line,int *x, t_parsing *parser)
+static void	scan_line_for_player(char *line, int *x, t_parsing *parser)
 {
 	*x = 0;
 	while (line[*x] != '\0')

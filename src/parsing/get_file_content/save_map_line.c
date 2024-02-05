@@ -1,6 +1,6 @@
 #include "cub3d.h"
 
-static void replace_newline_with_hidden_char(t_parsing *parser);
+static void	replace_newline_with_hidden_char(t_parsing *parser);
 
 void	save_map_line(t_parsing *parser, char **tmp_map)
 {
@@ -10,7 +10,7 @@ void	save_map_line(t_parsing *parser, char **tmp_map)
 	*tmp_map = ft_strjoin_mod(*tmp_map, parser->line);
 }
 
-static void replace_newline_with_hidden_char(t_parsing *parser)
+static void	replace_newline_with_hidden_char(t_parsing *parser)
 {
 	int		i;
 

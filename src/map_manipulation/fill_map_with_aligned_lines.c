@@ -13,7 +13,7 @@ void	fill_map_with_aligned_lines(char **cpy_map, t_parsing *parser)
 
 static void	fill_map_with_extra_space_at_front(t_parsing *parser, char **map)
 {
-	int i;
+	int	i;
 	int	number_of_rows;
 
 	i = 1;
@@ -23,10 +23,9 @@ static void	fill_map_with_extra_space_at_front(t_parsing *parser, char **map)
 	{
 		map[i] = ft_strjoin(" ", parser->input->map[i - 1]);
 		if (map[i] == NULL)
-			return (parser_error(MEMORY_FAILED, NULL, parser)); //free map
+			return (parser_error(MEMORY_FAILED, NULL, parser));
 		i++;
 	}
-
 }
 
 static void	fill_line_with_spaces_at_back(t_parsing *parser, char **map)
@@ -42,12 +41,12 @@ static void	fill_line_with_spaces_at_back(t_parsing *parser, char **map)
 	get_longest_line_in_map(parser->input->map, &longes_line);
 	get_number_of_map_rows(parser->input->map, &number_of_rows);
 	number_of_rows += 2;
-	while(i < number_of_rows)
+	while (i < number_of_rows)
 	{
 		str_len = ft_strlen(map[i]);
 		map[i] = ft_strjoin_mod(map[i], parser->line + (str_len));
 		if (map[i] == NULL)
-			return (parser_error(MEMORY_FAILED, NULL, parser)); //free map
+			return (parser_error(MEMORY_FAILED, NULL, parser));
 		i++;
 	}
 }
