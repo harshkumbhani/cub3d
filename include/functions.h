@@ -67,5 +67,7 @@ void	create_string_of_spaces(t_parsing *parser);
 void	enum_map_allocation(t_game *game, t_parsing *parser);
 void	fill_enum_map(t_game *game, char **aligned_map);
 
+//FREE STRUCTS
+void	free_structs(t_game *game, t_parsing *parser);
 #endif
 

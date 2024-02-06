@@ -1,6 +1,6 @@
 #include "cub3d.h"
 
-static void	fill_line_with_spaces(t_parsing *parser);
+static void	fill_line_with_spaces(t_parsing *parser, int size);
 
 void	create_string_of_spaces(t_parsing *parser)
 {
@@ -15,15 +15,15 @@ void	create_string_of_spaces(t_parsing *parser)
 	if (parser->line == NULL)
 		return (parser_error(MEMORY_FAILED, NULL, parser));
 	parser->line[longest_line + 2] = '\0';
-	fill_line_with_spaces(parser);
+	fill_line_with_spaces(parser, longest_line + 2);
 }
 
-static void	fill_line_with_spaces(t_parsing *parser)
+static void	fill_line_with_spaces(t_parsing *parser, int size)
 {
 	int	i;
 
 	i = 0;
-	while (parser->line[i] != '\0')
+	while (i < size)
 	{
 		parser->line[i] = ' ';
 		i++;

@@ -11,7 +11,7 @@ void	enum_map_allocation(t_game *game, t_parsing *parser)
 		malloc((number_of_rows + 1) * sizeof(t_map_dimensions *));
 	if (game->map == NULL)
 		return (parser_error(MEMORY_FAILED, NULL, parser));
-	set_y_axis_null(game->map, number_of_rows);
+	set_y_axis_null(game->map, number_of_rows + 1);
 }
 
 static void	set_y_axis_null(t_map_content **enum_map, int rows)

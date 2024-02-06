@@ -23,5 +23,7 @@ int	main(int ac, char **av)
 	get_file_content(&parser);
 	valide_map_check(&parser);
 	set_up_game_struct(&parser, &game);
+	free_structs(&game, &parser);
+	system("leaks cub3d");
 	return (0);
 }
