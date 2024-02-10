@@ -39,11 +39,25 @@ typedef struct s_player
 	int	y;
 }	t_player;
 
+typedef	struct s_line
+{
+	int	x0;
+	int	y0;
+	int	x1;
+	int	y1;
+	int	dx;
+	int	dy;
+	int	sx;
+	int	sy;
+}	t_line;
 typedef	struct s_image
 {
+	double		angle;
 	mlx_t		*mlx;
 	mlx_image_t	*background;
 	mlx_image_t	*player;
+	mlx_image_t	*window_lin;
+	t_line		*line;
 }	t_image;
 
 #endif

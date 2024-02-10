@@ -5,5 +5,16 @@
 ///////////////////////////////////INPUT/PARSING///////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
+// MINIMAP
+
+void	render_line(t_image *player);
+void	render_background(mlx_image_t *image);
+void	render_block(mlx_image_t *image, int x_pos, int y_pos);
+void	render_map(t_image *image, int arr[10][13]);
+void	render_player(t_image *player, int x_pos, int y_pos);
+
+// HOOKS
+
+void	handle_keyhook(mlx_key_data_t keydata, void *param);
 
 #endif
