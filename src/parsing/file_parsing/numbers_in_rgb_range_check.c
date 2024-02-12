@@ -57,6 +57,7 @@ static void	get_num_in_int_range(char **str_num, int *num, t_parsing *parser)
 	num[red] = ft_strtol(str_num[red]);
 	num[green] = ft_strtol(str_num[green]);
 	num[blue] = ft_strtol(str_num[blue]);
+	free_dubble_array(str_num);
 	if (num[red] > INT_MAX)
 		return (parser_error(OUT_OF_RGB_RANGE, parser->line, parser));
 	if (num[green] > INT_MAX)
