@@ -6,8 +6,8 @@ static void	free_directions(t_directions *direction);
 
 void	free_structs(t_game *game, t_parsing *parser)
 {
-	free_game_struct(game);
 	free_parser_struct(parser);
+	free_game_struct(game);
 }
 
 static void	free_game_struct(t_game *game)
