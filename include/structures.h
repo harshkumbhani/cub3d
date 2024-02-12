@@ -37,6 +37,9 @@ typedef struct s_player
 {
 	int	x;
 	int	y;
+	double	pdx;
+	double	pdy;
+	double	pa;
 }	t_player;
 
 typedef	struct s_line
@@ -53,11 +56,13 @@ typedef	struct s_line
 typedef	struct s_image
 {
 	double		angle;
+	int			map[10][13];
 	mlx_t		*mlx;
 	mlx_image_t	*background;
 	mlx_image_t	*player;
 	mlx_image_t	*window_lin;
 	t_line		*line;
+	t_player	*hero;
 }	t_image;
 
 #endif

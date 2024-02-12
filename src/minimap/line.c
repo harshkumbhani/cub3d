@@ -12,8 +12,16 @@ void	render_line(t_image *player)
 
 static void	calculate_line_endpoint(t_image *player)
 {
-	player->line->x1 = (player->line->x0 + (LINE_LEN * cos(player->angle)));
-	player->line->y1 = (player->line->y0 + (LINE_LEN * sin(player->angle)));
+	player->line->x1 = (player->line->x0 + 5 * player->hero->pdx);
+	player->line->y1 = (player->line->y0 + 5 * player->hero->pdy);
+	if (player->line->y1 < 0)
+		player->line->y1 = 0;
+	else if (player->line->y1 > 500)
+		player->line->y1 = 500;
+	if (player->line->x1 < 0)
+		player->line->x1 = 0;
+	else if (player->line->x1 > 50 * 13)
+		player->line->x1 = 50 * 13;
 	player->line->dx = abs(player->line->x0 - player->line->x1);
 	player->line->dy = -abs(player->line->y0 - player->line->y1);
 	if (player->line->x0 < player->line->x1)
@@ -38,7 +46,7 @@ static void	draw_line(t_image *player)
 	err = player->line->dx + player->line->dy;
 	while (true)
 	{
-		mlx_put_pixel(player->window_lin, x, y, 0xFFFFFFFF);
+		mlx_put_pixel(player->window_lin, x, y, 0xFFCC33FF);
 		if (x == player->line->x1 && y == player->line->y1)
 			break ;
 		e2 = 2 * err;
