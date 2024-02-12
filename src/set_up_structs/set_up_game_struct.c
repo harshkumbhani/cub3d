@@ -32,8 +32,8 @@ static void	set_map_dimensions(t_game *game, t_parsing *parser)
 
 static void	color_set(t_game *game, t_parsing *parser)
 {
-	game->color[floor] = parser->color[floor];
-	game->color[ceiling] = parser->color[ceiling];
+	game->color[floor] = parser->input->floor;
+	game->color[ceiling] = parser->input->ceiling;
 }
 
 static void	directions_set(t_game *game, t_parsing *parser)

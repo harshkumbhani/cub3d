@@ -74,7 +74,6 @@ typedef enum e_map_content
 
 typedef struct s_parsing
 {
-	struct s_color		*color[2];
 	struct s_input		*input;
 	struct s_indicator	*indicator;
 	int					error_occurred;

@@ -31,8 +31,8 @@ static void	get_color_struct(t_parsing *parser)
 
 	ft_bzero(&floor_struct, sizeof(t_color));
 	ft_bzero(&ceiling_struct, sizeof(t_color));
-	parser->color[floor] = &floor_struct;
-	parser->color[ceiling] = &ceiling_struct;
+	parser->input->ceiling = &ceiling_struct;
+	parser->input->floor = &floor_struct;
 }
 
 static void	get_texture_struct(t_parsing *parser)
