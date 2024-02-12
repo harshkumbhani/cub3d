@@ -21,6 +21,7 @@ static void	get_rgb_string_as_int(t_parsing *parser)
 	if (string_number == NULL)
 		return (parser_error(MEMORY_FAILED, NULL, parser));
 	fill_color_struct(parser, string_number);
+	free_dubble_array(string_number);
 }
 
 static void	skip_spaces(int *spaces, t_parsing *parser)

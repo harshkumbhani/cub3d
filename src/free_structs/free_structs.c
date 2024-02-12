@@ -14,6 +14,8 @@ static void	free_game_struct(t_game *game)
 {
 	int	i;
 
+	if (game->map == NULL)
+		return ;
 	i = 0;
 	while (game->map[i] != NULL)
 	{
@@ -21,13 +23,15 @@ static void	free_game_struct(t_game *game)
 		game->map[i] = NULL;
 		i++;
 	}
+	free(game->map);
 }
 
 static void	free_parser_struct(t_parsing *parser)
 {
 	if (parser->line != NULL)
 		free(parser->line);
-	free_dubble_array(parser->input->map);
+	if (parser->input->map != NULL)
+		free_dubble_array(parser->input->map);
 	free_directions(parser->input->texture);
 }
 

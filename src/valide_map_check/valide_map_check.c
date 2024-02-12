@@ -13,6 +13,7 @@ void	valide_map_check(t_parsing *parser)
 	flood_fill_spaces(copied_map, 0, 0, parser);
 	check_for_spaces_in_map(copied_map, parser);
 	free_dubble_array(copied_map);
+	ft_free_string_save(&(parser->line));
 }
 /*
    int	i;

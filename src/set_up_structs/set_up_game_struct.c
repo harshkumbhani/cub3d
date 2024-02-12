@@ -17,7 +17,6 @@ void	set_up_game_struct(t_parsing *parser, t_game *game)
 	enum_map_allocation(game, parser);
 	fill_enum_map(game, copied_map);
 	free_dubble_array(copied_map);
-	copied_map = NULL;
 	set_map_dimensions(game, parser);
 	color_set(game, parser);
 	directions_set(game, parser);
