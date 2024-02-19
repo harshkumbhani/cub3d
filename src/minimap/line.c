@@ -3,25 +3,27 @@
 static void	calculate_line_endpoint(t_image *player);
 static void	draw_line(t_image *player);
 
-void	render_line(t_image *player)
+void	render_line(t_image *player, int x1, int y1)
 {
 	render_background(player->window_lin);
+	player->line->x1 = x1;
+	player->line->y1 = y1;
 	calculate_line_endpoint(player);
 	draw_line(player);
 }
 
 static void	calculate_line_endpoint(t_image *player)
 {
-	player->line->x1 = (player->line->x0 + 5 * player->hero->pdx);
-	player->line->y1 = (player->line->y0 + 5 * player->hero->pdy);
+	//player->line->x1 = (player->line->x0 + 5 * player->hero->pdx);
+	//player->line->y1 = (player->line->y0 + 5 * player->hero->pdy);
 	if (player->line->y1 < 0)
 		player->line->y1 = 0;
-	else if (player->line->y1 > 500)
-		player->line->y1 = 500;
+	else if (player->line->y1 > HEIGHT)
+		player->line->y1 = HEIGHT;
 	if (player->line->x1 < 0)
 		player->line->x1 = 0;
-	else if (player->line->x1 > 50 * 13)
-		player->line->x1 = 50 * 13;
+	else if (player->line->x1 > WIDTH)
+		player->line->x1 = WIDTH;
 	player->line->dx = abs(player->line->x0 - player->line->x1);
 	player->line->dy = -abs(player->line->y0 - player->line->y1);
 	if (player->line->x0 < player->line->x1)

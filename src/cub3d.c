@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:52:22 by fgabler           #+#    #+#             */
-/*   Updated: 2024/02/12 14:12:44 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:09:39 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ int	main(int ac, char **av)
         image.map[i][j] = map[i][j];
     }
 }
-	image.mlx = mlx_init(50 * 13, 50 * 10, "minimap", true);
-	image.window_lin = mlx_new_image(image.mlx, 50 * 13, 50 * 10);
-	image.background = mlx_new_image(image.mlx, 50 * 13, 50 * 10);
+	image.mlx = mlx_init(WIDTH, HEIGHT, "minimap", true);
+	image.window_lin = mlx_new_image(image.mlx, WIDTH, HEIGHT);
+	image.background = mlx_new_image(image.mlx, WIDTH, HEIGHT);
 	mlx_image_to_window(image.mlx, image.window_lin, 0, 0);
 	mlx_image_to_window(image.mlx, image.background, x, y);
 	mlx_key_hook(image.mlx, handle_keyhook, &image);

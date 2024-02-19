@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 17:11:49 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/02/12 10:47:16 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:48:51 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	render_background(mlx_image_t *image)
 	int	y;
 
 	y = -1;
-	while (++y < 50 * 10)
+	while (++y < HEIGHT)
 	{
 		x = -1;
-		while (++x < 50 * 13)
+		while (++x < WIDTH)
 			mlx_put_pixel(image, x, y, 0x000000FF);
 	}
 }
@@ -32,10 +32,10 @@ void	render_block(mlx_image_t *image, int x_pos, int y_pos)
 	int	j;
 
 	j = y_pos;
-	while (++j < y_pos + 50)
+	while (++j < y_pos + BLOCK_SIZE)
 	{
 		i = x_pos;
-		while (++i < x_pos + 50)
+		while (++i < x_pos + BLOCK_SIZE)
 			mlx_put_pixel(image, i, j, 0xFFFFFFFF);
 	}
 }
@@ -59,13 +59,13 @@ void	render_map(t_image *image, int arr[10][13])
 				render_block(image->background, x_pos, y_pos);
 			if (arr[i][j] == 2)
 			{
-				render_player(image, x_pos + 25, y_pos + 25);
+				render_player(image, x_pos + BLOCK_SIZE / 2, y_pos + BLOCK_SIZE / 2);
 				//printf("player x: %d player y: %d\n", x_pos + 25, y_pos + 25);
 			}
-			x_pos += 50;
+			x_pos += BLOCK_SIZE;
 		}
 		//printf("x_pos: %d y_pos: %d\n", x_pos, y_pos);
-		y_pos += 50;
+		y_pos += BLOCK_SIZE;
 	}
 }
 
@@ -82,5 +82,6 @@ void	render_player(t_image *player, int x_pos, int y_pos)
 	//printf("x: %d y: %d\n", player->player->instances->x, player->player->instances->y);
 	player->hero->pdx = cos(player->angle) * 5;
 	player->hero->pdy = sin(player->angle) * 5;
-	render_line(player);
+	render_line(player, player->line->x0 + 5 * player->hero->pdx,
+		player->line->y0 + 5 * player->hero->pdy);
 }
