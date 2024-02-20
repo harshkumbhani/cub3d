@@ -7,7 +7,7 @@ NAME			=			cub3d
 ###############################################################################
 
 CC				=			cc
-CFLAGS			=			#-Wall -Werror -Wextra
+CFLAGS			=			-MMD -MP #-Wall -Werror -Wextra
 MINILIB_FLAG	=
 HEADERS			=			-I./include -I./libs/include
 LIBS			=			./libs
@@ -40,16 +40,19 @@ SOURCE			:=	$(SRC_MAIN) $(SRC_MINIMAP) $(SRC_HOOKS)
 
 OBJ_DIR			:=	./_obj
 OBJ				:=	$(addprefix $(OBJ_DIR)/, $(SOURCE:%.c=%.o))
+DEP				= $(OBJ:%.o=%.d)
 
 ###############################################################################
 ###############################################################################
 
 all : $(NAME)
 
+-include $(DEP)
+
 $(NAME): $(LIBS_NAME) $(OBJ)
 	@echo $(YELLOW)Compiling [$(NAME)]...$(RESET)
 	@printf $(UP)$(CUT)
-	@$(CC) $(CFLAGS) $(OBJ) $(LIBS_NAME) $(MLX_LIB) $(MLX) -o $(NAME) $(EXTRA_FLAGS)
+	@$(CC) $(CFLAGS) $(HEADERS) $(OBJ) $(LIBS_NAME) $(MLX_LIB) $(MLX) -o $(NAME) $(EXTRA_FLAGS)
 	@echo $(GREEN)Finished"  "[$(NAME)]...$(RESET)
 
 $(OBJ_DIR)/%.o: %.c
