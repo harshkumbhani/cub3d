@@ -1,66 +1,63 @@
 #include "cub3d.h"
 
-static void	calculate_line_endpoint(t_image *player);
-static void	draw_line(t_image *player);
+static void	calculate_line_endpoint(t_line *line);
+static void	draw_line(t_line *line);
 
-void	render_line(t_image *player, int x1, int y1)
+void	render_line(t_line *line, int x1, int y1)
 {
-	render_background(player->window_lin);
-	player->line->x1 = x1;
-	player->line->y1 = y1;
-	calculate_line_endpoint(player);
-	draw_line(player);
+	render_background(*line->line_window);
+	line->x1 = x1;
+	line->y1 = y1;
+	calculate_line_endpoint(line);
+	draw_line(line);
 }
 
-static void	calculate_line_endpoint(t_image *player)
+static void	calculate_line_endpoint(t_line *line)
 {
-	//player->line->x1 = (player->line->x0 + 5 * player->hero->pdx);
-	//player->line->y1 = (player->line->y0 + 5 * player->hero->pdy);
-	if (player->line->y1 < 0)
-		player->line->y1 = 0;
-	else if (player->line->y1 > HEIGHT)
-		player->line->y1 = HEIGHT;
-	if (player->line->x1 < 0)
-		player->line->x1 = 0;
-	else if (player->line->x1 > WIDTH)
-		player->line->x1 = WIDTH;
-	player->line->dx = abs(player->line->x0 - player->line->x1);
-	player->line->dy = -abs(player->line->y0 - player->line->y1);
-	if (player->line->x0 < player->line->x1)
-		player->line->sx = 1;
+	if (line->y1 < 0)
+		line->y1 = 0;
+	else if (line->y1 > HEIGHT)
+		line->y1 = HEIGHT;
+	if (line->x1 < 0)
+		line->x1 = 0;
+	else if (line->x1 > WIDTH)
+		line->x1 = WIDTH;
+	line->dx = abs(line->x1 - line->x0);
+	line->dy = abs(line->y1 - line->y0);
+	if (line->x0 < line->x1)
+		line->sx = 1;
 	else
-		player->line->sx = -1;
-	if (player->line->y0 < player->line->y1)
-		player->line->sy = 1;
+		line->sx = -1;
+	if (line->y0 < line->y1)
+		line->sy = 1;
 	else
-		player->line->sy = -1;
+		line->sy = -1;
 }
 
-static void	draw_line(t_image *player)
+static void	draw_line(t_line *line)
 {
-	int	err;
-	int	e2;
+	int	param;
 	int	x;
 	int	y;
 
-	x = player->line->x0;
-	y = player->line->y0;
-	err = player->line->dx + player->line->dy;
-	while (true)
+	x = line->x0;
+	y = line->y0;
+		//printf("x1: %d y1: %d\n", line->x1, line->y1);
+	param = (2 * line->dy) - line->dx;
+	while (x != line->x1 || y != line->y1)
 	{
-		mlx_put_pixel(player->window_lin, x, y, 0xFFCC33FF);
-		if (x == player->line->x1 && y == player->line->y1)
-			break ;
-		e2 = 2 * err;
-		if (e2 >= player->line->dy)
+		printf("param: %d\n", param);
+		mlx_put_pixel(*line->line_window, x, y, 0xFFCC33FF);
+		if (param < 0)
+			param += 2 * line->dy;
+		else
 		{
-			err += player->line->dy;
-			x += player->line->sx;
+			y += line->sy;
+			param += 2 * (line->dy - line->dx);
 		}
-		if (e2 <= player->line->dx)
-		{
-			err += player->line->dx;
-			y += player->line->sy;
-		}
+		x += line->sx;
 	}
+	mlx_put_pixel(*line->line_window, line->x1, line->y1, 0xFFCC33FF);
 }
+
+// 0xFFCC33FF

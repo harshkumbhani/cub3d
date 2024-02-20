@@ -25,7 +25,7 @@
 
 # define PI					3.1415926535
 # define ROTATION_AMOUNT	0.17453
-# define LINE_LEN			40
+# define LINE_LEN			5
 # define FOV				60
 # define BLOCK_SIZE			64
 # define ROT_SPEED			0.05

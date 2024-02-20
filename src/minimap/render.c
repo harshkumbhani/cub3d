@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 17:11:49 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/02/19 15:48:51 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/02/20 16:45:45 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,6 @@ void	render_player(t_image *player, int x_pos, int y_pos)
 	//printf("x: %d y: %d\n", player->player->instances->x, player->player->instances->y);
 	player->hero->pdx = cos(player->angle) * 5;
 	player->hero->pdy = sin(player->angle) * 5;
-	render_line(player, player->line->x0 + 5 * player->hero->pdx,
+	render_line(player->line, player->line->x0 + 5 * player->hero->pdx,
 		player->line->y0 + 5 * player->hero->pdy);
 }

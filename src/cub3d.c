@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:52:22 by fgabler           #+#    #+#             */
-/*   Updated: 2024/02/19 15:09:39 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/02/20 16:45:01 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	main(int ac, char **av)
 	player = (t_player){};
 	image.line = &line;
 	image.hero = &player;
+	image.line->pa = &image.angle;
 	image.angle = 0;
 	int x = -1;
 	int	y = -1;
@@ -50,6 +51,7 @@ int	main(int ac, char **av)
 	image.mlx = mlx_init(WIDTH, HEIGHT, "minimap", true);
 	image.window_lin = mlx_new_image(image.mlx, WIDTH, HEIGHT);
 	image.background = mlx_new_image(image.mlx, WIDTH, HEIGHT);
+	line.line_window = (mlx_texture_t *)&image.window_lin;
 	mlx_image_to_window(image.mlx, image.window_lin, 0, 0);
 	mlx_image_to_window(image.mlx, image.background, x, y);
 	mlx_key_hook(image.mlx, handle_keyhook, &image);

@@ -35,8 +35,8 @@ typedef struct	s_color
 
 typedef struct s_player
 {
-	int	x;
-	int	y;
+	int		x;
+	int		y;
 	double	pdx;
 	double	pdy;
 	double	pa;
@@ -44,15 +44,18 @@ typedef struct s_player
 
 typedef	struct s_line
 {
-	int	x0;
-	int	y0;
-	int	x1;
-	int	y1;
-	int	dx;
-	int	dy;
-	int	sx;
-	int	sy;
+	int		x0;
+	int		y0;
+	int		x1;
+	int		y1;
+	int		dx;
+	int		dy;
+	int		sx;
+	int		sy;
+	double	*pa;
+	void	**line_window;
 }	t_line;
+
 typedef	struct s_image
 {
 	double		angle;
