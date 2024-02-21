@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 17:11:49 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/02/20 16:45:45 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/02/21 11:25:52 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,9 @@ void	render_map(t_image *image, int arr[10][13])
 			if (arr[i][j] == 1)
 				render_block(image->background, x_pos, y_pos);
 			if (arr[i][j] == 2)
-			{
 				render_player(image, x_pos + BLOCK_SIZE / 2, y_pos + BLOCK_SIZE / 2);
-				//printf("player x: %d player y: %d\n", x_pos + 25, y_pos + 25);
-			}
 			x_pos += BLOCK_SIZE;
 		}
-		//printf("x_pos: %d y_pos: %d\n", x_pos, y_pos);
 		y_pos += BLOCK_SIZE;
 	}
 }
@@ -79,7 +75,6 @@ void	render_player(t_image *player, int x_pos, int y_pos)
 	mlx_image_to_window(player->mlx, player->player, x_pos, y_pos);
 	player->line->x0 = x_pos + 5;
 	player->line->y0 = y_pos + 5;
-	//printf("x: %d y: %d\n", player->player->instances->x, player->player->instances->y);
 	player->hero->pdx = cos(player->angle) * 5;
 	player->hero->pdy = sin(player->angle) * 5;
 	render_line(player->line, player->line->x0 + 5 * player->hero->pdx,

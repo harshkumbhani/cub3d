@@ -23,7 +23,7 @@ static void	calculate_line_endpoint(t_line *line)
 	else if (line->x1 > WIDTH)
 		line->x1 = WIDTH;
 	line->dx = abs(line->x1 - line->x0);
-	line->dy = abs(line->y1 - line->y0);
+	line->dy = -abs(line->y1 - line->y0);
 	if (line->x0 < line->x1)
 		line->sx = 1;
 	else
@@ -36,26 +36,29 @@ static void	calculate_line_endpoint(t_line *line)
 
 static void	draw_line(t_line *line)
 {
-	int	param;
-	int	x;
-	int	y;
+	int	err;
+	int	e2;
+	int	temp[2];
 
-	x = line->x0;
-	y = line->y0;
-		//printf("x1: %d y1: %d\n", line->x1, line->y1);
-	param = (2 * line->dy) - line->dx;
-	while (x != line->x1 || y != line->y1)
+	temp[0] = line->x0;
+	temp[1] = line->y0;
+	err = line->dx + line->dy;
+	while (true)
 	{
-		printf("param: %d\n", param);
-		mlx_put_pixel(*line->line_window, x, y, 0xFFCC33FF);
-		if (param < 0)
-			param += 2 * line->dy;
-		else
+		mlx_put_pixel(*line->line_window, temp[0], temp[1], 0xFFCC33FF);
+		if (temp[0] == line->x1 && temp[1] == line->y1)
+			break ;
+		e2 = 2 * err;
+		if (e2 >= line->dy)
 		{
-			y += line->sy;
-			param += 2 * (line->dy - line->dx);
+			err += line->dy;
+			temp[0] += line->sx;
 		}
-		x += line->sx;
+		if (e2 <= line->dx)
+		{
+			err += line->dx;
+			temp[1] += line->sy;
+		}
 	}
 	mlx_put_pixel(*line->line_window, line->x1, line->y1, 0xFFCC33FF);
 }
