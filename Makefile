@@ -28,12 +28,13 @@ endif
 ###############################################################################
 ###############################################################################
 
-VPATH			=	./src:./src/minimap:./src/hooks
+VPATH			=	./src:./src/minimap:./src/hooks:./src/init
 
 SRC_MAIN		:=	cub3d.c
 SRC_MINIMAP		:=	line.c render.c
 SRC_HOOKS		:=	key_hook.c
-SOURCE			:=	$(SRC_MAIN) $(SRC_MINIMAP) $(SRC_HOOKS)
+SRC_INIT		:=	init.c
+SOURCE			:=	$(SRC_MAIN) $(SRC_MINIMAP) $(SRC_HOOKS) $(SRC_INIT)
 
 ###############################################################################
 ###############################################################################

@@ -35,10 +35,11 @@ typedef struct	s_color
 
 typedef struct s_player
 {
-	int		x;
-	int		y;
-	double	pdx;
-	double	pdy;
+	int		x_px;
+	int		y_px;
+	int		x_map;
+	int		y_map;
+	float	fov;
 	double	pa;
 }	t_player;
 
@@ -56,16 +57,27 @@ typedef	struct s_line
 	void	**line_window;
 }	t_line;
 
-typedef	struct s_image
+typedef	struct s_raycaster
 {
-	double		angle;
+	int		x_step;
+	int		y_step;
+	int		player_pos[2];
+	int		intersection[2];
+	int		map_pos[2];
+	double	ray_a;
+	double	distance;
+}	t_raycaster;
+
+typedef	struct s_mlx
+{
 	int			map[10][13];
 	mlx_t		*mlx;
-	mlx_image_t	*background;
-	mlx_image_t	*player;
-	mlx_image_t	*window_lin;
+	mlx_image_t	*image;
+	mlx_image_t	*player_window;
+	mlx_image_t	*line_window;
 	t_line		*line;
-	t_player	*hero;
-}	t_image;
+	t_player	*player;
+	t_raycaster	*raycaster;
+}	t_mlx;
 
 #endif

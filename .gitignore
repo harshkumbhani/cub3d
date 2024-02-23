@@ -1,4 +1,5 @@
 *.o
+*.d
 .ccls
 .ccls-cache
 *.DS_Store
