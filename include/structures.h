@@ -39,7 +39,7 @@ typedef struct s_player
 	int		y_px;
 	int		x_map;
 	int		y_map;
-	float	fov;
+	double	fov;
 	double	pa;
 }	t_player;
 
@@ -57,15 +57,20 @@ typedef	struct s_line
 	void	**line_window;
 }	t_line;
 
+/// @brief 
+/// intersection[0] -> horizontal interstion
+///	intersection[1] -> vertical intersection
 typedef	struct s_raycaster
 {
-	int		x_step;
-	int		y_step;
+	int		ray;
+	int		ray_direction;
 	int		player_pos[2];
-	int		intersection[2];
 	int		map_pos[2];
-	double	ray_a;
-	double	distance;
+	double	x_step;
+	double	y_step;
+	double	inter[2];
+	double	ray_angle;
+	double	distance_to_wall;
 }	t_raycaster;
 
 typedef	struct s_mlx

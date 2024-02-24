@@ -1,110 +1,86 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   key_hook.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/24 08:15:16 by hkumbhan          #+#    #+#             */
+/*   Updated: 2024/02/24 12:54:21 by hkumbhan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
-//void	normalise_angle(double *angle);
-//void	draw_rays(t_image *image);
+void	rotate_player(t_mlx *mlx)
+{
+	if (mlx_is_key_down(mlx->mlx, MLX_KEY_LEFT) == true)
+	{
+		mlx->player->pa -= ROT_SPEED;
+		if (mlx->player->pa < 0)
+			mlx->player->pa += 2 * M_PI;
+	}
+	if (mlx_is_key_down(mlx->mlx, MLX_KEY_RIGHT) == true)
+	{
+		mlx->player->pa += ROT_SPEED;
+		if (mlx->player->pa > 2 * M_PI)
+			mlx->player->pa -= 2 * M_PI;
+	}
+}
 
-//void	handle_keyhook(mlx_key_data_t keydata, void *param)
-//{
-//	t_image	*image;
+void	move_frd_back(t_mlx *mlx)
+{
+	double	move_x;
+	double	move_y;
 
-//	image = (t_image *)param;
-//	if (keydata.key == MLX_KEY_ESCAPE)
-//		mlx_close_window(image->mlx);
-//	if (keydata.key == MLX_KEY_UP)
-//	{
-//		image->player->instances->x += image->hero->pdx;
-//		image->player->instances->y += image->hero->pdy;
-//	}
-//	if (keydata.key == MLX_KEY_DOWN)
-//	{
-//		image->player->instances->x -= image->hero->pdx;
-//		image->player->instances->y -= image->hero->pdy;
-//	}
-//	if (keydata.key == MLX_KEY_LEFT)
-//	{
-//		image->angle -= ROTATION_AMOUNT;
-//		normalise_angle(&image->angle);
-//		image->hero->pdx = cos(image->angle) * 5;
-//		image->hero->pdy = sin(image->angle) * 5;
-//	}
-//	if (keydata.key == MLX_KEY_RIGHT)
-//	{
-//		image->angle += ROTATION_AMOUNT;
-//		normalise_angle(&image->angle);
-//		image->hero->pdx = cos(image->angle) * 5;
-//		image->hero->pdy = sin(image->angle) * 5;
-//	}
-//	image->line->x0 = image->player->instances->x + 5;
-//	image->line->y0 = image->player->instances->y + 5;
-//	render_line(image->line, (image->line->x0 + LINE_LEN * image->hero->pdx),
-//		(image->line->y0 + LINE_LEN * image->hero->pdy));
-//	//draw_rays(image);
-//}
+	move_x = 0;
+	move_y = 0;
+	if (mlx_is_key_down(mlx->mlx, MLX_KEY_W) == true)
+	{
+		move_x = cos(mlx->player->pa) * PLAYER_SPEED;
+		move_y = sin(mlx->player->pa) * PLAYER_SPEED;
+	}
+	if (mlx_is_key_down(mlx->mlx, MLX_KEY_S) == true)
+	{
+		move_x = -cos(mlx->player->pa) * PLAYER_SPEED;
+		move_y = -sin(mlx->player->pa) * PLAYER_SPEED;
+	}
+	mlx->player->x_px = roundf(mlx->player->x_px + move_x);
+	mlx->player->y_px = roundf(mlx->player->y_px + move_y);
+}
 
-//void	normalise_angle(double *angle)
-//{
-//	if (*angle < 0)
-//		*angle += 2 * M_PI;
-//	if (*angle > 2 * M_PI)
-//		*angle -= 2 * M_PI;
-//}
+void	move_left_right(t_mlx *mlx)
+{
+	double	move_x;
+	double	move_y;
 
-//void	draw_rays(t_image *image)
-//{
-//	int r, mx, my, dof;
-//	float rx, ry, ra, x0, y0;
+	move_x = 0;
+	move_y = 0;
+	if (mlx_is_key_down(mlx->mlx, MLX_KEY_D) == true)
+	{
+		move_x = cos(mlx->player->pa) * PLAYER_SPEED;
+		move_y = sin(mlx->player->pa) * PLAYER_SPEED;
+	}
+	if (mlx_is_key_down(mlx->mlx, MLX_KEY_A) == true)
+	{
+		move_x = -cos(mlx->player->pa) * PLAYER_SPEED;
+		move_y = -sin(mlx->player->pa) * PLAYER_SPEED;
+	}
+	mlx->player->x_px = roundf(mlx->player->x_px + move_x);
+	mlx->player->y_px = roundf(mlx->player->y_px + move_y);
+}
 
-//	ra = image->hero->pa;
-//	for (r = 0; r < 1; r++)
-//	{
-//		// Horizontal line calculation
-//		dof = 0;
-//		float atan = -1/tan(ra);
-//		if (ra < PI) // ray looking down
-//		{
-//			ry = (image->player->instances->y / 50) * 50;
-//			rx = (image->player->instances->y - ry) * atan + image->player->instances->x;
-//			y0 = -50;
-//			x0 = -y0 * atan;
-//		}
-//		if (ra > PI) // ray looking up
-//		{
-//			ry = (image->player->instances->y / 50) * 50 + 50;
-//			rx = (image->player->instances->y - ry) * atan + image->player->instances->x;
-//			y0 = 50;
-//			x0 = -y0 * atan;
-//		}
-//		if (ra == 0 || ra == PI)
-//		{
-//			rx = image->player->instances->x;
-//			ry = image->player->instances->y;
-//			dof = 8;
-//		}
-//		printf("rx: %d ry: %d\n", (int)rx, (int)ry);
-//		printf("x0: %d y0: %d\n", (int)x0, (int)y0);
-//		while (dof < 13)
-//		{
-//			mx = rx / 50;
-//			my = ry / 50;
-//			//mp = my * 13 + mx;
-//			if (mx >= 0 && mx < 13 && my >= 0 && my < 10)
-//			{
-//				if (image->map[mx][my] == 1)
-//				{
-//					printf("mx: %d my: %d\n", mx, my);
-//					dof = 1;
-//				}
-//				else
-//				{
-//					rx += x0;
-//					ry += y0;
-//					dof += 1;
-//				}
-//			}
-//			else
-//				dof = 13;
-//		}
-//	}
-//	// function to draw a line;
-//}
+void	handle_keyhook(mlx_key_data_t keydata, void *param)
+{
+	t_mlx	*mlx;
 
+	mlx = (t_mlx *)param;
+	if (keydata.key == MLX_KEY_ESCAPE)
+		free_and_exit(mlx);
+	if (keydata.key == MLX_KEY_LEFT || keydata.key == MLX_KEY_RIGHT)
+		rotate_player(mlx);
+	if (keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_S)
+		move_frd_back(mlx);
+	if (keydata.key == MLX_KEY_A || keydata.key == MLX_KEY_D)
+		move_left_right(mlx);
+}
