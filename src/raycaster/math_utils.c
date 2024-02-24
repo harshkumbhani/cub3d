@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 12:21:23 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/02/24 12:22:41 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/02/24 15:27:12 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	check_wall(t_mlx *mlx, double x, double y)
 	mlx->raycaster->map_pos[0] = floor(x / BLOCK_SIZE);
 	mlx->raycaster->map_pos[1] = floor(y / BLOCK_SIZE);
 	if (mlx->raycaster->map_pos[0] > 13 || mlx->raycaster->map_pos[1] > 10)
+		return (false);
+	if (mlx->raycaster->map_pos[0] < 0 || mlx->raycaster->map_pos[1] < 0)
 		return (false);
 	if (mlx->map[mlx->raycaster->map_pos[1]][mlx->raycaster->map_pos[0]] == 1)
 		return (false);

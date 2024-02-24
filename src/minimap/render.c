@@ -6,25 +6,25 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 17:11:49 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/02/23 11:41:31 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/02/24 13:29:26 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-//void	render_background(mlx_image_t *image)
-//{
-//	int	x;
-//	int	y;
+void	render_background(mlx_image_t *image)
+{
+	int	x;
+	int	y;
 
-//	y = -1;
-//	while (++y < HEIGHT)
-//	{
-//		x = -1;
-//		while (++x < WIDTH)
-//			mlx_put_pixel(image, x, y, 0x000000FF);
-//	}
-//}
+	y = -1;
+	while (++y < HEIGHT)
+	{
+		x = -1;
+		while (++x < WIDTH)
+			mlx_put_pixel(image, x, y, 0x000000FF);
+	}
+}
 
 //void	render_block(mlx_image_t *image, int x_pos, int y_pos)
 //{

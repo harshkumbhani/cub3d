@@ -45,16 +45,16 @@ typedef struct s_player
 
 typedef	struct s_line
 {
-	int		x0;
-	int		y0;
-	int		x1;
-	int		y1;
-	int		dx;
-	int		dy;
-	int		sx;
-	int		sy;
-	double	*pa;
-	void	**line_window;
+	int			x0;
+	int			y0;
+	int			x1;
+	int			y1;
+	int			dx;
+	int			dy;
+	int			sx;
+	int			sy;
+	double		*pa;
+	mlx_image_t	**line_window;
 }	t_line;
 
 /// @brief 
@@ -66,6 +66,8 @@ typedef	struct s_raycaster
 	int		ray_direction;
 	int		player_pos[2];
 	int		map_pos[2];
+	int		end_points[2];
+	int		orientation;
 	double	x_step;
 	double	y_step;
 	double	inter[2];

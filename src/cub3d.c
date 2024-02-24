@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:52:22 by fgabler           #+#    #+#             */
-/*   Updated: 2024/02/24 12:24:17 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/02/24 13:29:32 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	main(int ac, char **av)
 	if (init(&mlx) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	mlx.mlx = mlx_init(WIDTH, HEIGHT, "cub3d", true);
+	//render_map();
 	mlx_loop_hook(mlx.mlx, &loop_game, &mlx);
 	mlx_key_hook(mlx.mlx, handle_keyhook, &mlx);
 	mlx_loop(mlx.mlx);
