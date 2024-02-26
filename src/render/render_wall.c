@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 14:28:04 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/02/24 15:07:38 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/02/26 20:55:17 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,20 @@ void	put_pixel(t_mlx *mlx, int x, int y, int color)
 
 int	get_color(t_raycaster *ray, int flag)
 {
-	ray->ray_angle = normalise_angle(ray->ray_angle);
+	//ray->ray_angle = normalise_angle(ray->ray_angle);
 	if (flag == HORIZONTAL)
 	{
 		if (ray->ray_angle > 0 && ray->ray_angle < M_PI)
-			return (0xF5F5F5FF);
+			return (0xFF0000FF); // SOUTH WALL RED
 		else
-			return (0xF5F5F5FF);
+			return (0x00FF00FF); // NORTH WALL GREEN
 	}
 	else
 	{
 		if (ray->ray_angle > M_PI_2 && ray->ray_angle < 3 * M_PI_2)
-			return (0xB5B5B5FF);
+			return (0xB5B5B5FF); // WEST WALL GREY
 		else
-			return (0xB5B5B5FF);
+			return (0x0000FFFF); // EAST WALL blue
 	}
 }
 

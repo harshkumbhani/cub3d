@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 12:21:23 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/02/24 15:27:12 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/02/26 21:01:32 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ double	pythagores(double x, double y, t_player *player)
 double	normalise_angle(double angle)
 {
 	if (angle < 0)
-		angle += 2 * M_PI;
-	if (angle > 2 * M_PI)
-		angle -= 2 * M_PI;
+		angle += (2 * M_PI);
+	if (angle > (2 * M_PI))
+		angle -= (2 * M_PI);
 	return (angle);
 }
 

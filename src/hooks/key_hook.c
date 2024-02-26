@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 08:15:16 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/02/24 15:30:09 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/02/26 15:08:27 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,13 @@ void	move_left_right(t_mlx *mlx)
 	move_y = 0;
 	if (mlx_is_key_down(mlx->mlx, MLX_KEY_D) == true)
 	{
-		move_x = cos(mlx->player->pa) * PLAYER_SPEED;
-		move_y = sin(mlx->player->pa) * PLAYER_SPEED;
+		move_x = -sin(mlx->player->pa) * PLAYER_SPEED;
+		move_y = cos(mlx->player->pa) * PLAYER_SPEED;
 	}
 	if (mlx_is_key_down(mlx->mlx, MLX_KEY_A) == true)
 	{
-		move_x = -cos(mlx->player->pa) * PLAYER_SPEED;
-		move_y = -sin(mlx->player->pa) * PLAYER_SPEED;
+		move_x = sin(mlx->player->pa) * PLAYER_SPEED;
+		move_y = -cos(mlx->player->pa) * PLAYER_SPEED;
 	}
 	mlx->player->x_px = roundf(mlx->player->x_px + move_x);
 	mlx->player->y_px = roundf(mlx->player->y_px + move_y);
