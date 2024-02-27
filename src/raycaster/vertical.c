@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 12:27:35 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/02/26 20:43:30 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/02/27 09:18:26 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,14 @@ double	vertical_inter(t_mlx *mlx, double angle)
 		v_x += mlx->raycaster->x_step * ((-1) * pixel_check);
 		v_y += mlx->raycaster->y_step;
 	}
+	if (v_x > INT_MAX)
+		v_x = (double)INT_MAX;
+	if (v_x < INT_MIN)
+		v_x = (double)INT_MIN;
+	if (v_y > INT_MAX)
+		v_y = (double)INT_MAX;
+	if (v_y < INT_MIN)
+		v_y = (double)INT_MIN;
 	mlx->raycaster->end_points[2] = (int)v_x;
 	mlx->raycaster->end_points[3] = (int)v_y;
 	return (pythagores(v_x, v_y, mlx->player));

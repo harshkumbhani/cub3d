@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 08:42:12 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/02/26 21:58:33 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:04:21 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	raycaster(t_mlx *mlx)
 	render_background(mlx->line_window);
 	while (mlx->raycaster->ray < WIDTH)
 	{
+		mlx->raycaster->ray_angle = normalise_angle(mlx->raycaster->ray_angle);
 		mlx->raycaster->orientation = HORIZONTAL;
 		mlx->raycaster->inter[0] = horizontal_inter(mlx,
 				normalise_angle(mlx->raycaster->ray_angle));

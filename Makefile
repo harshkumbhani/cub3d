@@ -7,7 +7,7 @@ NAME			=			cub3d
 ###############################################################################
 
 CC				=			cc
-CFLAGS			=			-MMD -MP #-Wall -Werror -Wextra
+CFLAGS			=			-MMD -MP -g #-Wall -Werror -Wextra
 MINILIB_FLAG	=
 HEADERS			=			-I./include -I./libs/include
 LIBS			=			./libs

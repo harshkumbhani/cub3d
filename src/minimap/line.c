@@ -5,7 +5,6 @@ static void	draw_line(t_mlx *mlx);
 
 void	render_line(t_mlx *mlx, int x1, int y1)
 {
-	//printf("x1: %d y1: %d\n", x1, y1);
 	if (x1 > INT_MAX)
 		x1 = INT_MAX;
 	if (y1 > INT_MAX)

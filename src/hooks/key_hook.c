@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 08:15:16 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/02/26 15:08:27 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:50:33 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 void	rotate_player(t_mlx *mlx)
 {
-	if (mlx_is_key_down(mlx->mlx, MLX_KEY_LEFT) == true)
+	if (mlx_is_key_down(mlx->mlx, MLX_KEY_LEFT) == true
+		|| mlx_is_key_down(mlx->mlx, MLX_KEY_Q))
 	{
 		mlx->player->pa -= ROT_SPEED;
 		if (mlx->player->pa < 0)
 			mlx->player->pa += 2 * M_PI;
 	}
-	if (mlx_is_key_down(mlx->mlx, MLX_KEY_RIGHT) == true)
+	if (mlx_is_key_down(mlx->mlx, MLX_KEY_RIGHT) == true
+		|| mlx_is_key_down(mlx->mlx, MLX_KEY_E))
 	{
 		mlx->player->pa += ROT_SPEED;
 		if (mlx->player->pa > 2 * M_PI)
@@ -77,20 +79,10 @@ void	handle_keyhook(mlx_key_data_t keydata, void *param)
 	mlx = (t_mlx *)param;
 	if (keydata.key == MLX_KEY_ESCAPE)
 		free_and_exit(mlx);
-	if (keydata.key == MLX_KEY_LEFT)
-	{
-		mlx->player->pa -= ROT_SPEED;
-		if (mlx->player->pa < 0)
-			mlx->player->pa += 2 * M_PI;
-	}
-	if (keydata.key == MLX_KEY_RIGHT)
-	{
-		mlx->player->pa += ROT_SPEED;
-		if (mlx->player->pa > 2 * M_PI)
-			mlx->player->pa -= 2 * M_PI;
-	}
-	//printf("player angle: %.2f\n", mlx->player->pa);
-		//rotate_player(mlx);
+	if (keydata.key == MLX_KEY_LEFT || keydata.key == MLX_KEY_Q)
+		rotate_player(mlx);
+	if (keydata.key == MLX_KEY_RIGHT || keydata.key == MLX_KEY_E)
+		rotate_player(mlx);
 	if (keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_S)
 		move_frd_back(mlx);
 	if (keydata.key == MLX_KEY_A || keydata.key == MLX_KEY_D)

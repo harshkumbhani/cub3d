@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 17:11:49 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/02/26 16:44:41 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/02/27 11:47:40 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,6 @@ void	render_map(t_mlx *mlx)
 				render_block(mlx->image, x_pos, y_pos, 0xFFFFFFFF);
 			if (mlx->map[i][j] == 2)
 				render_player(mlx, x_pos + BLOCK_SIZE / 2, y_pos + BLOCK_SIZE / 2);
-			//else
-			//	render_block(mlx->image, x_pos, y_pos, 0xFF0000FF);
 			x_pos += BLOCK_SIZE;
 		}
 		y_pos += BLOCK_SIZE;
@@ -77,6 +75,4 @@ void	render_player(t_mlx *mlx, int x_pos, int y_pos)
 	mlx_image_to_window(mlx->mlx, mlx->player_window, x_pos, y_pos);
 	mlx->line->x0 = x_pos + 5;
 	mlx->line->y0 = y_pos + 5;
-	//render_line(mlx, mlx->line->x0 + 25 * cos(mlx->player->pa),
-	//	mlx->line->y0 + 25 * sin(mlx->player->pa));
 }

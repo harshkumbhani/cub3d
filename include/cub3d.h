@@ -29,8 +29,8 @@
 # define LINE_LEN			5
 # define FOV				60
 # define BLOCK_SIZE			64
-# define ROT_SPEED			0.05
-# define PLAYER_SPEED		5
+# define ROT_SPEED			0.08
+# define PLAYER_SPEED		10
 
 # define HORIZONTAL			0
 # define VERTICAL			1
