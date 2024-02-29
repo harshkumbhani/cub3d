@@ -7,7 +7,7 @@ NAME			=			cub3d
 ###############################################################################
 
 CC				=			cc
-CFLAGS			=			-MMD -MP -g #-Wall -Werror -Wextra
+CFLAGS			=			-Wall -Werror -Wextra
 MINILIB_FLAG	=
 HEADERS			=			-I./include -I./libs/include
 LIBS			=			./libs
@@ -28,36 +28,27 @@ endif
 ###############################################################################
 ###############################################################################
 
-VPATH			=	./src:./src/minimap:./src/hooks:./src/init:./src/exit:./src/raycaster:./src/render
+VPATH			=	src
 
 SRC_MAIN		:=	cub3d.c
-SRC_MINIMAP		:=	line.c render.c
-SRC_HOOKS		:=	key_hook.c
-SRC_INIT		:=	init.c
-SRC_EXIT		:=	exit.c
-SRC_RAYCASTER	:=	raycaster.c math_utils.c horizontal.c vertical.c
-SRC_RENDER		:=	render_wall.c
-SOURCE			:=	$(SRC_MAIN) $(SRC_MINIMAP) $(SRC_HOOKS) $(SRC_INIT) $(SRC_EXIT) \
-					$(SRC_RAYCASTER) $(SRC_RENDER)
+
+SOURCE			:=	$(SRC_MAIN)
 
 ###############################################################################
 ###############################################################################
 
 OBJ_DIR			:=	./_obj
 OBJ				:=	$(addprefix $(OBJ_DIR)/, $(SOURCE:%.c=%.o))
-DEP				= $(OBJ:%.o=%.d)
 
 ###############################################################################
 ###############################################################################
 
 all : $(NAME)
 
--include $(DEP)
-
 $(NAME): $(LIBS_NAME) $(OBJ)
 	@echo $(YELLOW)Compiling [$(NAME)]...$(RESET)
 	@printf $(UP)$(CUT)
-	@$(CC) $(CFLAGS) $(HEADERS) $(OBJ) $(LIBS_NAME) $(MLX_LIB) $(MLX) -o $(NAME) $(EXTRA_FLAGS)
+	@$(CC) $(CFLAGS) $(OBJ) $(LIBS_NAME) $(MLX_LIB) $(MLX) -o $(NAME) $(EXTRA_FLAGS)
 	@echo $(GREEN)Finished"  "[$(NAME)]...$(RESET)
 
 $(OBJ_DIR)/%.o: %.c
