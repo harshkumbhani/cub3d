@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 14:28:04 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/02/27 12:27:59 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/02/29 10:19:39 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	put_pixel(t_mlx *mlx, int x, int y, int color)
 
 int	get_color(t_raycaster *ray, int flag)
 {
-	//ray->ray_angle = normalise_angle(ray->ray_angle);
 	if (flag == HORIZONTAL)
 	{
 		if (ray->ray_angle > 0 && ray->ray_angle < M_PI)
@@ -72,8 +71,10 @@ void	render_wall(t_mlx *mlx, int ray)
 	double	bottom_pixel;
 	double	top_pixel;
 
-	mlx->raycaster->distance_to_wall *= cos(normalise_angle(mlx->raycaster->ray_angle - mlx->player->pa));
-	wall_h = (BLOCK_SIZE / mlx->raycaster->distance_to_wall) * ((WIDTH / 2) / tan(mlx->player->fov / 2));
+	mlx->raycaster->distance_to_wall *= cos(normalise_angle(mlx->player->pa
+			- mlx->raycaster->ray_angle));
+	wall_h = (BLOCK_SIZE / mlx->raycaster->distance_to_wall)
+			* ((WIDTH / 2) / tan(mlx->player->fov / 2));
 	bottom_pixel = (HEIGHT / 2) + (wall_h / 2);
 	top_pixel = (HEIGHT / 2) - (wall_h / 2);
 	if (bottom_pixel > HEIGHT)
