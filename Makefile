@@ -32,7 +32,7 @@ VPATH			=	./src:./src/minimap:./src/hooks:./src/init:./src/exit:./src/raycaster:
 
 SRC_MAIN		:=	cub3d.c
 SRC_MINIMAP		:=	line.c render.c
-SRC_HOOKS		:=	key_hook.c
+SRC_HOOKS		:=	key_hook.c wall_collision.c
 SRC_INIT		:=	init.c
 SRC_EXIT		:=	exit.c
 SRC_RAYCASTER	:=	raycaster.c math_utils.c horizontal.c vertical.c

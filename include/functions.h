@@ -16,6 +16,7 @@ void	render_player(t_mlx *mlx, int x_pos, int y_pos);
 //// HOOKS
 
 void	handle_keyhook(mlx_key_data_t keydata, void *param);
+bool	collision_with_wall(t_mlx *mlx, double x, double y);
 
 // INIT
 
