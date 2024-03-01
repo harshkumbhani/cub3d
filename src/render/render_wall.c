@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_wall.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 14:28:04 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/02/29 10:19:39 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/01 23:50:26 by harsh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,31 +25,37 @@ void	put_pixel(t_mlx *mlx, int x, int y, int color)
 	mlx_put_pixel(mlx->image, x, y, color);
 }
 
-int	get_color(t_raycaster *ray, int flag)
+uint32_t	extract_color(uint8_t *pixels)
 {
-	if (flag == HORIZONTAL)
-	{
-		if (ray->ray_angle > 0 && ray->ray_angle < M_PI)
-			return (0xFF0000FF); // SOUTH WALL RED
-		else
-			return (0x00FF00FF); // NORTH WALL GREEN
-	}
-	else
-	{
-		if (ray->ray_angle > M_PI_2 && ray->ray_angle < 3 * M_PI_2)
-			return (0xB5B5B5FF); // WEST WALL GREY
-		else
-			return (0x0000FFFF); // EAST WALL blue
-	}
+	return ((uint32_t)(*pixels) << 24 | (uint32_t)(*(pixels + 1)) << 16 | \
+		(uint32_t)(*(pixels + 2)) << 8 | (uint32_t)(*(pixels + 3)) << 0);
 }
 
-void	draw_wall(t_mlx *mlx, int ray, int top_px, int bottom_px)
+void	draw_wall(t_mlx *mlx, int top_px, int bottom_px, double wall_h)
 {
-	int	color;
+	double	x_o;
+	double	y_o;
+	int		position;
+	double	factor;
 
-	color = get_color(mlx->raycaster, mlx->raycaster->orientation);
+	x_o = 0.0;
+	y_o = 0.0;
+	position = 0;
+	factor = (double)mlx->wall->height / wall_h;
+	if (mlx->raycaster->orientation == HORIZONTAL)
+		x_o = (int)fmodf((mlx->raycaster->horizontal[0] * (mlx->wall->width / BLOCK_SIZE)), mlx->wall->width);
+	else
+		x_o = (int)fmodf((mlx->raycaster->vertical[1] * (mlx->wall->width / BLOCK_SIZE)), mlx->wall->width);
+	y_o = (top_px - (HEIGHT / 2) + (wall_h / 2)) * factor;
+	if (y_o < 0)
+		y_o = 0;
 	while (top_px < bottom_px)
-		put_pixel(mlx, ray, top_px++, color);
+	{
+		position = (int)y_o * mlx->wall->width + (int)x_o;
+		put_pixel(mlx, mlx->raycaster->ray, top_px, extract_color(&mlx->wall->pixels[position * 4]));
+		y_o += factor;
+		top_px++;
+	}
 }
 
 void	draw_floor_ceiling(t_mlx *mlx, int ray, int top_px, int bottom_px)
@@ -59,10 +65,10 @@ void	draw_floor_ceiling(t_mlx *mlx, int ray, int top_px, int bottom_px)
 	i = 0;
 	i = bottom_px;
 	while (i < HEIGHT)
-		put_pixel(mlx, ray, i++, 0xB99470FF);
+		put_pixel(mlx, ray, i++, 0xC19A6BFF);
 	i = 0;
 	while (i < top_px)
-		put_pixel(mlx, ray, i++, 0x89CFF3FF);
+		put_pixel(mlx, ray, i++, 0xF5F5DCFF);
 }
 
 void	render_wall(t_mlx *mlx, int ray)
@@ -81,6 +87,6 @@ void	render_wall(t_mlx *mlx, int ray)
 		bottom_pixel = HEIGHT;
 	if (top_pixel < 0)
 		top_pixel = 0;
-	draw_wall(mlx, ray, top_pixel, bottom_pixel);
+	draw_wall(mlx, top_pixel, bottom_pixel, wall_h);
 	draw_floor_ceiling(mlx, ray, top_pixel, bottom_pixel);
 }

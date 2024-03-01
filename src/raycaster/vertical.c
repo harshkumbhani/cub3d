@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vertical.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 12:27:35 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/02/27 09:18:26 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/01 22:00:43 by harsh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,7 @@ double	vertical_inter(t_mlx *mlx, double angle)
 		v_y = (double)INT_MIN;
 	mlx->raycaster->end_points[2] = (int)v_x;
 	mlx->raycaster->end_points[3] = (int)v_y;
+	mlx->raycaster->vertical[0] = v_x;
+	mlx->raycaster->vertical[1] = v_y;
 	return (pythagores(v_x, v_y, mlx->player));
 }

@@ -66,6 +66,8 @@ typedef	struct s_raycaster
 	int		map_pos[2];
 	int		end_points[4];
 	int		orientation;
+	double	horizontal[2];
+	double	vertical[2];
 	double	x_step;
 	double	y_step;
 	double	inter[2];
@@ -80,6 +82,7 @@ typedef	struct s_mlx
 	mlx_image_t	*image;
 	mlx_image_t	*player_window;
 	mlx_image_t	*line_window;
+	mlx_texture_t	*wall;
 	t_line		*line;
 	t_player	*player;
 	t_raycaster	*raycaster;

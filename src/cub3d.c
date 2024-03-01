@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:52:22 by fgabler           #+#    #+#             */
-/*   Updated: 2024/02/27 17:05:06 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/01 23:47:39 by harsh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	init_mlx(t_mlx *mlx)
 {
 	mlx->image = mlx_new_image(mlx->mlx, WIDTH, HEIGHT);
 	mlx->line_window = mlx_new_image(mlx->mlx, WIDTH, HEIGHT);
+	mlx->wall = mlx_load_png("./src/assets/cake.png");
 	mlx_image_to_window(mlx->mlx, mlx->line_window, 0, 0);
 	mlx_image_to_window(mlx->mlx, mlx->image, 0, 0);
 	mlx->line_window->instances->z = 0;

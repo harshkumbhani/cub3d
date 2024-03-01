@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   horizontal.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 12:23:30 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/02/27 09:18:21 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/01 22:00:16 by harsh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,7 @@ double	horizontal_inter(t_mlx *mlx, double angle)
 		h_y = (double)INT_MIN;
 	mlx->raycaster->end_points[0] = (int)h_x;
 	mlx->raycaster->end_points[1] = (int)h_y;
+	mlx->raycaster->horizontal[0] = h_x;
+	mlx->raycaster->horizontal[1] = h_y;
 	return (pythagores(h_x, h_y, mlx->player));
 }
