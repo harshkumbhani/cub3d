@@ -6,7 +6,7 @@
 /*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 14:28:04 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/03/01 23:50:26 by harsh            ###   ########.fr       */
+/*   Updated: 2024/03/02 01:10:24 by harsh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,8 @@
 
 void	put_pixel(t_mlx *mlx, int x, int y, int color)
 {
-	if (x < 0)
-		return ;
-	else if (x >= WIDTH)
-		return ;
-	if (y < 0)
-		return ;
-	else if (y >= HEIGHT)
-		return ;
-	mlx_put_pixel(mlx->image, x, y, color);
+	if ((x >= 0 && x < WIDTH) && (y >= 0 && y < HEIGHT))
+		mlx_put_pixel(mlx->image, x, y, color);
 }
 
 uint32_t	extract_color(uint8_t *pixels)

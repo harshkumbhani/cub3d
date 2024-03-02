@@ -56,15 +56,14 @@ typedef	struct s_line
 }	t_line;
 
 /// @brief 
-/// intersection[0] -> horizontal interstion
-///	intersection[1] -> vertical intersection
+/// inter[0] -> horizontal intersection
+///	inter[1] -> vertical intersection
 typedef	struct s_raycaster
 {
 	int		ray;
 	int		ray_direction;
 	int		player_pos[2];
 	int		map_pos[2];
-	int		end_points[4];
 	int		orientation;
 	double	horizontal[2];
 	double	vertical[2];
