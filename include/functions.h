@@ -17,6 +17,7 @@ void	parse_input(t_parsing *parser);
 
 //SET UP STRUCT
 void	set_up_game_struct(t_parsing *parser, t_game *game);
+void	find_player_position(t_game *game);
 
 //FILE PARSING
 void	map_syntax_check(t_parsing *parser);
@@ -66,4 +67,3 @@ void	fill_enum_map(t_game *game, char **aligned_map);
 //FREE STRUCTS
 void	free_structs(t_game *game, t_parsing *parser);
 #endif
-

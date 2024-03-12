@@ -22,6 +22,7 @@ void	set_up_game_struct(t_parsing *parser, t_game *game)
 	set_map_dimensions(game, parser);
 	color_set(game, parser);
 	directions_set(game, parser);
+	find_player_position(game);
 }
 
 static void	set_map_dimensions(t_game *game, t_parsing *parser)
