@@ -26,13 +26,13 @@ static void	get_input(t_parsing *parser, int ac, char **av)
 
 static void	get_color_struct(t_parsing *parser)
 {
-	static t_color	floor_struct;
+	static t_color	ground_struct;
 	static t_color	ceiling_struct;
 
-	ft_bzero(&floor_struct, sizeof(t_color));
+	ft_bzero(&ground_struct, sizeof(t_color));
 	ft_bzero(&ceiling_struct, sizeof(t_color));
 	parser->input->ceiling = &ceiling_struct;
-	parser->input->floor = &floor_struct;
+	parser->input->ground = &ground_struct;
 }
 
 static void	get_texture_struct(t_parsing *parser)

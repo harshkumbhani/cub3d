@@ -13,7 +13,7 @@ void	all_indicators_got_found(t_parsing *parser)
 static int	all_color_indicators_found(t_parsing *parsing)
 {
 	if ((parsing->indicator->color[ceiling] != 1)
-		|| (parsing->indicator->color[floor] != 1))
+		|| (parsing->indicator->color[ground] != 1))
 		return (false);
 	return (true);
 }

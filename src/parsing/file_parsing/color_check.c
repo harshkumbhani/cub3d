@@ -13,7 +13,7 @@ void	color_check(t_parsing *parser)
 static void	tell_color_indicator_got_found(t_parsing *parser)
 {
 	if (ft_strncmp(parser->line, "F ", 2) == 0)
-		parser->indicator->color[floor]++;
+		parser->indicator->color[ground]++;
 	else if (ft_strncmp(parser->line, "C ", 2) == 0)
 		parser->indicator->color[ceiling]++;
 }
