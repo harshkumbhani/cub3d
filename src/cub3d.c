@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:52:22 by fgabler           #+#    #+#             */
-/*   Updated: 2024/03/12 13:50:16 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/12 14:27:20 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,16 @@ int	main(int ac, char **av)
 	mlx_key_hook(mlx.mlx, handle_keyhook, &mlx);
 	mlx_loop(mlx.mlx);
 	free_and_exit(&mlx);
+	t_parsing	parser;
+	t_game		game;
+
+	set_up_parser_struct(&parser, ac, av);
+	parse_input(&parser);
+	file_parsing(&parser);
+	get_file_content(&parser);
+	valide_map_check(&parser);
+	set_up_game_struct(&parser, &game);
+	free_structs(&game, &parser);
+	system("leaks cub3d");
 	return (0);
 }
