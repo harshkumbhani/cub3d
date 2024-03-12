@@ -61,18 +61,8 @@ static void	assign_char_to_enum(char c, t_map_content *enum_map, int x)
 		enum_map[x] = player;
 	if (c == '1')
 		enum_map[x] = wall;
-	if (c == 'D')
-		enum_map[x] = door;
 	if (c == ' ')
 		enum_map[x] = space;
 	if (c == '0')
 		enum_map[x] = zero;
-	if (c == 'X')
-		enum_map[x] = zero;
-	if (c == 'R')
-		enum_map[x] = ronan;
-	if (c == 'B')
-		enum_map[x] = nebula;
-	if (c == 'K')
-		enum_map[x] = kango;
 }
