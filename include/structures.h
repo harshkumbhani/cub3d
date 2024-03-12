@@ -61,15 +61,10 @@ typedef enum e_map_dimensions
 
 typedef enum e_map_content
 {
-	player	=	0,
+	zero	=	0,
 	wall	=	1,
-	door	=	2,
+	player	=	2,
 	space	=	3,
-	zero	=	4,
-	quit	=	5,
-	ronan	=	6,
-	nebula	=	7,
-	kango	=	8
 }	t_map_content;
 
 typedef struct s_parsing
@@ -88,8 +83,8 @@ typedef struct s_game
 	t_map_content		**map;
 	struct s_color		*color[2];
 	struct s_directions	*directions;
-	mlx_image_t			image[8];
-	mlx_image_t			*direction_img[5];
+	mlx_image_t			image[4];
+	mlx_image_t			*direction_img[4];
 }	t_game;
 typedef struct s_input
 {
