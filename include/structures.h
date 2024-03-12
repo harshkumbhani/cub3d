@@ -43,7 +43,7 @@ typedef enum e_color_typs
 
 typedef enum e_colors_indicators
 {
-	floor	=	0,
+	ground	=	0,
 	ceiling	=	1
 }	t_colors_indicators;
 
@@ -91,6 +91,7 @@ typedef struct s_game
 	mlx_image_t			image[8];
 	mlx_image_t			*direction_img[5];
 }	t_game;
+
 typedef struct s_input
 {
 	struct s_directions	*texture;
