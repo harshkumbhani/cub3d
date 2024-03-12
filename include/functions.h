@@ -33,6 +33,7 @@ double	horizontal_inter(t_mlx *mlx, double angle);
 
 // RENDER
 
-void	render_wall(t_mlx *mlx, int ray);
+void		render_wall(t_mlx *mlx, int ray);
+uint32_t	color_function(int r, int g, int b, int a);
 
 #endif

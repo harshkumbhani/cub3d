@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_wall.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 14:28:04 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/03/02 01:10:24 by harsh            ###   ########.fr       */
+/*   Updated: 2024/03/12 14:02:35 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ void	put_pixel(t_mlx *mlx, int x, int y, int color)
 {
 	if ((x >= 0 && x < WIDTH) && (y >= 0 && y < HEIGHT))
 		mlx_put_pixel(mlx->image, x, y, color);
+}
+
+uint32_t	color_function(int r, int g, int b, int a)
+{
+	return (r << 24 | g << 16 | b << 8 | a << 0);
 }
 
 uint32_t	extract_color(uint8_t *pixels)
@@ -36,9 +41,9 @@ void	draw_wall(t_mlx *mlx, int top_px, int bottom_px, double wall_h)
 	position = 0;
 	factor = (double)mlx->wall->height / wall_h;
 	if (mlx->raycaster->orientation == HORIZONTAL)
-		x_o = (int)fmodf((mlx->raycaster->horizontal[0] * (mlx->wall->width / BLOCK_SIZE)), mlx->wall->width);
+		x_o = fmod((mlx->raycaster->horizontal[0] * (mlx->wall->width / BLOCK_SIZE)), mlx->wall->width);
 	else
-		x_o = (int)fmodf((mlx->raycaster->vertical[1] * (mlx->wall->width / BLOCK_SIZE)), mlx->wall->width);
+		x_o = fmod((mlx->raycaster->vertical[1] * (mlx->wall->width / BLOCK_SIZE)), mlx->wall->width);
 	y_o = (top_px - (HEIGHT / 2) + (wall_h / 2)) * factor;
 	if (y_o < 0)
 		y_o = 0;
@@ -58,7 +63,7 @@ void	draw_floor_ceiling(t_mlx *mlx, int ray, int top_px, int bottom_px)
 	i = 0;
 	i = bottom_px;
 	while (i < HEIGHT)
-		put_pixel(mlx, ray, i++, 0xC19A6BFF);
+		put_pixel(mlx, ray, i++, 0xC19A6BFF); // floor 0xC19A6BFF
 	i = 0;
 	while (i < top_px)
 		put_pixel(mlx, ray, i++, 0xF5F5DCFF);
