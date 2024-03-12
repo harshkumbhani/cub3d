@@ -83,7 +83,6 @@ typedef struct s_game
 	t_map_content		**map;
 	struct s_color		*color[2];
 	struct s_directions	*directions;
-	mlx_image_t			image[4];
 	mlx_image_t			*direction_img[4];
 }	t_game;
 typedef struct s_input
@@ -110,7 +109,6 @@ typedef struct s_directions
 	char				*south;
 	char				*east;
 	char				*west;
-	char				*door;
 }	t_directions;
 
 typedef struct s_color

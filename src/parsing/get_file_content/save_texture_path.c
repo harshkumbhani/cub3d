@@ -36,6 +36,4 @@ static void	save_path_in_struct(t_parsing *parser, char *path)
 		parser->input->texture->east = path;
 	if (ft_strncmp(parser->line, "WE", 2) == 0)
 		parser->input->texture->west = path;
-	if (ft_strncmp(parser->line, "DO", 2) == 0)
-		parser->input->texture->door = path;
 }
