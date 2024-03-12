@@ -36,10 +36,6 @@ int		is_texture(t_parsing *parser);
 int		is_map_indicator(t_parsing *parser);
 int		is_newline(t_parsing *parser);
 int		is_player(char *line, t_parsing *parser);
-int		is_enemy(char *line);
-int		is_door(char *line);
-int		is_ammo(char *line);
-int		is_exit(char *line);
 
 //PARSER ERROR
 void	parser_error(char *error_message, char *string, t_parsing *parser);

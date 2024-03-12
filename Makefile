@@ -42,7 +42,7 @@ SRC_FILE_PARS	:=	file_parsing.c 											\
 					detect_garbage.c map_syntax_check.c map_line_check.c
 SRC_INDUCATOR	:=	is_texture.c all_indicators_got_found.c					\
 					is_color_indicator.c is_map_indicator.c is_newline.c	\
-					is_ammo.c is_door.c is_enemy.c is_player.c is_exit.c
+					is_player.c
 SRC_ERROR		:=	parser_error.c
 SRC_GET_CONTENT	:=	get_file_content.c save_colors.c save_map_in_struct.c	\
 					save_map_line.c save_texture_path.c
@@ -89,6 +89,8 @@ $(OBJ_DIR)/%.o: %.c
 $(LIBS_NAME):
 	@git submodule update --remote --init -q
 	@cd MLX42 && cmake -B build > /dev/null 2>&1 && cmake --build build -j4 > /dev/null 2>&1
+	@echo $(YELLOW)Compiling [MLX42]...$(RESET)
+	@echo $(GREEN)Finished"  "[libmlx42.a]...$(RESET)
 	@$(MAKE) -C $(LIBS) -B
 
 ###############################################################################
