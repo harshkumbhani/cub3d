@@ -88,6 +88,8 @@ $(OBJ_DIR)/%.o: %.c
 $(LIBS_NAME):
 	@git submodule update --remote --init -q
 	@cd MLX42 && cmake -B build > /dev/null 2>&1 && cmake --build build -j4 > /dev/null 2>&1
+	@echo $(YELLOW)Compiling [MLX42]...$(RESET)
+	@echo $(GREEN)Finished"  "[libmlx42.a]...$(RESET)
 	@$(MAKE) -C $(LIBS) -B
 
 ###############################################################################
