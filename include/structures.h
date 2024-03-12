@@ -86,6 +86,7 @@ typedef struct s_game
 {
 	int					map_dimensions[2];
 	int					player_position[2];
+	int					direction_facing;
 	t_map_content		**map;
 	struct s_color		*color[2];
 	struct s_directions	*directions;

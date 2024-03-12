@@ -23,6 +23,7 @@ void	set_up_game_struct(t_parsing *parser, t_game *game)
 	color_set(game, parser);
 	directions_set(game, parser);
 	find_player_position(game);
+	find_direction_player_is_facing(game, parser);
 }
 
 static void	set_map_dimensions(t_game *game, t_parsing *parser)
@@ -41,6 +42,7 @@ static void	color_set(t_game *game, t_parsing *parser)
 static void	directions_set(t_game *game, t_parsing *parser)
 {
 	game->directions = parser->input->texture;
+
 }
 
 static void	null_game_struct(t_game *game)
