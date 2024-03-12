@@ -6,7 +6,7 @@ NAME			=			cub3d
 ###############################################################################
 ###############################################################################
 
-CC				=			cc -lm
+CC				=			cc
 CFLAGS			=			-MMD -MP -g #-Wall -Werror -Wextra
 MINILIB_FLAG	=
 HEADERS			=			-I./include -I./libs/include
@@ -20,9 +20,9 @@ MLX_LIB			=			./MLX42/build/libmlx42.a
 MLX42_OS		:=			$(shell uname)
 
 ifeq ($(MLX42_OS), Darwin)
-	MLX = -ldl -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/" -pthread -lm
+	MLX = -ldl -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/" -pthread
 else ifeq ($(MLX42_OS), Linux)
-	MLX = -ldl -lglfw -pthread -lm
+	MLX = -ldl -lglfw -pthread
 endif
 
 ###############################################################################
