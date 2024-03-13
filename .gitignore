@@ -1,9 +1,7 @@
 *.o
-*.d
 .ccls
 .ccls-cache
 *.DS_Store
 cub3d
 *.a
 .vscode
-test.txt
