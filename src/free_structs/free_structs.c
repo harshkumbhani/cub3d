@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   free_structs.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fgabler <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/13 19:58:46 by fgabler           #+#    #+#             */
+/*   Updated: 2024/03/13 19:58:48 by fgabler          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 static void	free_game_struct(t_game *game);
@@ -37,8 +49,8 @@ static void	free_parser_struct(t_parsing *parser)
 
 static void	free_directions(t_directions *direction)
 {
-	free(direction->north);
-	free(direction->south);
-	free(direction->east);
-	free(direction->west);
+	ft_free_string_save(&direction->north);
+	ft_free_string_save(&direction->south);
+	ft_free_string_save(&direction->east);
+	ft_free_string_save(&direction->west);
 }
