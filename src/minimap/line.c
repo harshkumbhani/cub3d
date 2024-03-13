@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 01:02:13 by harsh             #+#    #+#             */
-/*   Updated: 2024/03/13 11:03:13 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/13 15:36:27 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ static void	draw_line(t_cub3d *mlx);
 
 void	render_line(t_cub3d *mlx, int x1, int y1)
 {
-	if (x1 > INT_MAX)
-		x1 = INT_MAX;
-	if (y1 > INT_MAX)
-		y1 = INT_MAX;
-	if (x1 < INT_MIN)
-		x1 = INT_MIN;
-	if (y1 < INT_MIN)
-		y1 = INT_MIN;
+	if (x1 > 350)
+		x1 = 349;
+	if (y1 > 250)
+		y1 = 249;
+	if (x1 < 0)
+		x1 = 0;
+	if (y1 < 0)
+		y1 = 0;
 	mlx->line->x1 = x1;
 	mlx->line->y1 = y1;
 	calculate_line_endpoint(mlx->line);
@@ -35,12 +35,12 @@ static void	calculate_line_endpoint(t_line *line)
 {
 	if (line->y1 < 0)
 		line->y1 = 0;
-	else if (line->y1 > HEIGHT)
-		line->y1 = HEIGHT;
+	else if (line->y1 > 250)
+		line->y1 = 250;
 	if (line->x1 < 0)
 		line->x1 = 0;
-	else if (line->x1 > WIDTH)
-		line->x1 = WIDTH;
+	else if (line->x1 > 350)
+		line->x1 = 350;
 	line->dx = abs(line->x1 - line->x0);
 	line->dy = -abs(line->y1 - line->y0);
 	if (line->x0 < line->x1)
