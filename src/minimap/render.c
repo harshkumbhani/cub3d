@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 17:11:49 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/03/13 18:25:10 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/13 19:01:26 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	draw_player(t_cub3d *cub3d, int x, int y, int width)
 	while (++j < width)
 	{
 		i = -1;
-		while (++i < width)
+		while (++i < width && y > 0 && x > 0)
 			mlx_put_pixel(cub3d->player_window, x + i, y + j, 0x00FF00FF);
 	}
 }

@@ -7,7 +7,7 @@ NAME			=			cub3D
 ###############################################################################
 
 CC				=			cc
-CFLAGS			=			-Wall -Werror -Wextra #-fsanitize=address -g
+CFLAGS			=			-Wall -Werror -Wextra -fsanitize=address -g
 HEADERS			=			-I./include -I./libs/include
 LIBS			=			./libs
 LIBS_NAME		=			./libs/libs.a
