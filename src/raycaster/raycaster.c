@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 08:42:12 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/03/13 06:23:14 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/13 18:32:10 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 static void	dda(t_cub3d *cub3d);
 
-
 void	raycaster(t_cub3d *cub3d)
 {
 	cub3d->raycaster->ray = -1;
 	cub3d->raycaster->ray_angle = cub3d->player->pa - (cub3d->player->fov / 2);
-	//render_background(cub3d->line_window);
 	while (++cub3d->raycaster->ray < WIDTH)
 	{
 		dda(cub3d);
@@ -36,15 +34,9 @@ static void	dda(t_cub3d *mlx)
 	mlx->raycaster->inter[1] = vertical_inter(mlx,
 			normalise_angle(mlx->raycaster->ray_angle));
 	if (mlx->raycaster->inter[0] <= mlx->raycaster->inter[1])
-	{
-		//render_line(mlx, mlx->raycaster->horizontal[0],
-		//	mlx->raycaster->horizontal[1]);
 		mlx->raycaster->distance_to_wall = mlx->raycaster->inter[0];
-	}
 	else
 	{
-		//render_line(mlx, mlx->raycaster->vertical[0],
-		//	mlx->raycaster->vertical[1]);
 		mlx->raycaster->orientation = VERTICAL;
 		mlx->raycaster->distance_to_wall = mlx->raycaster->inter[1];
 	}
