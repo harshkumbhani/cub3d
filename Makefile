@@ -7,7 +7,7 @@ NAME			=			cub3D
 ###############################################################################
 
 CC				=			cc
-CFLAGS			=			-Wall -Werror -Wextra #-fsanitize=address -g
+CFLAGS			=			-Wall -Werror -Wextra -fsanitize=address -g
 HEADERS			=			-I./include -I./libs/include
 LIBS			=			./libs
 LIBS_NAME		=			./libs/libs.a
@@ -27,10 +27,13 @@ endif
 ###############################################################################
 ###############################################################################
 
-VPATH			=	src src/input_handling src/parsing/file_parsing			\
-					src/indicator_functions src/error_handling				\
-					src/parsing/get_file_content src/valide_map_check		\
-					src/set_up_structs src/map_manipulation					\
+VPATH			=	src src/parsing/input_handling							\
+					src/parsing/file_parsing								\
+					src/parsing/indicator_functions src/error_handling		\
+					src/parsing/get_file_content							\
+					src/parsing/valide_map_check							\
+					src/parsing/set_up_structs								\
+					src/parsing/map_manipulation							\
 					src/free_structs										\
 					src/minimap												\
 					src/hooks												\
