@@ -1,5 +1,6 @@
 #include "cub3d.h"
 
+static void	null_game_struct(t_game *game);
 static void	set_map_dimensions(t_game *game, t_parsing *parser);
 static void	color_set(t_game *game, t_parsing *parser);
 static void	directions_set(t_game *game, t_parsing *parser);
@@ -7,7 +8,8 @@ static void	directions_set(t_game *game, t_parsing *parser);
 void	set_up_game_struct(t_parsing *parser, t_game *game)
 {
 	char				**copied_map;
-
+	
+	null_game_struct(game);
 	if (parser->error_occurred == true)
 		return ;
 	copy_map_with_two_extra_lines(&copied_map, parser);
@@ -20,6 +22,8 @@ void	set_up_game_struct(t_parsing *parser, t_game *game)
 	set_map_dimensions(game, parser);
 	color_set(game, parser);
 	directions_set(game, parser);
+	find_player_position(game);
+	find_direction_player_is_facing(game, parser);
 }
 
 static void	set_map_dimensions(t_game *game, t_parsing *parser)
@@ -38,4 +42,10 @@ static void	color_set(t_game *game, t_parsing *parser)
 static void	directions_set(t_game *game, t_parsing *parser)
 {
 	game->directions = parser->input->texture;
+
+}
+
+static void	null_game_struct(t_game *game)
+{
+	ft_bzero(game, sizeof(t_game));
 }
