@@ -42,10 +42,10 @@
 # define HORIZONTAL			0
 # define VERTICAL			1
 
-# define NORTH				1
-# define SOUTH				2
-# define EAST				3
-# define WEST				4
+# define NORTH				0
+# define SOUTH				1
+# define EAST				2
+# define WEST				3
 
 ///////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////STANDARD/LIBARY////////////////////////////////

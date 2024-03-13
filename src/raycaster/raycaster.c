@@ -3,29 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   raycaster.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 08:42:12 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/03/02 01:01:40 by harsh            ###   ########.fr       */
+/*   Updated: 2024/03/13 03:44:34 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void	dda(t_mlx *mlx);
+static void	dda(t_cub3d *cub3d);
 
-void	raycaster(t_mlx *mlx)
+//render_background(cub3d->line_window);
+
+void	raycaster(t_cub3d *cub3d)
 {
-	mlx->raycaster->ray = -1;
-	mlx->raycaster->ray_angle = mlx->player->pa - (mlx->player->fov / 2);
-	while (mlx->raycaster->ray++ < WIDTH)
+	cub3d->raycaster->ray = -1;
+	cub3d->raycaster->ray_angle = cub3d->player->pa - (cub3d->player->fov / 2);
+	while (++cub3d->raycaster->ray < WIDTH)
 	{
-		dda(mlx);
-		render_wall(mlx, mlx->raycaster->ray);
+		dda(cub3d);
+		render_wall(cub3d, cub3d->raycaster->ray);
 	}
 }
 
-static void	dda(t_mlx *mlx)
+static void	dda(t_cub3d *mlx)
 {
 	mlx->raycaster->ray_angle = normalise_angle(mlx->raycaster->ray_angle);
 	mlx->raycaster->orientation = HORIZONTAL;
@@ -35,14 +37,14 @@ static void	dda(t_mlx *mlx)
 			normalise_angle(mlx->raycaster->ray_angle));
 	if (mlx->raycaster->inter[0] <= mlx->raycaster->inter[1])
 	{
-		//render_line(mlx, mlx->raycaster->end_points[0],
-		//	mlx->raycaster->end_points[1]);
+		//render_line(mlx, mlx->raycaster->horizontal[0],
+		//	mlx->raycaster->horizontal[1]);
 		mlx->raycaster->distance_to_wall = mlx->raycaster->inter[0];
 	}
 	else
 	{
-		//render_line(mlx, mlx->raycaster->end_points[2],
-		//	mlx->raycaster->end_points[3]);
+		//render_line(mlx, mlx->raycaster->vertical[0],
+		//	mlx->raycaster->vertical[1]);
 		mlx->raycaster->orientation = VERTICAL;
 		mlx->raycaster->distance_to_wall = mlx->raycaster->inter[1];
 	}

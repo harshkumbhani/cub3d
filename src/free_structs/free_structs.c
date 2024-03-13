@@ -41,5 +41,4 @@ static void	free_directions(t_directions *direction)
 	free(direction->south);
 	free(direction->east);
 	free(direction->west);
-	free(direction->door);
 }

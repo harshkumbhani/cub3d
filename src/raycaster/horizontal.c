@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   horizontal.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 12:23:30 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/03/02 01:03:14 by harsh            ###   ########.fr       */
+/*   Updated: 2024/03/12 16:13:48 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static int	check_intersection(double angle, double *h_y)
+static int	check_side(double angle, double *h_y)
 {
 	if (angle > 0 && angle < M_PI)
 	{
@@ -29,7 +29,7 @@ static int	check_quadrant(double angle)
 	return (false);
 }
 
-double	horizontal_inter(t_mlx *mlx, double angle)
+double	horizontal_inter(t_cub3d *mlx, double angle)
 {
 	int		pixel_check;
 	double	h_x;
@@ -41,7 +41,7 @@ double	horizontal_inter(t_mlx *mlx, double angle)
 	mlx->raycaster->y_step = BLOCK_SIZE;
 	mlx->raycaster->x_step = BLOCK_SIZE / tan(angle);
 	h_y = floor(mlx->player->y_px / BLOCK_SIZE) * BLOCK_SIZE;
-	pixel_check = check_intersection(angle, &h_y);
+	pixel_check = check_side(angle, &h_y);
 	h_x = mlx->player->x_px + (h_y - mlx->player->y_px) / tan(angle);
 	if ((check_quadrant(angle) == true && mlx->raycaster->x_step > 0)
 		|| (check_quadrant(angle) == false && mlx->raycaster->x_step < 0))

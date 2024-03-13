@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 12:21:23 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/02/26 21:01:32 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/13 04:08:32 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,19 @@ double	normalise_angle(double angle)
 	return (angle);
 }
 
-int	check_wall(t_mlx *mlx, double x, double y)
+int	check_wall(t_cub3d *mlx, double x, double y)
 {
 	if (x < 0 || y < 0)
 		return (false);
 	mlx->raycaster->map_pos[0] = floor(x / BLOCK_SIZE);
 	mlx->raycaster->map_pos[1] = floor(y / BLOCK_SIZE);
-	if (mlx->raycaster->map_pos[0] > 13 || mlx->raycaster->map_pos[1] > 10)
+	if (mlx->raycaster->map_pos[0] > mlx->meta_data->map_dimensions[width] - 2
+		|| mlx->raycaster->map_pos[1] > mlx->meta_data->map_dimensions[height])
 		return (false);
 	if (mlx->raycaster->map_pos[0] < 0 || mlx->raycaster->map_pos[1] < 0)
 		return (false);
-	if (mlx->map[mlx->raycaster->map_pos[1]][mlx->raycaster->map_pos[0]] == 1)
+	if (mlx->meta_data->map[mlx->raycaster->map_pos[1]]
+		[mlx->raycaster->map_pos[0]] == wall)
 		return (false);
 	return (true);
 }

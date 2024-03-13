@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   line.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 01:02:13 by harsh             #+#    #+#             */
-/*   Updated: 2024/03/02 01:02:16 by harsh            ###   ########.fr       */
+/*   Updated: 2024/03/13 03:39:57 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 static void	calculate_line_endpoint(t_line *line);
-static void	draw_line(t_mlx *mlx);
+static void	draw_line(t_cub3d *mlx);
 
-void	render_line(t_mlx *mlx, int x1, int y1)
+void	render_line(t_cub3d *mlx, int x1, int y1)
 {
 	if (x1 > INT_MAX)
 		x1 = INT_MAX;
@@ -53,7 +53,7 @@ static void	calculate_line_endpoint(t_line *line)
 		line->sy = -1;
 }
 
-static void	draw_line(t_mlx *mlx)
+static void	draw_line(t_cub3d *mlx)
 {
 	int	err;
 	int	e2;

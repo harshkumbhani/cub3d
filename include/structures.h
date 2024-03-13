@@ -83,14 +83,13 @@ typedef struct s_game
 	t_map_content		**map;
 	struct s_color		*color[2];
 	struct s_directions	*directions;
-	mlx_image_t			image[4];
-	mlx_image_t			*direction_img[4];
+	mlx_texture_t		*direction_img[4];
 }	t_game;
 
 typedef struct s_input
 {
 	struct s_directions	*texture;
-	struct s_color		*floor;
+	struct s_color		*ground;
 	struct s_color		*ceiling;
 	char				**map;
 	int					ac;
@@ -111,7 +110,6 @@ typedef struct s_directions
 	char				*south;
 	char				*east;
 	char				*west;
-	char				*door;
 }	t_directions;
 
 typedef struct s_color
@@ -143,6 +141,16 @@ typedef	struct s_line
 	int			sy;
 }	t_line;
 
+typedef	struct s_offsets
+{
+	double	x_offset;
+	double	y_offset;
+	double	factor;
+	int		tex_height;
+	int		tex_width;
+}	t_offsets;
+
+
 /// @brief 
 /// inter[0] -> horizontal intersection
 ///	inter[1] -> vertical intersection
@@ -162,17 +170,18 @@ typedef	struct s_raycaster
 	double	distance_to_wall;
 }	t_raycaster;
 
-typedef	struct s_mlx
+typedef	struct s_cub3d
 {
-	int			map[10][13];
-	mlx_t		*mlx;
-	mlx_image_t	*image;
-	mlx_image_t	*player_window;
-	mlx_image_t	*line_window;
+	int				map[10][13];
+	mlx_t			*mlx;
+	mlx_image_t		*image;
+	mlx_image_t		*player_window;
+	mlx_image_t		*line_window;
 	mlx_texture_t	*wall;
-	t_line		*line;
-	t_player	*player;
-	t_raycaster	*raycaster;
-}	t_mlx;
+	t_game			*meta_data;
+	t_line			*line;
+	t_player		*player;
+	t_raycaster		*raycaster;
+}	t_cub3d;
 
 #endif

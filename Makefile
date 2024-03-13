@@ -7,7 +7,7 @@ NAME			=			cub3D
 ###############################################################################
 
 CC				=			cc
-CFLAGS			=			#-Wall -Werror -Wextra -fsanitize=address -g
+CFLAGS			=			-Wall -Werror -Wextra -g -fsanitize=address
 HEADERS			=			-I./include -I./libs/include
 LIBS			=			./libs
 LIBS_NAME		=			./libs/libs.a
@@ -63,10 +63,10 @@ SRC_MAP_MANIPUL	:=	get_longest_line_in_map.c								\
 SRC_FREE_STR	:=	free_structs.c
 SRC_MINIMAP		:=	line.c render.c
 SRC_HOOKS		:=	key_hook.c wall_collision.c
-SRC_INIT		:=	init.c
+SRC_INIT		:=	init.c launch_game.c
 SRC_EXIT		:=	exit.c
 SRC_RAYCASTER	:=	raycaster.c math_utils.c horizontal.c vertical.c
-SRC_RENDER		:=	render_wall.c
+SRC_RENDER		:=	render_wall.c render_utils.c
 
 SOURCE			:=	$(SRC_MAIN) $(SRC_HANDL_INPUT) $(SRC_FILE_PARS)			\
 					$(SRC_INDUCATOR) $(SRC_ERROR) $(SRC_GET_CONTENT)		\

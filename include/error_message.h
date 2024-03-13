@@ -21,6 +21,9 @@
 #define DOOR_OUT_OF_MAP			"Door found outside of map: "
 #define AMMO_OUT_OF_MAP			"Enemy found outside of map: "
 #define SPACE_IN_MAP			"Found space in map: "
+#define FATAL_MLX_INIT			"mlx init failed :("
+#define FATAL_TEX_LOAD			"mlx load png failed :("
+#define FATAL_NEW_IMAGE			"mlx new image failed :("
 
 #endif
 

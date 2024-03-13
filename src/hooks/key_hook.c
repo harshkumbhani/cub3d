@@ -6,22 +6,22 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 08:15:16 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/02/29 11:15:19 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/13 03:43:22 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	rotate_player(t_mlx *mlx, int direction)
+void	rotate_player(t_cub3d *mlx, int direction)
 {
 	mlx->player->pa += direction * ROT_SPEED;
 	if (mlx->player->pa < 0)
 		mlx->player->pa += 2 * M_PI;
 	else if (mlx->player->pa > 2 * M_PI)
-			mlx->player->pa -= 2 * M_PI;
+		mlx->player->pa -= 2 * M_PI;
 }
 
-void	move_player(t_mlx *mlx, double dir_x, double dir_y)
+void	move_player(t_cub3d *mlx, double dir_x, double dir_y)
 {
 	double	move_x;
 	double	move_y;
@@ -35,7 +35,7 @@ void	move_player(t_mlx *mlx, double dir_x, double dir_y)
 	}
 }
 
-void	handle_movement(t_mlx *mlx)
+void	handle_movement(t_cub3d *mlx)
 {
 	if (mlx_is_key_down(mlx->mlx, MLX_KEY_W) == true)
 		move_player(mlx, cos(mlx->player->pa), sin(mlx->player->pa));
@@ -49,16 +49,19 @@ void	handle_movement(t_mlx *mlx)
 
 void	handle_keyhook(mlx_key_data_t keydata, void *param)
 {
-	t_mlx	*mlx;
+	t_cub3d	*mlx;
 
-	mlx = (t_mlx *)param;
+	mlx = (t_cub3d *)param;
 	if (keydata.key == MLX_KEY_ESCAPE)
-		free_and_exit(mlx);
+	{
+		free_execution(mlx);
+		exit(EXIT_SUCCESS);
+	}
 	if (keydata.key == MLX_KEY_LEFT || keydata.key == MLX_KEY_Q)
 		rotate_player(mlx, -1);
 	if (keydata.key == MLX_KEY_RIGHT || keydata.key == MLX_KEY_E)
 		rotate_player(mlx, 1);
-	if (keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_S ||
-		keydata.key == MLX_KEY_A || keydata.key == MLX_KEY_D)
+	if (keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_S
+		|| keydata.key == MLX_KEY_A || keydata.key == MLX_KEY_D)
 		handle_movement(mlx);
 }

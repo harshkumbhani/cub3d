@@ -66,36 +66,49 @@ void	fill_enum_map(t_game *game, char **aligned_map);
 //FREE STRUCTS
 void	free_structs(t_game *game, t_parsing *parser);
 
+///////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////EXECUTION/////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+
+// MAIN LOOP
+
+int		launch_game(t_cub3d *cub3d);
+
 // MINIMAP
 
-void	render_line(t_mlx *mlx, int x1, int y1);
+void	render_line(t_cub3d *mlx, int x1, int y1);
 void	render_background(mlx_image_t *image);
 //void	render_block(mlx_image_t *image, int x_pos, int y_pos);
-void	render_map(t_mlx *mlx);
-void	render_player(t_mlx *mlx, int x_pos, int y_pos);
+void	render_map(t_cub3d *mlx);
+void	render_player(t_cub3d *mlx, int x_pos, int y_pos);
 
 //// HOOKS
 
 void	handle_keyhook(mlx_key_data_t keydata, void *param);
-bool	collision_with_wall(t_mlx *mlx, double x, double y);
+bool	collision_with_wall(t_cub3d *mlx, double x, double y);
 
 // INIT
 
-int		init(t_mlx *data);
-void	free_and_exit(t_mlx *mlx);
+int		init_data(t_cub3d *data);
+void	free_execution(t_cub3d *mlx);
 
 // RAYCASTER
-void	raycaster(t_mlx *mlx);
+void	raycaster(t_cub3d *cub3d);
 double	pythagores(double x, double y, t_player *player);
 double	normalise_angle(double angle);
-int		check_wall(t_mlx *mlx, double x, double y);
-double	vertical_inter(t_mlx *mlx, double angle);
-double	horizontal_inter(t_mlx *mlx, double angle);
+int		check_wall(t_cub3d *mlx, double x, double y);
+double	vertical_inter(t_cub3d *mlx, double angle);
+double	horizontal_inter(t_cub3d *mlx, double angle);
 
 // RENDER
 
-void		render_wall(t_mlx *mlx, int ray);
-uint32_t	color_function(int r, int g, int b, int a);
+void			render_wall(t_cub3d *mlx, int ray);
+uint32_t		color_function(int r, int g, int b, int a);
+uint32_t		extract_color(uint8_t *pixels);
+void			put_pixel(t_cub3d *mlx, int x, int y, int color);
+mlx_texture_t	*get_wall_texture(t_cub3d *cub3d, double ray_angle);
+double			calculate_x_offset(t_cub3d *cub3d);
 
 #endif
 

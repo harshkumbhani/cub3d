@@ -38,9 +38,9 @@ static void	fill_color_struct(t_parsing *parser, char **str_number)
 {
 	if (ft_strncmp(parser->line, "F", 1) == 0)
 	{
-		parser->input->floor->red = ft_atoi(str_number[red]);
-		parser->input->floor->green = ft_atoi(str_number[green]);
-		parser->input->floor->blue = ft_atoi(str_number[blue]);
+		parser->input->ground->red = ft_atoi(str_number[red]);
+		parser->input->ground->green = ft_atoi(str_number[green]);
+		parser->input->ground->blue = ft_atoi(str_number[blue]);
 	}
 	else if (ft_strncmp(parser->line, "C", 1) == 0)
 	{
