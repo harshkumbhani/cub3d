@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 20:35:18 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/03/13 22:50:56 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/13 23:31:47 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,14 @@
 # define MINIMAP_SIZE_Y		250
 # define MINIMAP_POS_X		20
 # define MINIMAP_POS_Y		20
+
+# define SEA_AUDIO			"afplay assets/cafe/cafe.wav&"
+# define CHOPIN_AUDIO		"afplay assets/chopin/chopin.wav&"
+# define CAFE_AUDIO			"afplay assets/sea/sea.wav&"
+
+# define CAFE_CUB			1
+# define CHOPIN_CUB			2
+# define SEA_CUB			3
 
 ///////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////STANDARD/LIBARY////////////////////////////////

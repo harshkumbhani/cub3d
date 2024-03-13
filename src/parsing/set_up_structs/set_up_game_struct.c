@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_up_game_struct.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgabler <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 19:55:36 by fgabler           #+#    #+#             */
-/*   Updated: 2024/03/13 19:58:01 by fgabler          ###   ########.fr       */
+/*   Updated: 2024/03/14 00:04:18 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	set_up_game_struct(t_parsing *parser, t_game *game)
 	color_set(game, parser);
 	directions_set(game, parser, copied_map);
 	free_dubble_array(copied_map);
+	game->cub_type = parser->cub_type;
 }
 
 static void	set_map_dimensions(t_game *game, t_parsing *parser)

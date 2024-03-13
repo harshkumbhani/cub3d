@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 20:01:36 by fgabler           #+#    #+#             */
-/*   Updated: 2024/03/13 21:27:34 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/14 00:03:32 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ typedef struct s_parsing
 	int					error_occurred;
 	int					player_found;
 	int					fd;
+	int					cub_type;
 	char				*line;
 }	t_parsing;
 
@@ -99,6 +100,7 @@ typedef struct s_game
 	int					map_dimensions[2];
 	int					player_position[2];
 	int					direction_facing;
+	int					cub_type;
 	t_map_content		**map;
 	struct s_color		*color[2];
 	struct s_directions	*directions;

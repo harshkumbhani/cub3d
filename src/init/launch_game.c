@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:48:11 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/03/13 19:55:43 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/14 00:14:23 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static int	init_mlx(t_cub3d *mlx);
 static int	load_textures(t_cub3d *cub3d);
 static void	loop_game(void *param);
+static void	load_music(int map_type);
 
 int	launch_game(t_cub3d *cub3d)
 {
@@ -26,7 +27,7 @@ int	launch_game(t_cub3d *cub3d)
 		return (printf("%s%s%s", RED, FATAL_NEW_IMAGE, RESET), EXIT_FAILURE);
 	if (load_textures(cub3d) == EXIT_FAILURE)
 		return (printf("%s%s%s", RED, FATAL_TEX_LOAD, RESET), EXIT_FAILURE);
-	system("afplay assets/chopin/chopin.wav&");
+	load_music(cub3d->meta_data->cub_type);
 	mlx_loop_hook(cub3d->mlx, &loop_game, cub3d);
 	mlx_key_hook(cub3d->mlx, handle_keyhook, cub3d);
 	mlx_loop(cub3d->mlx);
@@ -74,6 +75,16 @@ int	load_textures(t_cub3d *cub3d)
 	if (cub3d->meta_data->direction_img[WEST] == NULL)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
+}
+
+void	load_music(int map_type)
+{
+	if (map_type == CAFE_CUB)
+		system("afplay assets/cafe/cafe.wav&");
+	else if (map_type == CHOPIN_CUB)
+		system("afplay assets/chopin/chopin.wav&");
+	else if (map_type == SEA_CUB)
+		system("afplay assets/sea/sea.wav&");
 }
 
 void	loop_game(void *param)
