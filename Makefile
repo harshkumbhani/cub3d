@@ -40,7 +40,7 @@ VPATH			=	src src/parsing/input_handling							\
 					src/init												\
 					src/exit												\
 					src/raycaster											\
-					src/render
+					src/render src/parsing/make_structs_accessible
 
 SRC_MAIN		:=	cub3d.c
 SRC_HANDL_INPUT	:=	parse_input.c
@@ -71,12 +71,15 @@ SRC_INIT		:=	init.c launch_game.c
 SRC_EXIT		:=	exit.c
 SRC_RAYCASTER	:=	raycaster.c math_utils.c horizontal.c vertical.c
 SRC_RENDER		:=	render_wall.c render_utils.c
+SRC_MAKE_GLOBAL	:=	make_structs_accessible.c get_game_struct.c				\
+					get_parser_struct.c
 
 SOURCE			:=	$(SRC_MAIN) $(SRC_HANDL_INPUT) $(SRC_FILE_PARS)			\
 					$(SRC_INDUCATOR) $(SRC_ERROR) $(SRC_GET_CONTENT)		\
 					$(SRC_VALIDE_MAP) $(SRC_SET_UP_STR) $(SRC_MAP_MANIPUL)	\
 					$(SRC_FREE_STR) $(SRC_MINIMAP) $(SRC_HOOKS) $(SRC_INIT) \
-					$(SRC_EXIT) $(SRC_RAYCASTER) $(SRC_RENDER)
+					$(SRC_EXIT) $(SRC_RAYCASTER) $(SRC_RENDER)				\
+					$(SRC_MAKE_GLOBAL)
 
 ###############################################################################
 ###############################################################################

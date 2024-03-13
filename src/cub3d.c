@@ -38,6 +38,7 @@ int	main(int ac, char **av)
 	cub3d = (t_cub3d){};
 	init_math_struct(&cub3d);
 	set_up_parser_struct(&parser, ac, av);
+	make_structs_accessible(&game, &parser);
 	parse_input(&parser);
 	file_parsing(&parser);
 	get_file_content(&parser);
