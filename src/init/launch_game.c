@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:48:11 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/03/13 12:39:13 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/13 18:29:12 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,23 +37,20 @@ int	init_mlx(t_cub3d *mlx)
 	mlx->image = mlx_new_image(mlx->mlx, WIDTH, HEIGHT);
 	if (mlx->image == NULL)
 		return (EXIT_FAILURE);
-	mlx->line_window = mlx_new_image(mlx->mlx, WIDTH, HEIGHT);
-	if (mlx->line_window == NULL)
-		return (EXIT_FAILURE);
 	mlx->minimap = mlx_new_image(mlx->mlx, MINIMAP_SIZE_X, MINIMAP_SIZE_Y);
 	if (mlx->minimap == NULL)
 		return (EXIT_FAILURE);
-	mlx->player_window = mlx_new_image(mlx->mlx, MINIMAP_SIZE_X, MINIMAP_SIZE_Y);
+	mlx->player_window = mlx_new_image(mlx->mlx,
+			MINIMAP_SIZE_X, MINIMAP_SIZE_Y);
 	if (mlx->player_window == NULL)
 		return (EXIT_FAILURE);
-	mlx_image_to_window(mlx->mlx, mlx->line_window, 0, 0);
-	mlx_image_to_window(mlx->mlx, mlx->player_window, MINIMAP_POS_X, MINIMAP_POS_Y);
+	mlx_image_to_window(mlx->mlx, mlx->player_window,
+		MINIMAP_POS_X, MINIMAP_POS_Y);
 	mlx_image_to_window(mlx->mlx, mlx->minimap, MINIMAP_POS_X, MINIMAP_POS_Y);
 	mlx_image_to_window(mlx->mlx, mlx->image, 0, 0);
-	mlx->line_window->instances->z = 0;
-	mlx->image->instances->z = 1;
-	mlx->minimap->instances->z = 3;
-	mlx->player_window->instances->z = 2;
+	mlx->image->instances->z = 0;
+	mlx->minimap->instances->z = 2;
+	mlx->player_window->instances->z = 1;
 	render_minimap(mlx);
 	return (EXIT_SUCCESS);
 }
@@ -75,7 +72,6 @@ int	load_textures(t_cub3d *cub3d)
 	cub3d->meta_data->direction_img[WEST] = mlx_load_png(directions->west);
 	if (cub3d->meta_data->direction_img[WEST] == NULL)
 		return (EXIT_FAILURE);
-	cub3d->wall = mlx_load_png(directions->east);
 	return (EXIT_SUCCESS);
 }
 
