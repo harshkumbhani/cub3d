@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 08:15:16 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/03/13 03:43:22 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/13 18:36:01 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,7 @@ void	handle_keyhook(mlx_key_data_t keydata, void *param)
 
 	mlx = (t_cub3d *)param;
 	if (keydata.key == MLX_KEY_ESCAPE)
-	{
-		free_execution(mlx);
-		exit(EXIT_SUCCESS);
-	}
+		free_execution(mlx, EXIT_SUCCESS);
 	if (keydata.key == MLX_KEY_LEFT || keydata.key == MLX_KEY_Q)
 		rotate_player(mlx, -1);
 	if (keydata.key == MLX_KEY_RIGHT || keydata.key == MLX_KEY_E)

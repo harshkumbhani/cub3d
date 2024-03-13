@@ -48,7 +48,7 @@
 # define WEST				3
 
 #define MINIMAP_SCALE		0.1
-#define MINIMAP_SIZE_X		350
+#define MINIMAP_SIZE_X		300
 #define MINIMAP_SIZE_Y		250
 #define MINIMAP_POS_X		20
 #define MINIMAP_POS_Y		20

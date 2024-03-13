@@ -188,13 +188,10 @@ typedef	struct	s_minimap
 
 typedef	struct s_cub3d
 {
-	int				map[10][13];
 	mlx_t			*mlx;
 	mlx_image_t		*image;
 	mlx_image_t		*player_window;
-	mlx_image_t		*line_window;
 	mlx_image_t		*minimap;
-	mlx_texture_t	*wall;
 	t_game			*meta_data;
 	t_line			*line;
 	t_player		*player;

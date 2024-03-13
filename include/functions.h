@@ -98,7 +98,7 @@ bool			collision_with_wall(t_cub3d *mlx, double x, double y);
 // INIT
 
 int				init_data(t_cub3d *data);
-void			free_execution(t_cub3d *mlx);
+void			free_execution(t_cub3d *mlx, int exit_flag);
 
 // RAYCASTER
 void			raycaster(t_cub3d *cub3d);

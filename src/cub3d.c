@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:52:22 by fgabler           #+#    #+#             */
-/*   Updated: 2024/03/13 07:02:03 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/13 18:37:59 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,8 @@ int	main(int ac, char **av)
 	{
 		cub3d.meta_data = &game;
 		if (launch_game(&cub3d) == EXIT_FAILURE)
-			free_execution(&cub3d);
+			free_execution(&cub3d, EXIT_FAILURE);
 	}
 	free_structs(&game, &parser);
-	system("leaks cub3d");
 	return (0);
 }

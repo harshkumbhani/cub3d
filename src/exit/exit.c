@@ -6,13 +6,13 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 07:38:36 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/03/13 16:06:53 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/13 18:35:21 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	free_execution(t_cub3d *cub3d)
+void	free_execution(t_cub3d *cub3d, int exit_flag)
 {
 	int			i;
 	t_parsing	**parser;
@@ -33,4 +33,5 @@ void	free_execution(t_cub3d *cub3d)
 	mlx_close_window(cub3d->mlx);
 	mlx_terminate(cub3d->mlx);
 	free_structs(cub3d->meta_data, *parser);
+	exit(exit_flag);
 }
