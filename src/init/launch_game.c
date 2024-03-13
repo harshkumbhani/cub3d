@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:48:11 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/03/13 03:42:14 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/13 10:57:17 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,21 @@ int	init_mlx(t_cub3d *mlx)
 	mlx->line_window = mlx_new_image(mlx->mlx, WIDTH, HEIGHT);
 	if (mlx->line_window == NULL)
 		return (EXIT_FAILURE);
+	mlx->minimap = mlx_new_image(mlx->mlx, MINIMAP_SIZE_X, MINIMAP_SIZE_Y);
+	if (mlx->minimap == NULL)
+		return (EXIT_FAILURE);
+	mlx->player_window = mlx_new_image(mlx->mlx, MINIMAP_SIZE_X, MINIMAP_SIZE_Y);
+	if (mlx->player_window == NULL)
+		return (EXIT_FAILURE);
 	mlx_image_to_window(mlx->mlx, mlx->line_window, 0, 0);
+	mlx_image_to_window(mlx->mlx, mlx->player_window, MINIMAP_POS_X, MINIMAP_POS_Y);
+	mlx_image_to_window(mlx->mlx, mlx->minimap, MINIMAP_POS_X, MINIMAP_POS_Y);
 	mlx_image_to_window(mlx->mlx, mlx->image, 0, 0);
 	mlx->line_window->instances->z = 0;
 	mlx->image->instances->z = 1;
-	render_map(mlx);
+	mlx->minimap->instances->z = 3;
+	mlx->player_window->instances->z = 2;
+	render_minimap(mlx);
 	return (EXIT_SUCCESS);
 }
 
@@ -75,16 +85,5 @@ void	loop_game(void *param)
 
 	cub3d = (t_cub3d *)param;
 	raycaster(cub3d);
+	//update_minimap_player(cub3d);
 }
-
-	//if (parser.error_occurred == false)
-	//{
-		//if (init(&cub3d) == EXIT_FAILURE)
-		//	return (EXIT_FAILURE);
-		//cub3d.mlx = mlx_init(WIDTH, HEIGHT, "cub3d", true);
-		//init_mlx(&cub3d);
-		//mlx_loop_hook(cub3d.mlx, &loop_game, &cub3d);
-		//mlx_key_hook(cub3d.mlx, handle_keyhook, &cub3d);
-		//mlx_loop(cub3d.mlx);
-		//free_execution(&cub3d);
-	//}

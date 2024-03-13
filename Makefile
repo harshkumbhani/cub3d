@@ -7,7 +7,7 @@ NAME			=			cub3D
 ###############################################################################
 
 CC				=			cc
-CFLAGS			=			-Wall -Werror -Wextra -g -fsanitize=address
+CFLAGS			=			-Wall -Werror -Wextra -fsanitize=address -g
 HEADERS			=			-I./include -I./libs/include
 LIBS			=			./libs
 LIBS_NAME		=			./libs/libs.a
@@ -41,7 +41,8 @@ VPATH			=	src src/input_handling src/parsing/file_parsing			\
 
 SRC_MAIN		:=	cub3d.c
 SRC_HANDL_INPUT	:=	parse_input.c
-SRC_SET_UP_STR	:=	set_up_parser_struct.c set_up_game_struct.c
+SRC_SET_UP_STR	:=	set_up_parser_struct.c set_up_game_struct.c				\
+					find_player_position.c find_direction_player_is_facing.c
 SRC_FILE_PARS	:=	file_parsing.c 											\
 					texture_check.c replace_newline_with_null_terminator.c	\
 					color_check.c numbers_in_rgb_range_check.c				\
@@ -61,7 +62,7 @@ SRC_MAP_MANIPUL	:=	get_longest_line_in_map.c								\
 					create_string_of_spaces.c fill_enum_map.c				\
 					enum_map_allocation.c
 SRC_FREE_STR	:=	free_structs.c
-SRC_MINIMAP		:=	line.c render.c
+SRC_MINIMAP		:=	line.c render.c update_minimap.c
 SRC_HOOKS		:=	key_hook.c wall_collision.c
 SRC_INIT		:=	init.c launch_game.c
 SRC_EXIT		:=	exit.c

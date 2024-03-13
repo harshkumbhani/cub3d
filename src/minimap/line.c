@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 01:02:13 by harsh             #+#    #+#             */
-/*   Updated: 2024/03/13 03:39:57 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/13 11:03:13 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void	draw_line(t_cub3d *mlx)
 	err = mlx->line->dx + mlx->line->dy;
 	while (true)
 	{
-		mlx_put_pixel(mlx->line_window, temp[0], temp[1], 0xFFCC33FF);
+		mlx_put_pixel(mlx->player_window, temp[0], temp[1], 0xFFCC33FF);
 		if (temp[0] == mlx->line->x1 && temp[1] == mlx->line->y1)
 			break ;
 		e2 = 2 * err;
@@ -79,7 +79,7 @@ static void	draw_line(t_cub3d *mlx)
 			temp[1] += mlx->line->sy;
 		}
 	}
-	mlx_put_pixel(mlx->line_window, mlx->line->x1, mlx->line->y1, 0xFFCC33FF);
+	mlx_put_pixel(mlx->player_window, mlx->line->x1, mlx->line->y1, 0xFFCC33FF);
 }
 
 // 0xFFCC33FF

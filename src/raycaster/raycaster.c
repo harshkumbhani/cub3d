@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 08:42:12 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/03/13 03:44:34 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/13 06:23:14 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 static void	dda(t_cub3d *cub3d);
 
-//render_background(cub3d->line_window);
 
 void	raycaster(t_cub3d *cub3d)
 {
 	cub3d->raycaster->ray = -1;
 	cub3d->raycaster->ray_angle = cub3d->player->pa - (cub3d->player->fov / 2);
+	//render_background(cub3d->line_window);
 	while (++cub3d->raycaster->ray < WIDTH)
 	{
 		dda(cub3d);

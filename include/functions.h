@@ -80,10 +80,10 @@ int		launch_game(t_cub3d *cub3d);
 // MINIMAP
 
 void	render_line(t_cub3d *mlx, int x1, int y1);
-void	render_background(mlx_image_t *image);
-//void	render_block(mlx_image_t *image, int x_pos, int y_pos);
-void	render_map(t_cub3d *mlx);
-void	render_player(t_cub3d *mlx, int x_pos, int y_pos);
+void	render_background(mlx_image_t *image, int height, int width);
+void	render_minimap(t_cub3d *mlx);
+void	draw_player(t_cub3d *cub3d, int x, int y, int width);
+void	update_minimap_player(t_cub3d *cub3d);
 
 //// HOOKS
 

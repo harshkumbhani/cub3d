@@ -6,18 +6,18 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 15:03:35 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/03/13 03:55:44 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/13 06:09:41 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void		find_player_position(t_cub3d *data);
+static void		ft_find_player_position(t_cub3d *data);
 static double	get_player_direction(t_cub3d *data);
 
 int	init_data(t_cub3d *data)
 {
-	find_player_position(data);
+	ft_find_player_position(data);
 	data->player->x_px = data->player->x_map * BLOCK_SIZE + BLOCK_SIZE / 2;
 	data->player->y_px = data->player->y_map * BLOCK_SIZE + BLOCK_SIZE / 2;
 	data->player->fov = (FOV * M_PI) / 180;
@@ -25,7 +25,7 @@ int	init_data(t_cub3d *data)
 	return (EXIT_SUCCESS);
 }
 
-void	find_player_position(t_cub3d *data)
+void	ft_find_player_position(t_cub3d *data)
 {
 	int	x;
 	int	y;
@@ -51,8 +51,14 @@ double	get_player_direction(t_cub3d *data)
 {
 	double	return_angle;
 
-	(void)data;
 	return_angle = 0.0;
-	return_angle = 0;
+	if (data->meta_data->direction_facing == north)
+		return_angle = 3 * M_PI_2;
+	else if (data->meta_data->direction_facing == east)
+		return_angle = 0.0;
+	else if (data->meta_data->direction_facing == west)
+		return_angle = M_PI_2;
+	else if (data->meta_data->direction_facing == south)
+		return_angle = M_PI;
 	return (return_angle);
 }

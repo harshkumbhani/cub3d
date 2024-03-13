@@ -33,7 +33,7 @@
 
 # define PI					3.1415926535
 //# define ROTATION_AMOUNT	0.17453
-# define LINE_LEN			5
+# define LINE_LEN			25
 # define FOV				60
 # define BLOCK_SIZE			64
 # define ROT_SPEED			0.08
@@ -46,6 +46,12 @@
 # define SOUTH				1
 # define EAST				2
 # define WEST				3
+
+#define MINIMAP_SCALE		0.1
+#define MINIMAP_SIZE_X		350
+#define MINIMAP_SIZE_Y		250
+#define MINIMAP_POS_X		20
+#define MINIMAP_POS_Y		20
 
 ///////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////STANDARD/LIBARY////////////////////////////////

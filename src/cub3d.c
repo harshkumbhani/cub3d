@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:52:22 by fgabler           #+#    #+#             */
-/*   Updated: 2024/03/13 03:46:11 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/13 07:02:03 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,16 @@ static void	init_math_struct(t_cub3d *cub3d)
 	static t_line		line;
 	static t_player		player;
 	static t_raycaster	raycaster;
+	static t_minimap	hud;
 
 	line = (t_line){};
 	player = (t_player){};
 	raycaster = (t_raycaster){};
+	hud = (t_minimap){};
 	cub3d->line = &line;
 	cub3d->player = &player;
 	cub3d->raycaster = &raycaster;
+	cub3d->hud = &hud;
 }
 
 int	main(int ac, char **av)
@@ -47,7 +50,6 @@ int	main(int ac, char **av)
 			free_execution(&cub3d);
 	}
 	free_structs(&game, &parser);
+	system("leaks cub3d");
 	return (0);
 }
-
-	//system("leaks cub3d");

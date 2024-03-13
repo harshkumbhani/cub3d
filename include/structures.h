@@ -157,7 +157,6 @@ typedef	struct s_offsets
 	int		tex_width;
 }	t_offsets;
 
-
 /// @brief 
 /// inter[0] -> horizontal intersection
 ///	inter[1] -> vertical intersection
@@ -177,6 +176,16 @@ typedef	struct s_raycaster
 	double	distance_to_wall;
 }	t_raycaster;
 
+typedef	struct	s_minimap
+{
+	int		xpos;
+	int		ypos;
+	int		player_xpos;
+	int		player_ypos;
+	double	block_width;
+	double	block_height;
+}	t_minimap;
+
 typedef	struct s_cub3d
 {
 	int				map[10][13];
@@ -184,11 +193,13 @@ typedef	struct s_cub3d
 	mlx_image_t		*image;
 	mlx_image_t		*player_window;
 	mlx_image_t		*line_window;
+	mlx_image_t		*minimap;
 	mlx_texture_t	*wall;
 	t_game			*meta_data;
 	t_line			*line;
 	t_player		*player;
 	t_raycaster		*raycaster;
+	t_minimap		*hud;
 }	t_cub3d;
 
 #endif

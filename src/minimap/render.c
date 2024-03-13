@@ -6,64 +6,104 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 17:11:49 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/03/13 03:40:16 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/13 11:08:26 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	render_background(mlx_image_t *image)
+void	render_background(mlx_image_t *image, int height, int width)
 {
 	int	x;
 	int	y;
 
 	y = -1;
-	while (++y < HEIGHT)
+	while (++y < height)
 	{
-		x = -1;
-		while (++x < WIDTH)
+		x =  -1;
+		while (++x < width)
 			mlx_put_pixel(image, x, y, 0x000000FF);
 	}
 }
 
-void	render_block(mlx_image_t *image, int x_pos, int y_pos, int color)
+void	render_block(t_cub3d *cub3d, int x_pos, int y_pos, int color)
 {
 	int	i;
 	int	j;
 
 	j = y_pos;
-	while (++j < y_pos + BLOCK_SIZE)
+	while (++j < y_pos + HEIGHT / cub3d->meta_data->map_dimensions[1])
 	{
 		i = x_pos;
-		while (++i < x_pos + BLOCK_SIZE)
-			mlx_put_pixel(image, i, j, color);
+		while (++i < x_pos + WIDTH / cub3d->meta_data->map_dimensions[0])
+			mlx_put_pixel(cub3d->image, i, j, color);
 	}
 }
 
-void	render_map(t_cub3d *mlx)
+void	draw_rectangle(t_cub3d *cub3d, int color)
 {
 	int	i;
 	int	j;
-	int	x_pos;
-	int	y_pos;
 
-	i = -1;
-	y_pos = 0;
-	while (++i < mlx->meta_data->map_dimensions[height])
+	j = cub3d->hud->ypos;
+	while (++j < cub3d->hud->ypos + (int)cub3d->hud->block_height)
 	{
-		j = -1;
-		x_pos = 0;
-		while (++j < mlx->meta_data->map_dimensions[width])
+		i = cub3d->hud->xpos;
+		while (++i < cub3d->hud->xpos + (int)cub3d->hud->block_width)
 		{
-			if (mlx->meta_data->map[i][j] == wall)
-				render_block(mlx->image, x_pos, y_pos, 0xFFFFFFFF);
-			if (mlx->meta_data->map[i][j] == player)
-				render_player(mlx, x_pos + BLOCK_SIZE / 2,
-					y_pos + BLOCK_SIZE / 2);
-			x_pos += BLOCK_SIZE;
+			mlx_put_pixel(cub3d->minimap, i, j, color);
 		}
-		y_pos += BLOCK_SIZE;
 	}
+}
+
+void	draw_player(t_cub3d *cub3d, int x, int y, int width)
+{
+	int	i;
+	int	j;
+
+	j = -1;
+	while (++j < width)
+	{
+		i = -1;
+		while (++i < width)
+			mlx_put_pixel(cub3d->player_window, x + i, y + j, 0x00FF00FF);
+	}
+}
+
+void	render_minimap(t_cub3d *cub3d)
+{
+	int			i;
+	int			j;
+	int			player_size;
+	t_minimap	*hud;
+
+	j = -1;
+	player_size = 5;
+	hud = cub3d->hud;
+	hud->block_width = MINIMAP_SIZE_X / (double)cub3d->meta_data->map_dimensions[width];
+	hud->block_height = MINIMAP_SIZE_Y / (double)cub3d->meta_data->map_dimensions[height] - 1;
+	render_background(cub3d->player_window, MINIMAP_SIZE_Y, MINIMAP_SIZE_X);
+	hud->ypos = MINIMAP_POS_Y;
+	while (++j < cub3d->meta_data->map_dimensions[1])
+	{
+		i = -1;
+		hud->xpos = MINIMAP_POS_X;
+		while (++i < cub3d->meta_data->map_dimensions[0])
+		{
+			if (cub3d->meta_data->map[j][i] == wall)
+				draw_rectangle(cub3d, 0xFF0000FF);
+			hud->xpos += (int)hud->block_width;
+		}
+		hud->ypos += (int)hud->block_height;
+	}
+	hud->player_xpos = MINIMAP_POS_X + (int)((cub3d->player->x_map) * hud->block_width);
+	hud->player_ypos = MINIMAP_POS_Y + (int)(cub3d->player->y_map * hud->block_height);
+	cub3d->line->x0 = hud->player_xpos;
+	cub3d->line->y0 = hud->player_ypos;
+	printf("x0: %d y0: %d\n", cub3d->line->x0, cub3d->line->y0);
+	printf("player angle %2f\n", cub3d->player->pa);
+	draw_player(cub3d, hud->player_xpos - player_size / 2, hud->player_ypos - player_size / 2, player_size);
+	render_line(cub3d, 5 * cos(cub3d->player->pa), 5 * sin(cub3d->player->pa));
 }
 
 void	render_player(t_cub3d *mlx, int x_pos, int y_pos)
