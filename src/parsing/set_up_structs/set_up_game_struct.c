@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   set_up_game_struct.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fgabler <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/13 19:55:36 by fgabler           #+#    #+#             */
+/*   Updated: 2024/03/13 19:58:01 by fgabler          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 static void	null_game_struct(t_game *game);
@@ -22,7 +34,6 @@ void	set_up_game_struct(t_parsing *parser, t_game *game)
 	color_set(game, parser);
 	directions_set(game, parser, copied_map);
 	free_dubble_array(copied_map);
-//	find_player_position(game);
 }
 
 static void	set_map_dimensions(t_game *game, t_parsing *parser)

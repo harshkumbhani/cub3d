@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_for_spaces_in_map.c                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fgabler <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/13 19:56:00 by fgabler           #+#    #+#             */
+/*   Updated: 2024/03/13 19:58:20 by fgabler          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 static void	get_player_position(char **map, int *y, int *x, t_parsing *parser);
@@ -70,4 +82,3 @@ static int	leave_space_flood_fill(char **map, int x, int y, t_parsing *parser)
 		return (true);
 	return (false);
 }
-

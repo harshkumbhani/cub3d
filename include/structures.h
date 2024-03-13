@@ -1,5 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   structures.h                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fgabler <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/13 20:01:36 by fgabler           #+#    #+#             */
+/*   Updated: 2024/03/13 20:05:40 by fgabler          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef STRUCTURES_H
-#define STRUCTURES_H
+# define STRUCTURES_H
 
 ///////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////INCLUDES//////////////////////////////////
@@ -136,7 +148,7 @@ typedef struct s_player
 	double	pa;
 }	t_player;
 
-typedef	struct s_line
+typedef struct s_line
 {
 	int			x0;
 	int			y0;
@@ -148,7 +160,7 @@ typedef	struct s_line
 	int			sy;
 }	t_line;
 
-typedef	struct s_offsets
+typedef struct s_offsets
 {
 	double	x_offset;
 	double	y_offset;
@@ -160,7 +172,7 @@ typedef	struct s_offsets
 /// @brief 
 /// inter[0] -> horizontal intersection
 ///	inter[1] -> vertical intersection
-typedef	struct s_raycaster
+typedef struct s_raycaster
 {
 	int		ray;
 	int		ray_direction;
@@ -176,7 +188,7 @@ typedef	struct s_raycaster
 	double	distance_to_wall;
 }	t_raycaster;
 
-typedef	struct	s_minimap
+typedef struct s_minimap
 {
 	int		xpos;
 	int		ypos;
@@ -186,7 +198,7 @@ typedef	struct	s_minimap
 	double	block_height;
 }	t_minimap;
 
-typedef	struct s_cub3d
+typedef struct s_cub3d
 {
 	int				map[10][13];
 	mlx_t			*mlx;

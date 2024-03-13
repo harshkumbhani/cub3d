@@ -1,5 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   functions.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fgabler <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/13 20:05:56 by fgabler           #+#    #+#             */
+/*   Updated: 2024/03/13 20:09:11 by fgabler          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FUNCTIONS_H
-#define FUNCTIONS_H
+# define FUNCTIONS_H
 
 ///////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////INCLUDE//////////////////////////////////
@@ -18,7 +30,8 @@ void			parse_input(t_parsing *parser);
 //SET UP STRUCT
 void			set_up_game_struct(t_parsing *parser, t_game *game);
 void			find_player_position(t_game *game);
-void			set_player_direction(t_game *game, t_parsing *parser, char **cpymap);
+void			set_player_direction(t_game *game,
+					t_parsing *parser, char **cpymap);
 
 //FILE PARSING
 void			map_syntax_check(t_parsing *parser);
@@ -40,7 +53,8 @@ int				is_newline(t_parsing *parser);
 int				is_player(char *line, t_parsing *parser);
 
 //PARSER ERROR
-void			parser_error(char *error_message, char *string, t_parsing *parser);
+void			parser_error(char *error_message,
+					char *string, t_parsing *parser);
 
 //GET FILE CONTENT
 void			get_file_content(t_parsing *parser);
@@ -52,11 +66,13 @@ void			save_map_in_struct(t_parsing *parser, char **tmp_map);
 //VALIDE MAP CHECK
 void			valide_map_check(t_parsing *parser);
 void			flood_fill_spaces(char **map, int x, int y, t_parsing *parser);
-void			compare_zeros(int zero_before, int zero_after, t_parsing *parser);
+void			compare_zeros(int zero_before,
+					int zero_after, t_parsing *parser);
 void			check_for_spaces_in_map(char **copied_map, t_parsing *parser);
 
 //MAP MANIPULATION
-void			copy_map_with_two_extra_lines(char ***dst_map, t_parsing *parser);
+void			copy_map_with_two_extra_lines(char ***dst_map,
+					t_parsing *parser);
 void			get_number_of_map_rows(char **map, int *number_rows);
 void			add_string_at_top_and_bottom(char **cpy_map, t_parsing *parser);
 void			fill_map_with_aligned_lines(char **cpy_map, t_parsing *parser);
@@ -76,7 +92,6 @@ t_game			**get_game_struct(void);
 ///////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////EXECUTION/////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
-
 
 // MAIN LOOP
 

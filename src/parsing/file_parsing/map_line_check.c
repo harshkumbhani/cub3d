@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_line_check.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fgabler <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/13 19:48:06 by fgabler           #+#    #+#             */
+/*   Updated: 2024/03/13 19:57:01 by fgabler          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 static int	run_while_loop(char c, t_parsing *parser);
@@ -32,7 +44,7 @@ static void	player_check(char c, t_parsing *parser)
 {
 	if (c == 'N' || c == 'S' || c == 'W' || c == 'E')
 		parser->indicator->player++;
-	if (parser->indicator->player > 1 )
+	if (parser->indicator->player > 1)
 		return (parser_error(GREATER_TWO_PLAYER, parser->line, parser));
 }
 

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_syntax_check.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fgabler <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/13 19:48:18 by fgabler           #+#    #+#             */
+/*   Updated: 2024/03/13 19:57:31 by fgabler          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 static void	set_map_status(t_parsing *parser);
@@ -20,7 +32,7 @@ static void	set_map_status(t_parsing *parser)
 		&& parser->indicator->map[start] == false)
 		parser->indicator->map[start] = true;
 	else if (parser->indicator->map[start] == true && (parser->line[0] == '\n'
-		|| parser->line[0] == '\0'))
+			|| parser->line[0] == '\0'))
 		parser->indicator->map[end] = true;
 }
 
