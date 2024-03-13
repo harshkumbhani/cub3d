@@ -86,19 +86,16 @@ SOURCE			:=	$(SRC_MAIN) $(SRC_HANDL_INPUT) $(SRC_FILE_PARS)			\
 
 OBJ_DIR			:=	./_obj
 OBJ				:=	$(addprefix $(OBJ_DIR)/, $(SOURCE:%.c=%.o))
-DEP				= $(OBJ:%.o=%.d)
 
 ###############################################################################
 ###############################################################################
 
 all : $(NAME)
 
--include $(DEP)
-
 $(NAME): $(LIBS_NAME) $(OBJ)
 	@echo $(YELLOW)Compiling [$(NAME)]...$(RESET)
 	@printf $(UP)$(CUT)
-	@$(CC) $(CFLAGS) $(HEADERS) $(OBJ) $(LIBS_NAME) $(MLX_LIB) $(MLX) -o $(NAME) $(EXTRA_FLAGS)
+	@$(CC) $(CFLAGS) $(OBJ) $(LIBS_NAME) $(MLX_LIB) $(MLX) -o $(NAME) $(EXTRA_FLAGS)
 	@echo $(GREEN)Finished"  "[$(NAME)]...$(RESET)
 
 $(OBJ_DIR)/%.o: %.c
