@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   color.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgabler <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 20:00:03 by fgabler           #+#    #+#             */
-/*   Updated: 2024/03/13 20:00:04 by fgabler          ###   ########.fr       */
+/*   Updated: 2024/03/13 20:34:30 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COLOR_H
-#define COLOR_H
+# define COLOR_H
 
 # define RED					"\x01\033[1;31m\x02"
 # define DARK_GREEN				"\x01\033[1;32m\x02"
