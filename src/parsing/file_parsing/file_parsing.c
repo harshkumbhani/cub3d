@@ -18,6 +18,7 @@ void	file_parsing(t_parsing *parsing)
 		free(parsing->line);
 		get_line(parsing);
 	}
+	parsing->line = NULL;
 	close(parsing->fd);
 }
 

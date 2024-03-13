@@ -37,8 +37,8 @@ static void	free_parser_struct(t_parsing *parser)
 
 static void	free_directions(t_directions *direction)
 {
-	free(direction->north);
-	free(direction->south);
-	free(direction->east);
-	free(direction->west);
+	ft_free_string_save(&direction->north);
+	ft_free_string_save(&direction->south);
+	ft_free_string_save(&direction->east);
+	ft_free_string_save(&direction->west);
 }
