@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:48:11 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/03/13 10:57:17 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/13 12:39:13 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,5 @@ void	loop_game(void *param)
 
 	cub3d = (t_cub3d *)param;
 	raycaster(cub3d);
-	//update_minimap_player(cub3d);
+	update_minimap_player(cub3d);
 }

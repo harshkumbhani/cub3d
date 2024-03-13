@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 17:11:49 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/03/13 11:08:26 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/13 12:36:47 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void	render_minimap(t_cub3d *cub3d)
 	printf("x0: %d y0: %d\n", cub3d->line->x0, cub3d->line->y0);
 	printf("player angle %2f\n", cub3d->player->pa);
 	draw_player(cub3d, hud->player_xpos - player_size / 2, hud->player_ypos - player_size / 2, player_size);
-	render_line(cub3d, 5 * cos(cub3d->player->pa), 5 * sin(cub3d->player->pa));
+	render_line(cub3d, hud->player_xpos + 20 * cos(cub3d->player->pa), hud->player_ypos + 20 * sin(cub3d->player->pa));
 }
 
 void	render_player(t_cub3d *mlx, int x_pos, int y_pos)

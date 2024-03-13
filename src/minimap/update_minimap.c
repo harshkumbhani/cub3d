@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 09:32:11 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/03/13 10:23:19 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/13 12:44:48 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,10 @@ void	update_minimap_player(t_cub3d *cub3d)
 	minimap_offset[1] = (double)player_block[1] / BLOCK_SIZE * cub3d->hud->block_height;
 	cub3d->hud->player_xpos = MINIMAP_POS_X + minimap_block[0] +(int)minimap_offset[0];
 	cub3d->hud->player_ypos = MINIMAP_POS_Y + minimap_block[1] + (int)minimap_offset[1];
-	draw_player(cub3d, cub3d->hud->player_xpos - (5 / 2), cub3d->hud->player_ypos - (5 / 2), 5);
+	cub3d->line->x0 = cub3d->hud->player_xpos;
+	cub3d->line->y0 = cub3d->hud->player_ypos;
+	draw_player(cub3d, cub3d->hud->player_xpos - (5 / 2),
+		cub3d->hud->player_ypos - (5 / 2), 5);
+	render_line(cub3d, cub3d->hud->player_xpos + 20 * cos(cub3d->player->pa),
+		cub3d->hud->player_ypos + 20 * sin(cub3d->player->pa));
 }
