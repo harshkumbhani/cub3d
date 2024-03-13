@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:48:11 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/03/13 19:13:29 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/13 19:55:43 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	launch_game(t_cub3d *cub3d)
 		return (printf("%s%s%s", RED, FATAL_NEW_IMAGE, RESET), EXIT_FAILURE);
 	if (load_textures(cub3d) == EXIT_FAILURE)
 		return (printf("%s%s%s", RED, FATAL_TEX_LOAD, RESET), EXIT_FAILURE);
-	system("afplay assets/cafe/cafe_trim.wav&");
+	system("afplay assets/chopin/chopin.wav&");
 	mlx_loop_hook(cub3d->mlx, &loop_game, cub3d);
 	mlx_key_hook(cub3d->mlx, handle_keyhook, cub3d);
 	mlx_loop(cub3d->mlx);
