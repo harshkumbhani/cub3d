@@ -42,7 +42,7 @@ static void	color_set(t_game *game, t_parsing *parser)
 
 static void	directions_set(t_game *game, t_parsing *parser, char **copied_map)
 {
-	if (parser->error_occurred == ture)
+	if (parser->error_occurred == true)
 		return ;
 	game->directions = parser->input->texture;
 	set_player_direction(game, parser, copied_map);

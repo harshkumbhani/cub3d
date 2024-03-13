@@ -18,7 +18,7 @@ void	parse_input(t_parsing *parser);
 //SET UP STRUCT
 void	set_up_game_struct(t_parsing *parser, t_game *game);
 void	find_player_position(t_game *game);
-void	find_direction_player_is_facing(t_game *game, t_parsing *parser);
+void	set_player_direction(t_game *game, t_parsing *parser, char **cpymap);
 
 //FILE PARSING
 void	map_syntax_check(t_parsing *parser);

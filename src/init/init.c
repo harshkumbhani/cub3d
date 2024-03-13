@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 15:03:35 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/03/13 06:09:41 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/13 11:17:30 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ double	get_player_direction(t_cub3d *data)
 	else if (data->meta_data->direction_facing == east)
 		return_angle = 0.0;
 	else if (data->meta_data->direction_facing == west)
-		return_angle = M_PI_2;
-	else if (data->meta_data->direction_facing == south)
 		return_angle = M_PI;
+	else if (data->meta_data->direction_facing == south)
+		return_angle = M_PI_2;
 	return (return_angle);
 }
