@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 20:05:56 by fgabler           #+#    #+#             */
-/*   Updated: 2024/03/13 21:27:09 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/16 12:19:57 by harsh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,8 @@ void			update_minimap_player(t_cub3d *cub3d);
 
 void			handle_keyhook(mlx_key_data_t keydata, void *param);
 bool			collision_with_wall(t_cub3d *mlx, double x, double y);
+void			handle_movement(t_cub3d *mlx);
+void			rotate_player(t_cub3d *mlx, int direction);
 
 // INIT
 

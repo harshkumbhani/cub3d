@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   launch_game.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:48:11 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/03/14 00:14:23 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/16 12:21:32 by harsh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ static int	init_mlx(t_cub3d *mlx);
 static int	load_textures(t_cub3d *cub3d);
 static void	loop_game(void *param);
 static void	load_music(int map_type);
+// static void	movement_hook(t_cub3d *cub3d);
 
 int	launch_game(t_cub3d *cub3d)
 {
@@ -93,5 +94,6 @@ void	loop_game(void *param)
 
 	cub3d = (t_cub3d *)param;
 	raycaster(cub3d);
+	handle_movement(cub3d);
 	update_minimap_player(cub3d);
 }

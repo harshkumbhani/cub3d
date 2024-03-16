@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 20:35:18 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/03/13 23:31:47 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/03/16 12:16:12 by harsh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@
 # define LINE_LEN			25
 # define FOV				60
 # define BLOCK_SIZE			64
-# define ROT_SPEED			0.08
-# define PLAYER_SPEED		10
+# define ROT_SPEED			0.04
+# define PLAYER_SPEED		4
 
 # define HORIZONTAL			0
 # define VERTICAL			1
