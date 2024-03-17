@@ -6,7 +6,7 @@
 /*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 08:15:16 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/03/16 12:21:14 by harsh            ###   ########.fr       */
+/*   Updated: 2024/03/16 12:25:16 by harsh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	move_player(t_cub3d *mlx, double dir_x, double dir_y)
 	move_y = dir_y * PLAYER_SPEED;
 	if (collision_with_wall(mlx, move_x, move_y) == false)
 	{
-		mlx->player->player_moved_in_map = true;
 		mlx->player->x_px = roundf(mlx->player->x_px + move_x);
 		mlx->player->y_px = roundf(mlx->player->y_px + move_y);
 	}
@@ -58,7 +57,6 @@ void	handle_keyhook(mlx_key_data_t keydata, void *param)
 	t_cub3d	*mlx;
 
 	mlx = (t_cub3d *)param;
-	mlx->player->player_moved_in_map = false;
 	if (keydata.key == MLX_KEY_ESCAPE)
 		free_execution(mlx, EXIT_SUCCESS);
 }
