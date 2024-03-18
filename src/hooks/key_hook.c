@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_hook.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 08:15:16 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/03/16 12:25:16 by harsh            ###   ########.fr       */
+/*   Updated: 2024/03/18 09:05:21 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	rotate_player(t_cub3d *mlx, int direction)
 {
-	// mlx->player->player_moved_in_map = true;
 	mlx->player->pa += direction * ROT_SPEED;
 	if (mlx->player->pa < 0)
 		mlx->player->pa += 2 * M_PI;
