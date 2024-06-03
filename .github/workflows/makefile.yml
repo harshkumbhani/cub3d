@@ -1,4 +1,4 @@
-name: minishell
+name: cub3d
 
 on:
   push:
@@ -17,4 +17,4 @@ jobs:
         make
 
     - name: Run executable
-      run: ./minishell
+      run: ./cub3D ./maps/chopin.cub
