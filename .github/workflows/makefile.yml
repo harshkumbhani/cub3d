@@ -1,0 +1,25 @@
+name: minishell
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up C
+      uses: actions/setup-c@v1
+
+    - name: Build executable
+      run: |
+        make
+
+    - name: Run executable
+      run: ./minishell
