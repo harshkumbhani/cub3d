@@ -13,8 +13,7 @@ jobs:
     steps:
 
     - name: Build executable
-      run: |
-        make
+      run: make
 
     - name: Run executable
       run: ./cub3D ./maps/chopin.cub
