@@ -21,7 +21,7 @@ MLX42_OS		:=			$(shell uname)
 ifeq ($(MLX42_OS), Darwin)
 	MLX = -ldl -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/" -pthread
 else ifeq ($(MLX42_OS), Linux)
-	MLX = -ldl -lglfw -pthread
+	MLX = -ldl -lglfw -pthread -lm
 endif
 
 ###############################################################################
